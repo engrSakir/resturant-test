@@ -18,4 +18,5 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [FrontendController::class, 'index'])->name('frontend.index');
+Route::get('/branch', [DashboardController::class, 'branch'])->name('dashboard.branch');
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
