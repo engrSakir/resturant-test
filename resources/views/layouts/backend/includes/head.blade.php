@@ -1,28 +1,42 @@
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-<title>@stack('title') | {{ config('app.name') }} </title>
-{{--  <meta name="author" content="{{ get_static_option('author_name') ?? 'No author' }}">  --}}
-{{--  <meta name="description" content="{{ get_static_option('author_description') ?? 'No description' }}" />  --}}
-{{--  <meta property="og:image" content="{{ asset(get_static_option('meta_image')) }}" />  --}}
+<base href="{{ url('/') }}">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="Theta is a bootstrap & laravel admin dashboard template">
+<meta name="keywords"
+    content="admin, admin dashboard, admin panel, admin template, analytics, bootstrap 4, crm, laravel admin, responsive, sass support, ui kits">
+<meta name="author" content="Themesbox17">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
 <meta name="csrf-token" content="{{ csrf_token() }}">
-<!--favicon-->
-{{--  <link rel="icon" href="{{ asset(get_static_option('fav') ?? 'uploads/images/defaults/fav.png') }}" type="image/x-icon">  --}}
-<!-- simplebar CSS-->
-<link href="{{ asset('assets/backend/assets/plugins/simplebar/css/simplebar.css') }}" rel="stylesheet" />
-<!-- Bootstrap core CSS-->
-<link href="{{ asset('assets/backend/assets/css/bootstrap.min.css') }}" rel="stylesheet" />
-<!-- animate CSS-->
-<link href="{{ asset('assets/backend/assets/css/animate.css') }}" rel="stylesheet" type="text/css" />
-<!-- Icons CSS-->
-<link href="{{ asset('assets/backend/assets/css/icons.css') }}" rel="stylesheet" type="text/css" />
-<!-- Sidebar CSS -->
-<link href="{{ asset('assets/backend/assets/css/sidebar-menu.css') }}" rel="stylesheet" />
-<!-- Custom Style -->
-<link href="{{ asset('assets/backend/assets/css/app-style.css') }}" rel="stylesheet" />
-<!--SweetAlert 2-->
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-<!--====== AJAX ======-->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-@stack('head')
+<title> @yield('title') </title>
+<!-- Fevicon -->
+<link rel="shortcut icon" href="{{ asset('assets/backend/images/favicon.ico') }}">
+<!-- Start CSS -->
+@yield('style')
+<link href="{{ asset('assets/backend/plugins/switchery/switchery.min.css') }}" rel="stylesheet" type="text/css">
+<link href="{{ asset('assets/backend/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
+<link href="{{ asset('assets/backend/css/icons.css') }}" rel="stylesheet" type="text/css">
+<link href="{{ asset('assets/backend/css/flag-icon.min.css') }}" rel="stylesheet" type="text/css">
+<link href="{{ asset('assets/backend/css/style.css') }}" rel="stylesheet" type="text/css">
+<!-- End CSS -->
+<style>
+    /* width */
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
 
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: #888;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+
+</style>
