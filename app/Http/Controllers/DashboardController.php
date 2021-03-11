@@ -2,14 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Branch;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
-     //branch
-     public function branch(){
-        return view('backend.dashboard.branch');
-    }
 
     //dashboard
     public function index(){

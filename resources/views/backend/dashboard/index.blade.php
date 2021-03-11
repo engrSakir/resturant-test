@@ -1,14 +1,14 @@
-@section('title')
+@push('title')
     Theta - Home
-@endsection
+@endpush
 @extends('layouts.backend.app')
-@section('style')
+@push('style')
     <!-- jvectormap css -->
     <link href="{{ asset('assets/plugins/jvectormap/jquery-jvectormap-2.0.2.css') }}" rel="stylesheet" type="text/css" />
     <!-- Datepicker css -->
     <link href="{{ asset('assets/plugins/datepicker/datepicker.min.css') }}" rel="stylesheet" type="text/css" />
-@endsection
-@section('rightbar-content')
+@endpush
+@section('content')
     <!-- Start Breadcrumbbar -->
     <div class="breadcrumbbar">
         <div class="row align-items-center">
@@ -687,7 +687,7 @@
     </div>
     <!-- End Contentbar -->
 @endsection
-@section('script')
+@push('script')
     <!-- Chart js -->
     <script src="{{ asset('assets/plugins/chart.js/chart.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/chart.js/chart-bundle.min.js') }}"></script>
@@ -698,4 +698,4 @@
     <script src="{{ asset('assets/plugins/jvectormap/jquery-jvectormap-world-mill-en.js') }}"></script>
     <!-- Custom Dashboard Social js -->
     <script src="{{ asset('assets/js/custom/custom-dashboard-social.js') }}"></script>
-@endsection
+@endpush

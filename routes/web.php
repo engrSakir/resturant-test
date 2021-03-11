@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\BranchController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\SettingController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,5 +20,9 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [FrontendController::class, 'index'])->name('frontend.index');
-Route::get('/branch', [DashboardController::class, 'branch'])->name('dashboard.branch');
+
+Route::resource('/branch', BranchController::class);
+Route::get('/get-general-static-option-form', [SettingController::class, 'getGeneralStaticForm'])->name('getGeneralStaticForm');
+Route::post('/general-static-option-update', [SettingController::class, 'generalStaticUpdate'])->name('generalStaticUpdate');
+
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');

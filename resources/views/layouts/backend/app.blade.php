@@ -11,8 +11,20 @@
         <!-- Start Containerbar -->
         <div id="containerbar" class="container-fluid">
             <!-- Start Rightbar -->
-            @include('layouts.backend.includes.rightbar')
-            @yield('content')
+            <div class="rightbar">
+                @include('layouts.backend.includes.mobile-topbar')
+
+                @include('layouts.backend.includes.topbar')
+
+                @include('layouts.backend.includes.navbar')
+
+                @yield('content')
+
+                @include('layouts.backend.includes.footer')
+
+            </div>
+
+
             <!-- End Rightbar -->
         </div>
         <!-- End Containerbar -->

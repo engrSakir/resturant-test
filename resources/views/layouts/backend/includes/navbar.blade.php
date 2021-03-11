@@ -11,7 +11,7 @@
                                 src="assets/backend/images/svg-icon/dashboard.svg" class="img-fluid"
                                 alt="dashboard"><span>Dashboard</span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="{{ url('template/') }}"><i class="mdi mdi-circle"></i>Social Media</a></li>
+                            <li><a href="{{ route('getGeneralStaticForm') }}"><i class="mdi mdi-circle"></i>General static option</a></li>
                             <li><a href="{{ url('template/dashboard-ecommerce') }}"><i
                                         class="mdi mdi-circle"></i>eCommerce</a></li>
                             <li><a href="{{ url('template/dashboard-analytics') }}"><i
