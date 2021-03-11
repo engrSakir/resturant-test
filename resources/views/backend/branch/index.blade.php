@@ -22,7 +22,7 @@
                 <img class="card-img-top" src="{{ asset($branch->image ?? 'assets/backend/images/ui-cards/ui-cards-1.jpg') }}" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title font-18">{{ $branch->name }}</h5>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <a href="{{ route('branch.show', $branch) }}" class="btn btn-primary">Dashboard</a>
                     <a href="{{ route('branch.edit', $branch->id) }}" class="btn btn-info">Edit</a>
                 </div>
             </div>

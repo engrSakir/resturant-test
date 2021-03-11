@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\ImageManagerStatic as Image;
+use Illuminate\Support\Facades\Session;
 
 class BranchController extends Controller
 {
@@ -96,7 +97,8 @@ class BranchController extends Controller
      */
     public function show(Branch $branch)
     {
-        //
+        Session::put('branch', $branch);
+        return redirect()->route('dashboard.index');
     }
 
     /**

@@ -177,6 +177,7 @@ return [
 
         Intervention\Image\ImageServiceProvider::class,
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
+        Spatie\Permission\PermissionServiceProvider::class,
 
     ],
 

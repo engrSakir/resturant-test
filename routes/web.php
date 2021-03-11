@@ -25,4 +25,6 @@ Route::resource('/branch', BranchController::class);
 Route::get('/get-general-static-option-form', [SettingController::class, 'getGeneralStaticForm'])->name('getGeneralStaticForm');
 Route::post('/general-static-option-update', [SettingController::class, 'generalStaticUpdate'])->name('generalStaticUpdate');
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+Route::group(['middleware' => 'branch'], function (){
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+});
