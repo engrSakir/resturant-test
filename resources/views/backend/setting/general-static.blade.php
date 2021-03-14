@@ -93,15 +93,6 @@
                                     <input name="backend_logo" type="file" accept="image/*" class="form-control-lg" id="backend_logo">
                                 </div>
                             </div>
-                            <div class="form-group row">
-                                <img class="rounded-circle" height="70px;" width="70px;" src="{{ asset(get_static_option('website_meta_image') ?? get_static_option('no_image')) }}" alt="">
-                                <label for="website_meta_image" class="col-sm-4 col-form-label">Website meta image</label>
-                                <div class="col-sm-8">
-                                    <input name="website_meta_image" type="file" accept="image/*" class="form-control-lg" id="website_meta_image">
-                                </div>
-                            </div>
-
-
                         </div>
                         <div class="col-12 text-center">
                             <button type="submit" id="submit-btn" class="btn btn-primary">Save</button>

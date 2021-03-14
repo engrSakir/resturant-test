@@ -25,14 +25,11 @@ class SettingController extends Controller
             'fav_icon' => 'nullable|image',
             'frontend_logo' => 'nullable|image',
             'backend_logo' => 'nullable|image',
-            'website_meta_image' => 'nullable|image',
 
             'company_email' => 'nullable|min:3',
             'company_phone' => 'nullable|min:3',
             'company_address' => 'nullable|min:3',
             'company_facebook_link' => 'nullable|min:3',
-
-
 
             'custom_head_code' => 'nullable|min:3',
             'custom_foot_code' => 'nullable|min:3',
@@ -49,7 +46,6 @@ class SettingController extends Controller
             update_static_option('custom_head_code', $request->custom_head_code);
             update_static_option('custom_foot_code', $request->custom_foot_code);
             update_static_option('footer_credit', $request->footer_credit);
-            update_static_option('website_meta_description', $request->website_meta_description);
 
 
 
@@ -96,17 +92,37 @@ class SettingController extends Controller
                 update_static_option('loader_image',$folder_path.$image_new_name);
             }
 
-            if($request->hasFile('website_meta_image')){
-                if (get_static_option('website_meta_image') != null)
-                    File::delete(public_path(get_static_option('website_meta_image'))); //Old image delete
-                $image             = $request->file('website_meta_image');
+        }catch (\Exception $exception){
+            return back()->withErrors( 'Something went wrong !'.$exception->getMessage());
+        }
+        return back()->withSuccess('Updated successfully!');
+    }
+    // seo Static Option Update
+    public function seoStaticOptionUpdate(Request $request){
+        $request->validate([
+            'meta_image' => 'nullable|image',
+
+            'meta_description' => 'nullable|min:3',
+            'meta_keywords' => 'nullable|min:3',
+            'meta_author' => 'nullable|min:3',
+        ]);
+        try {
+
+            update_static_option('meta_description', $request->meta_description);
+            update_static_option('meta_keywords', $request->meta_keywords);
+            update_static_option('meta_author', $request->meta_author);
+
+
+            if($request->hasFile('meta_image')){
+                if (get_static_option('meta_image') != null)
+                    File::delete(public_path(get_static_option('meta_image'))); //Old image delete
+                $image             = $request->file('meta_image');
                 $folder_path       = 'uploads/images/website/';
                 $image_new_name    = Str::random(20).'-'.now()->timestamp.'.'.$image->getClientOriginalExtension();
                 //resize and save to server
                 Image::make($image->getRealPath())->save($folder_path.$image_new_name);
-                update_static_option('website_meta_image',$folder_path.$image_new_name);
+                update_static_option('meta_image',$folder_path.$image_new_name);
             }
-
         }catch (\Exception $exception){
             return back()->withErrors( 'Something went wrong !'.$exception->getMessage());
         }

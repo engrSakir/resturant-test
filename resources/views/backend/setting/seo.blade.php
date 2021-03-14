@@ -20,7 +20,7 @@
                     <h5 class="card-title">Seo create</h5>
                 </div>
                 <div class="card-body">
-                    <form class="row" method="POST" action="{{  route('generalStaticUpdate') }}" enctype="multipart/form-data">
+                    <form class="row" method="POST" action="{{  route('seoStaticOptionUpdate') }}" enctype="multipart/form-data">
                         @csrf
                         <div class="col-lg-6">
                             <div class="form-group row">
@@ -36,43 +36,20 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="website_meta_description" class="col-sm-4 col-form-label">Website meta description</label>
+                                <label for="meta_author" class="col-sm-4 col-form-label">Meta author</label>
                                 <div class="col-sm-8">
-                                    <input class="form-control website_meta_description" name="website_meta_description" id="website_meta_description" value="{{ get_static_option('website_meta_description') }}">
+                                    <input class="form-control meta_author" name="meta_author" id="meta_author" value="{{ get_static_option('meta_author') }}">
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="form-group row">
-                                <img class="rounded-circle" height="70px;" width="70px;" src="{{ asset(get_static_option('fav_icon') ?? get_static_option('no_image')) }}" alt="">
-                                <label for="fav_icon" class="col-sm-4 col-form-label">Fav icon</label>
+                                <img class="rounded-circle" height="70px;" width="70px;" src="{{ asset(get_static_option('meta_image') ?? get_static_option('no_image')) }}" alt="">
+                                <label for="meta_image" class="col-sm-4 col-form-label">Meta image</label>
                                 <div class="col-sm-8">
-                                    <input name="fav_icon" type="file" accept="image/*" class="form-control-lg" id="fav_icon">
+                                    <input name="meta_image" type="file" accept="image/*" class="form-control-lg" id="meta_image">
                                 </div>
                             </div>
-                            <div class="form-group row">
-                                <img class="rounded-circle" height="70px;" width="70px;" src="{{ asset(get_static_option('frontend_logo') ?? get_static_option('no_image')) }}" alt="">
-                                <label for="frontend_logo" class="col-sm-4 col-form-label">Frontend logo</label>
-                                <div class="col-sm-8">
-                                    <input name="frontend_logo" type="file" accept="image/*" class="form-control-lg" id="frontend_logo">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <img class="rounded-circle" height="70px;" width="70px;" src="{{ asset(get_static_option('backend_logo') ?? get_static_option('no_image')) }}" alt="">
-                                <label for="backend_logo" class="col-sm-4 col-form-label">Backend logo</label>
-                                <div class="col-sm-8">
-                                    <input name="backend_logo" type="file" accept="image/*" class="form-control-lg" id="backend_logo">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <img class="rounded-circle" height="70px;" width="70px;" src="{{ asset(get_static_option('website_meta_image') ?? get_static_option('no_image')) }}" alt="">
-                                <label for="website_meta_image" class="col-sm-4 col-form-label">Website meta image</label>
-                                <div class="col-sm-8">
-                                    <input name="website_meta_image" type="file" accept="image/*" class="form-control-lg" id="website_meta_image">
-                                </div>
-                            </div>
-
-
                         </div>
                         <div class="col-12 text-center">
                             <button type="submit" id="submit-btn" class="btn btn-primary">Save</button>
