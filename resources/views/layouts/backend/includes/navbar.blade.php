@@ -12,24 +12,25 @@
                                 alt="dashboard"><span>Dashboard</span></a>
                         <ul class="dropdown-menu">
                             <li><a href="{{ route('getGeneralStaticForm') }}"><i class="mdi mdi-circle"></i>General static option</a></li>
-                            <li><a href="{{ url('template/dashboard-ecommerce') }}"><i
-                                        class="mdi mdi-circle"></i>eCommerce</a></li>
-                            <li><a href="{{ url('template/dashboard-analytics') }}"><i
-                                        class="mdi mdi-circle"></i>Analytics</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
                         <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><img
                                 src="assets/backend/images/svg-icon/layouts.svg" class="img-fluid"
-                                alt="layouts"><span>Layouts</span></a>
+                                alt="layouts"><span>Product</span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="{{ url('template../light-vertical') }}"><i class="mdi mdi-circle"></i>Light -
-                                    Vertical</a></li>
-                            <li><a href="#"><i class="mdi mdi-circle"></i>Light - Horizontal</a></li>
-                            <li><a href="{{ url('template/../dark-vertical') }}"><i class="mdi mdi-circle"></i>Dark -
-                                    Vertical</a></li>
-                            <li><a href="{{ url('template/../dark-horizontal') }}"><i class="mdi mdi-circle"></i>Dark -
-                                    Horizontal</a></li>
+                            <li><a href="{{ route('product.create') }}"><i class="mdi mdi-circle"></i>Product create</a></li>
+                            <li><a href="{{ route('product.index') }}"><i class="mdi mdi-circle"></i>Product list</a></li>
+                            <li><a href="{{ route('productCategory.index') }}"><i class="mdi mdi-circle"></i>Product category list</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><img
+                                src="assets/backend/images/svg-icon/layouts.svg" class="img-fluid"
+                                alt="layouts"><span>Variation</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ route('variation.index') }}"><i class="mdi mdi-circle"></i>Variation list</a></li>
+                            <li><a href="{{ route('variationCategory.index') }}"><i class="mdi mdi-circle"></i>Variation category list</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
