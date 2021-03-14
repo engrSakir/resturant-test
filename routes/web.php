@@ -26,6 +26,7 @@ Route::get('/', [FrontendController::class, 'index'])->name('frontend.index');
 
 Route::resource('/branch', BranchController::class);
 Route::get('/get-general-static-option-form', [SettingController::class, 'getGeneralStaticForm'])->name('getGeneralStaticForm');
+Route::get('/seo-static-option-form', [SettingController::class, 'seoStaticOptionForm'])->name('seoStaticOptionForm');
 Route::post('/general-static-option-update', [SettingController::class, 'generalStaticUpdate'])->name('generalStaticUpdate');
 
 Route::group(['middleware' => 'branch'], function (){

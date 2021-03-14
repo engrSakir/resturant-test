@@ -1,5 +1,5 @@
 @push('title')
-   General static option
+   Seo static option
 @endpush
 @extends('layouts.backend.app')
 @push('style')
@@ -17,59 +17,30 @@
         <div class="row">
             <div class="card m-b-30 col-12 ">
                 <div class="card-header bg-danger">
-                    <h5 class="card-title"> General static option </h5>
+                    <h5 class="card-title">Seo create</h5>
                 </div>
                 <div class="card-body">
                     <form class="row" method="POST" action="{{  route('generalStaticUpdate') }}" enctype="multipart/form-data">
                         @csrf
                         <div class="col-lg-6">
                             <div class="form-group row">
-                                <label for="company_email" class="col-sm-4 col-form-label">Company email</label>
+                                <label for="meta_description" class="col-sm-4 col-form-label">Meta description</label>
                                 <div class="col-sm-8">
-                                    <input value="{{ get_static_option('company_email') }}" name="company_email" type="email" class="form-control-lg"
-                                        id="company_email" placehget_static_optioner="Company email">
+                                    <textarea class="form-control-lg meta_description" name="meta_description" id="meta_description" cols="30" rows="10">{{ get_static_option('meta_description') }}</textarea>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="company_phone" class="col-sm-4 col-form-label">Company phone</label>
+                                <label for="meta_keywords" class="col-sm-4 col-form-label">Meta keywords</label>
                                 <div class="col-sm-8">
-                                    <input value="{{ get_static_option('company_phone') }}" name="company_phone" type="text" class="form-control-lg"
-                                        id="company_phone" placehget_static_optioner="Company phone">
+                                    <textarea class="form-control-lg meta_keywords" name="meta_keywords" id="meta_keywords" cols="30" rows="10">{{ get_static_option('meta_keywords') }}</textarea>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="company_address" class="col-sm-4 col-form-label">Company address</label>
+                                <label for="website_meta_description" class="col-sm-4 col-form-label">Website meta description</label>
                                 <div class="col-sm-8">
-                                    <input value="{{ get_static_option('company_address') }}" name="company_address" type="text" class="form-control-lg"
-                                        id="company_address" placehget_static_optioner="Company address">
+                                    <input class="form-control website_meta_description" name="website_meta_description" id="website_meta_description" value="{{ get_static_option('website_meta_description') }}">
                                 </div>
                             </div>
-                            <div class="form-group row">
-                                <label for="company_facebook_link" class="col-sm-4 col-form-label">Company facebook link</label>
-                                <div class="col-sm-8">
-                                    <input value="{{ get_static_option('company_facebook_link') }}" name="company_facebook_link" type="text"
-                                        class="form-control-lg" id="company_facebook_link" placehget_static_optioner="Company facebook link">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="footer_credit" class="col-sm-4 col-form-label">Footer credit</label>
-                                <div class="col-sm-8">
-                                    <textarea class="form-control-lg summernote-description" name="footer_credit" id="footer_credit" cols="30" rows="10">{{ get_static_option('footer_credit') }}</textarea>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="custom_head_code" class="col-sm-4 col-form-label">Custom head code</label>
-                                <div class="col-sm-8">
-                                    <textarea class="form-control-lg" name="custom_head_code" id="custom_head_code" cols="30" rows="10">{{ get_static_option('custom_head_code') }}</textarea>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="custom_foot_code" class="col-sm-4 col-form-label">custom foot code</label>
-                                <div class="col-sm-8">
-                                    <textarea class="form-control-lg" name="custom_foot_code" id="custom_foot_code" cols="30" rows="10">{{ get_static_option('custom_foot_code') }}</textarea>
-                                </div>
-                            </div>
-
                         </div>
                         <div class="col-lg-6">
                             <div class="form-group row">
@@ -120,26 +91,5 @@
 @endpush
 
 @push('note')
-<script>
-    $('.summernote-description').summernote({
-        placehget_static_optioner: 'Footer credit....',
-        tabsize: 2,
-        height: 60,
-        toolbar: [
-          ['font', ['bget_static_option', 'underline', 'clear']],
-          ['color', ['color']],
-          ['insert', ['link']],
-        ]
-    });
-    $('.website_meta_description').summernote({
-        placehget_static_optioner: 'Meta description....',
-        tabsize: 2,
-        height: 60,
-        toolbar: [
-          ['font', ['bget_static_option', 'underline', 'clear']],
-          ['color', ['color']],
-          ['insert', ['link']],
-        ]
-    });
-</script>
+
 @endpush

@@ -14,6 +14,11 @@ class SettingController extends Controller
         return view('backend.setting.general-static');
     }
 
+    //seo Static Option Form
+    public function seoStaticOptionForm(){
+        return view('backend.setting.seo');
+    }
+
     // update static option
     public function generalStaticUpdate(Request $request){
         $request->validate([
@@ -32,7 +37,6 @@ class SettingController extends Controller
             'custom_head_code' => 'nullable|min:3',
             'custom_foot_code' => 'nullable|min:3',
             'footer_credit' => 'nullable|min:3',
-            'website_meta_description' => 'nullable|min:3',
         ]);
         try {
 
