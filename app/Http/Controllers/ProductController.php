@@ -29,10 +29,14 @@ class ProductController extends Controller
                 })->addColumn('image', function($data) {
                     return '<img class="rounded-circle" height="70px;" width="70px;"; src="'.asset($data->image ?? get_static_option('no_image')).'" alt="">';
                 })->addColumn('variation_category', function($data) {
-                    if($data->variations){
-                        return '<span class="badge badge-pill badge-primary">'.$data->variations->count().'</span><a href="'.route('createVariationCategoryWithProduct', $data->id).'" class="btn btn-primary"><i class="feather icon-file-plus"></i> </a>';
+                    if($data->variationCategories){
+                        $list = "";
+                        foreach($data->variationCategories as $variationCategory){
+                            $list .= '<br><span class="badge badge-pill badge-primary">'.$variationCategory->name.'</span>';
+                        }
+                        return '<a href="'.route('createVariationCategoryWithProduct', $data->id).'" class="btn btn-warning"><i class="feather icon-plus-circle"></i> </a>'. $list;
                     }else{
-                        return '<a href="'.route('createVariationCategoryWithProduct', $data->id).'" class="btn btn-primary"><i class="feather icon-file-plus"></i> </a>';
+                        return '<a href="'.route('createVariationCategoryWithProduct', $data->id).'" class="btn btn-warning"><i class="feather icon-plus-circle"></i> </a>';
                     }
                 })->addColumn('action', function($data) {
                     return '<a href="'.route('product.edit', $data).'" class="btn btn-info"><i class="fa fa-edit"></i> </a>

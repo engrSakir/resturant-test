@@ -741,7 +741,7 @@ Theta - My Account
                                         <h2 class="text-success">Logout ?</h2>
                                         <p class="my-4">Are you sure to want to Log out? You will miss your instant checkout deal.</p>
                                         <div class="button-list">
-                                            <button type="button" class="btn btn-danger font-16"><i class="feather icon-check mr-2"></i>Yes, I'm sure</button>
+                                            <button type="button" class="btn btn-danger font-16"><i class="feather icon-check mr-2"></i>Yes, I am sure</button>
                                             <button type="button" class="btn btn-success-rgba font-16"><i class="feather icon-x mr-2"></i>Cancel</button>
                                         </div>
                                     </div>

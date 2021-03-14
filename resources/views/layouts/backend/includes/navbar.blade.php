@@ -7,6 +7,11 @@
             <div class="collapse navbar-collapse" id="navbar-menu">
                 <ul class="horizontal-menu">
                     <li class="scroll dropdown">
+                        <a href="{{ route('pos') }}" ><img
+                            src="assets/backend/images/svg-icon/dashboard.svg" class="img-fluid"
+                                alt="dashboard"><span>Pos</span></a>
+                    </li>
+                    <li class="scroll dropdown">
                         <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><img
                                 src="assets/backend/images/svg-icon/dashboard.svg" class="img-fluid"
                                 alt="dashboard"><span>Dashboard</span></a>

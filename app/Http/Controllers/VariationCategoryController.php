@@ -25,9 +25,13 @@ class VariationCategoryController extends Controller
                         return $data->product->name;
                 })->addColumn('variations', function($data) {
                     if($data->variations){
-                        return '<span class="badge badge-pill badge-primary">'.$data->variations->count().'</span><a href="'.route('variationCreateBasedOnCategory', $data->id).'" class="btn btn-primary"><i class="feather icon-file-plus"></i> </a>';
+                        $list = "";
+                        foreach($data->variations as $variation){
+                            $list .= '<br><span class="badge badge-pill badge-primary">'.$variation->name.'</span>';
+                        }
+                        return '<a href="'.route('createVariationWithCategory', $data->id).'" class="btn btn-warning"><i class="feather icon-plus-circle"></i> </a>'. $list;
                     }else{
-                        return '<a href="'.route('variationCreateBasedOnCategory', $data->id).'" class="btn btn-primary"><i class="feather icon-file-plus"></i> </a>';
+                        return '<a href="'.route('createVariationWithCategory', $data->id).'" class="btn btn-warning"><i class="feather icon-plus-circle"></i> </a>';
                     }
                 })->addColumn('action', function($data) {
                     return '
@@ -165,9 +169,13 @@ class VariationCategoryController extends Controller
                         return $data->product->name;
                 })->addColumn('variations', function($data) {
                     if($data->variations){
-                        return '<span class="badge badge-pill badge-primary">'.$data->variations->count().'</span><a href="'.route('createVariationWithCategory', $data->id).'" class="btn btn-primary"><i class="feather icon-file-plus"></i> </a>';
+                        $list = "";
+                        foreach($data->variations as $variation){
+                            $list .= '<br><span class="badge badge-pill badge-primary">'.$variation->name.'</span>';
+                        }
+                        return '<a href="'.route('createVariationWithCategory', $data->id).'" class="btn btn-warning"><i class="feather icon-plus-circle"></i> </a>'. $list;
                     }else{
-                        return '<a href="'.route('createVariationWithCategory', $data->id).'" class="btn btn-primary"><i class="feather icon-file-plus"></i> </a>';
+                        return '<a href="'.route('createVariationWithCategory', $data->id).'" class="btn btn-warning"><i class="feather icon-plus-circle"></i> </a>';
                     }
                 })->addColumn('action', function($data) {
                     return '
