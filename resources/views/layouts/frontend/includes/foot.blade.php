@@ -35,5 +35,6 @@
 </script>
 <script src="../../ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js"
     data-cf-settings="dc1ddb0669bcf06fb3cd6f4a-|49" defer=""></script>
-
-    @stack('foot')
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+@include('sweetalert::alert')
+@stack('foot')

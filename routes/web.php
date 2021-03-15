@@ -10,6 +10,7 @@ use App\Http\Controllers\SettingController;
 use App\Http\Controllers\VariationCategoryController;
 use App\Http\Controllers\VariationController;
 use App\Http\Controllers\WebsiteBannerController;
+use App\Http\Controllers\WebsiteMessageController;
 use App\Models\ProductCategory;
 use Illuminate\Support\Facades\Route;
 
@@ -26,6 +27,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [FrontendController::class, 'index'])->name('frontend.index');
 Route::get('/contact-us', [FrontendController::class, 'contactUs'])->name('frontend.contactUs');
+Route::post('/contact-us-store', [FrontendController::class, 'contactUsStore'])->name('frontend.contactUsStore');
 
 Route::resource('/branch', BranchController::class);
 Route::get('/get-general-static-option-form', [SettingController::class, 'getGeneralStaticForm'])->name('getGeneralStaticForm');
@@ -55,4 +57,4 @@ Route::group(['middleware' => 'branch'], function (){
     Route::get('/variation/create-with-category/{category_id}', [VariationController::class, 'createVariationWithCategory'])->name('createVariationWithCategory');
 });
 
-Route::resource('/websiteBanner', WebsiteBannerController::class);
+Route::resource('/websiteMessage', WebsiteMessageController::class);

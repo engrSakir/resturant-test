@@ -25,6 +25,10 @@
                                     </form>
                                 </div>
                             </li>
+                            <li class="list-inline-item">
+                                {{ Session::get('branch')->id }}
+                                {{ Session::get('branch')->name }}
+                            </li>
                         </ul>
                     </div>
                     <div class="infobar">

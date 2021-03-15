@@ -13,4 +13,9 @@ class Branch extends Model
     public function productCategories(){
         return $this->hasMany(ProductCategory::class, 'branch_id', 'id');
     }
+
+    //messages
+    public function messages(){
+        return $this->hasMany(ContactUs::class, 'branch_id', 'id');
+    }
 }

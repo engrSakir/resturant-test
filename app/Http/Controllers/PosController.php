@@ -12,7 +12,7 @@ class PosController extends Controller
 {
     // pos
     public function pos(){
-        $product_categories = Session::get('branch')->productCategories;
+        $product_categories = ProductCategory::where('branch_id', Session::get('branch')->id)->get();
         return view('backend.pos.index', compact('product_categories'));
     }
 

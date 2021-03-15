@@ -43,7 +43,7 @@
                     <li class="tr-middle-logo"><a class="navbar-brand" href="{{ route('frontend.index') }}"><img class="img-fluid"  width="109px;" height="56px;"
                                 src="{{ asset( get_static_option('frontend_logo') ?? get_static_option('no_image')) }}" alt="Logo"></a></li>
                     <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('frontend.contactUs') }}">Contact Us</a></li>
                     <li class="nav-item tr-dropdown">
                         <a class="nav-link" href="#">Pages</a>
                         <ul class="tr-dropdown-menu">
