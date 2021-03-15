@@ -14,6 +14,12 @@ class VariationCategorySeeder extends Seeder
      */
     public function run()
     {
-        VariationCategory::factory()->count(6)->create();
+        // VariationCategory::factory()->count(6)->create();
+        for ($i = 1; $i <= 10; $i++) {
+            $variation_category = new VariationCategory();
+            $variation_category->name = 'Variation Category '.$i;
+            $variation_category->product_id = 1;
+            $variation_category->save();
+        }
     }
 }

@@ -14,6 +14,13 @@ class ProductSeeder extends Seeder
      */
     public function run()
     {
-        Product::factory()->count(10)->create();
+        // Product::factory()->count(10)->create();
+        for ($i = 1; $i <= 10; $i++) {
+            $product = new Product();
+            $product->name = 'Product '.$i;
+            $product->category_id = 1;
+            $product->price = rand(10,100);
+            $product->save();
+        }
     }
 }

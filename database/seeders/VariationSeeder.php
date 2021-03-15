@@ -14,6 +14,13 @@ class VariationSeeder extends Seeder
      */
     public function run()
     {
-        Variation::factory()->count(6)->create();
+        // Variation::factory()->count(6)->create();
+        for ($i = 1; $i <= 10; $i++) {
+            $variation = new Variation();
+            $variation->name = 'Variation '.$i;
+            $variation->category_id = 1;
+            $variation->price = rand(10,100);
+            $variation->save();
+        }
     }
 }

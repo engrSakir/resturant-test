@@ -9,6 +9,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\VariationCategoryController;
 use App\Http\Controllers\VariationController;
+use App\Http\Controllers\WebsiteBannerController;
 use App\Models\ProductCategory;
 use Illuminate\Support\Facades\Route;
 
@@ -24,14 +25,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [FrontendController::class, 'index'])->name('frontend.index');
+Route::get('/contact-us', [FrontendController::class, 'contactUs'])->name('frontend.contactUs');
 
 Route::resource('/branch', BranchController::class);
 Route::get('/get-general-static-option-form', [SettingController::class, 'getGeneralStaticForm'])->name('getGeneralStaticForm');
 Route::get('/seo-static-option-form', [SettingController::class, 'seoStaticOptionForm'])->name('seoStaticOptionForm');
 Route::get('/social-link-static-form', [SettingController::class, 'socialLinkStaticForm'])->name('socialLinkStaticForm');
+Route::get('/website-banner-form', [SettingController::class, 'websiteBannerForm'])->name('websiteBannerForm');
 Route::post('/general-static-option-update', [SettingController::class, 'generalStaticUpdate'])->name('generalStaticUpdate');
 Route::post('/seo-static-option-update', [SettingController::class, 'seoStaticOptionUpdate'])->name('seoStaticOptionUpdate');
 Route::post('/social-link-static-option-update', [SettingController::class, 'sociallinkStaticOptionUpdate'])->name('sociallinkStaticOptionUpdate');
+Route::post('/website-banner-update', [SettingController::class, 'websiteBannerUpdate'])->name('websiteBannerUpdate');
 
 Route::group(['middleware' => 'branch'], function (){
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
@@ -50,3 +54,5 @@ Route::group(['middleware' => 'branch'], function (){
     Route::get('/variationCategory-based-on-product/{product_id}', [VariationCategoryController::class, 'variationCategoryBasedOnProduct'])->name('variationCategoryBasedOnProduct');
     Route::get('/variation/create-with-category/{category_id}', [VariationController::class, 'createVariationWithCategory'])->name('createVariationWithCategory');
 });
+
+Route::resource('/websiteBanner', WebsiteBannerController::class);

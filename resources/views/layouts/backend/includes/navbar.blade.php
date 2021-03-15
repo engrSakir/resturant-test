@@ -7,18 +7,20 @@
             <div class="collapse navbar-collapse" id="navbar-menu">
                 <ul class="horizontal-menu">
                     <li class="scroll dropdown">
-                        <a href="{{ route('pos') }}" ><img
-                            src="assets/backend/images/svg-icon/dashboard.svg" class="img-fluid"
-                                alt="dashboard"><span>Pos</span></a>
+                        <a href="{{ route('pos') }}"><img src="assets/backend/images/svg-icon/dashboard.svg"
+                                class="img-fluid" alt="dashboard"><span>Pos</span></a>
                     </li>
                     <li class="scroll dropdown">
                         <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><img
                                 src="assets/backend/images/svg-icon/dashboard.svg" class="img-fluid"
                                 alt="dashboard"><span>Dashboard</span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="{{ route('getGeneralStaticForm') }}"><i class="mdi mdi-circle"></i>General static option</a></li>
-                            <li><a href="{{ route('seoStaticOptionForm') }}"><i class="mdi mdi-circle"></i>Seo static option</a></li>
-                            <li><a href="{{ route('socialLinkStaticForm') }}"><i class="mdi mdi-circle"></i>Social link</a></li>
+                            <li><a href="{{ route('getGeneralStaticForm') }}"><i class="mdi mdi-circle"></i>General
+                                    static option</a></li>
+                            <li><a href="{{ route('seoStaticOptionForm') }}"><i class="mdi mdi-circle"></i>Seo static
+                                    option</a></li>
+                            <li><a href="{{ route('socialLinkStaticForm') }}"><i class="mdi mdi-circle"></i>Social
+                                    link</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
@@ -26,9 +28,12 @@
                                 src="assets/backend/images/svg-icon/layouts.svg" class="img-fluid"
                                 alt="layouts"><span>Product</span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="{{ route('product.create') }}"><i class="mdi mdi-circle"></i>Product create</a></li>
-                            <li><a href="{{ route('product.index') }}"><i class="mdi mdi-circle"></i>Product list</a></li>
-                            <li><a href="{{ route('productCategory.index') }}"><i class="mdi mdi-circle"></i>Product category list</a></li>
+                            <li><a href="{{ route('product.create') }}"><i class="mdi mdi-circle"></i>Product
+                                    create</a></li>
+                            <li><a href="{{ route('product.index') }}"><i class="mdi mdi-circle"></i>Product list</a>
+                            </li>
+                            <li><a href="{{ route('productCategory.index') }}"><i class="mdi mdi-circle"></i>Product
+                                    category list</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
@@ -36,8 +41,10 @@
                                 src="assets/backend/images/svg-icon/layouts.svg" class="img-fluid"
                                 alt="layouts"><span>Variation</span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="{{ route('variation.index') }}"><i class="mdi mdi-circle"></i>Variation list</a></li>
-                            <li><a href="{{ route('variationCategory.index') }}"><i class="mdi mdi-circle"></i>Variation category list</a></li>
+                            <li><a href="{{ route('variation.index') }}"><i class="mdi mdi-circle"></i>Variation
+                                    list</a></li>
+                            <li><a href="{{ route('variationCategory.index') }}"><i
+                                        class="mdi mdi-circle"></i>Variation category list</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
@@ -45,25 +52,8 @@
                                 src="assets/backend/images/svg-icon/apps.svg" class="img-fluid"
                                 alt="apps"><span>Website</span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="{{ url('template/apps-calender') }}"><i class="mdi mdi-circle"></i>Calender</a>
-                            </li>
-                            <li><a href="{{ url('template/apps-chat') }}"><i class="mdi mdi-circle"></i>Chat</a></li>
-                            <li class="dropdown">
-                                <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><i
-                                        class="mdi mdi-circle"></i>Email</a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="{{ url('template/apps-email-inbox') }}"><i
-                                                class="mdi mdi-circle"></i>Email Inbox</a></li>
-                                    <li><a href="{{ url('template/apps-email-open') }}"><i
-                                                class="mdi mdi-circle"></i>Email Open</a></li>
-                                    <li><a href="{{ url('template/apps-email-compose') }}"><i
-                                                class="mdi mdi-circle"></i>Email Compose</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="{{ url('template/apps-kanban-board') }}"><i class="mdi mdi-circle"></i>Kanban
-                                    Board</a></li>
-                            <li><a href="{{ url('template/apps-onboarding-screens') }}"><i
-                                        class="mdi mdi-circle"></i>Onboarding Screens</a></li>
+                            <li><a href="{{ route('websiteBannerForm') }}"><i
+                                class="mdi mdi-circle"></i>Banner</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
@@ -71,7 +61,8 @@
                                 src="assets/backend/images/svg-icon/apps.svg" class="img-fluid"
                                 alt="apps"><span>Apps</span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="{{ url('template/apps-calender') }}"><i class="mdi mdi-circle"></i>Calender</a>
+                            <li><a href="{{ url('template/apps-calender') }}"><i
+                                        class="mdi mdi-circle"></i>Calender</a>
                             </li>
                             <li><a href="{{ url('template/apps-chat') }}"><i class="mdi mdi-circle"></i>Chat</a></li>
                             <li class="dropdown">
@@ -86,7 +77,8 @@
                                                 class="mdi mdi-circle"></i>Email Compose</a></li>
                                 </ul>
                             </li>
-                            <li><a href="{{ url('template/apps-kanban-board') }}"><i class="mdi mdi-circle"></i>Kanban
+                            <li><a href="{{ url('template/apps-kanban-board') }}"><i
+                                        class="mdi mdi-circle"></i>Kanban
                                     Board</a></li>
                             <li><a href="{{ url('template/apps-onboarding-screens') }}"><i
                                         class="mdi mdi-circle"></i>Onboarding Screens</a></li>
@@ -101,17 +93,21 @@
                                 <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><i
                                         class="mdi mdi-circle"></i><span>Forms</span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="{{ url('template/form-inputs') }}"><i class="mdi mdi-circle"></i>Form
+                                    <li><a href="{{ url('template/form-inputs') }}"><i
+                                                class="mdi mdi-circle"></i>Form
                                             Inputs</a></li>
-                                    <li><a href="{{ url('template/form-groups') }}"><i class="mdi mdi-circle"></i>Form
+                                    <li><a href="{{ url('template/form-groups') }}"><i
+                                                class="mdi mdi-circle"></i>Form
                                             Groups</a></li>
-                                    <li><a href="{{ url('template/form-layouts') }}"><i class="mdi mdi-circle"></i>Form
+                                    <li><a href="{{ url('template/form-layouts') }}"><i
+                                                class="mdi mdi-circle"></i>Form
                                             Layouts</a></li>
                                     <li><a href="{{ url('template/form-colorpickers') }}"><i
                                                 class="mdi mdi-circle"></i>Form Color Pickers</a></li>
                                     <li><a href="{{ url('template/form-datepickers') }}"><i
                                                 class="mdi mdi-circle"></i>Form Date Pickers</a></li>
-                                    <li><a href="{{ url('template/form-editors') }}"><i class="mdi mdi-circle"></i>Form
+                                    <li><a href="{{ url('template/form-editors') }}"><i
+                                                class="mdi mdi-circle"></i>Form
                                             Editors</a></li>
                                     <li><a href="{{ url('template/form-file-uploads') }}"><i
                                                 class="mdi mdi-circle"></i>Form File Uploads</a></li>
@@ -119,13 +115,15 @@
                                                 class="mdi mdi-circle"></i>Form Input Mask</a></li>
                                     <li><a href="{{ url('template/form-maxlength') }}"><i
                                                 class="mdi mdi-circle"></i>Form MaxLength</a></li>
-                                    <li><a href="{{ url('template/form-selects') }}"><i class="mdi mdi-circle"></i>Form
+                                    <li><a href="{{ url('template/form-selects') }}"><i
+                                                class="mdi mdi-circle"></i>Form
                                             Selects</a></li>
                                     <li><a href="{{ url('template/form-touchspin') }}"><i
                                                 class="mdi mdi-circle"></i>Form Touchspin</a></li>
                                     <li><a href="{{ url('template/form-validations') }}"><i
                                                 class="mdi mdi-circle"></i>Form Validations</a></li>
-                                    <li><a href="{{ url('template/form-wizards') }}"><i class="mdi mdi-circle"></i>Form
+                                    <li><a href="{{ url('template/form-wizards') }}"><i
+                                                class="mdi mdi-circle"></i>Form
                                             Wizards</a></li>
                                     <li><a href="{{ url('template/form-xeditable') }}"><i
                                                 class="mdi mdi-circle"></i>Form X-editable</a></li>
@@ -135,7 +133,8 @@
                                 <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><i
                                         class="mdi mdi-circle"></i>Icons</a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="{{ url('template/icon-theta') }}"><i class="mdi mdi-circle"></i>Theta
+                                    <li><a href="{{ url('template/icon-theta') }}"><i
+                                                class="mdi mdi-circle"></i>Theta
                                             Icons</a></li>
                                     <li><a href="{{ url('template/icon-dripicons') }}"><i
                                                 class="mdi mdi-circle"></i>Dripicons</a></li>
@@ -145,7 +144,8 @@
                                                 class="mdi mdi-circle"></i>Flag</a></li>
                                     <li><a href="{{ url('template/icon-font-awesome') }}"><i
                                                 class="mdi mdi-circle"></i>Font Awesome</a></li>
-                                    <li><a href="{{ url('template/icon-ionicons') }}"><i class="mdi mdi-circle"></i>Ion
+                                    <li><a href="{{ url('template/icon-ionicons') }}"><i
+                                                class="mdi mdi-circle"></i>Ion
                                             Icons</a></li>
                                     <li><a href="{{ url('template/icon-line-awesome') }}"><i
                                                 class="mdi mdi-circle"></i>Line Awesome</a></li>
@@ -177,7 +177,8 @@
                                             Chart</a></li>
                                     <li><a href="{{ url('template/chart-morris') }}"><i
                                                 class="mdi mdi-circle"></i>Morris Chart</a></li>
-                                    <li><a href="{{ url('template/chart-piety') }}"><i class="mdi mdi-circle"></i>Piety
+                                    <li><a href="{{ url('template/chart-piety') }}"><i
+                                                class="mdi mdi-circle"></i>Piety
                                             Chart</a></li>
                                     <li><a href="{{ url('template/chart-sparkline') }}"><i
                                                 class="mdi mdi-circle"></i>Sparkline Chart</a></li>
@@ -203,9 +204,11 @@
                                 <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><i
                                         class="mdi mdi-circle"></i>Maps</a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="{{ url('template/map-google') }}"><i class="mdi mdi-circle"></i>Google
+                                    <li><a href="{{ url('template/map-google') }}"><i
+                                                class="mdi mdi-circle"></i>Google
                                             Map</a></li>
-                                    <li><a href="{{ url('template/map-vector') }}"><i class="mdi mdi-circle"></i>Vector
+                                    <li><a href="{{ url('template/map-vector') }}"><i
+                                                class="mdi mdi-circle"></i>Vector
                                             Map</a></li>
                                 </ul>
                             </li>
@@ -250,7 +253,8 @@
                                                 class="mdi mdi-circle"></i>Starter Page</a></li>
                                     <li><a href="{{ url('template/page-blog') }}"><i
                                                 class="mdi mdi-circle"></i>Blog</a></li>
-                                    <li><a href="{{ url('template/page-faq') }}"><i class="mdi mdi-circle"></i>FAQ</a>
+                                    <li><a href="{{ url('template/page-faq') }}"><i
+                                                class="mdi mdi-circle"></i>FAQ</a>
                                     </li>
                                     <li><a href="{{ url('template/page-gallery') }}"><i
                                                 class="mdi mdi-circle"></i>Gallery</a></li>

@@ -19,6 +19,11 @@ class SettingController extends Controller
         return view('backend.setting.seo');
     }
 
+    //website Banner Form
+    public function websiteBannerForm(){
+        return view('backend.setting.banner');
+    }
+
     // social Link Static Form
     public function socialLinkStaticForm(){
         return view('backend.setting.social-link');
@@ -149,6 +154,38 @@ class SettingController extends Controller
                 //resize and save to server
                 Image::make($image->getRealPath())->save($folder_path.$image_new_name);
                 update_static_option('meta_image',$folder_path.$image_new_name);
+            }
+        }catch (\Exception $exception){
+            return back()->withErrors( 'Something went wrong !'.$exception->getMessage());
+        }
+        return back()->withSuccess('Updated successfully!');
+    }
+
+    // website Banner Update
+    public function websiteBannerUpdate(Request $request){
+        $request->validate([
+            'banner_image' => 'nullable|image',
+
+            'banner_title' => 'nullable|min:3',
+            'banner_description' => 'nullable|min:3',
+            'banner_highlight' => 'nullable|min:3',
+        ]);
+        try {
+
+            update_static_option('banner_title', $request->banner_title);
+            update_static_option('banner_description', $request->banner_description);
+            update_static_option('banner_highlight', $request->banner_highlight);
+
+
+            if($request->hasFile('banner_image')){
+                if (get_static_option('banner_image') != null)
+                    File::delete(public_path(get_static_option('banner_image'))); //Old image delete
+                $image             = $request->file('banner_image');
+                $folder_path       = 'uploads/images/website/';
+                $image_new_name    = Str::random(20).'-'.now()->timestamp.'.'.$image->getClientOriginalExtension();
+                //resize and save to server
+                Image::make($image->getRealPath())->save($folder_path.$image_new_name);
+                update_static_option('banner_image',$folder_path.$image_new_name);
             }
         }catch (\Exception $exception){
             return back()->withErrors( 'Something went wrong !'.$exception->getMessage());
