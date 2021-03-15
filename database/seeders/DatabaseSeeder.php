@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\WebsitePromotion;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -20,5 +21,6 @@ class DatabaseSeeder extends Seeder
         $this->call(ProductSeeder::class);
         $this->call(VariationSeeder::class);
         $this->call(VariationCategorySeeder::class);
+        $this->call(WebsitePromotionSeeder::class);
     }
 }

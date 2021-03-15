@@ -54,6 +54,8 @@
                         <ul class="dropdown-menu">
                             <li><a href="{{ route('websiteBannerForm') }}"><i class="mdi mdi-circle"></i>Banner</a></li>
                             <li><a href="{{ route('websiteMessage.index') }}"><i class="mdi mdi-circle"></i>Messages</a></li>
+                            <li><a href="{{ route('websitePromotion.index') }}"><i class="mdi mdi-circle"></i>Promption list</a></li>
+                            <li><a href="{{ route('websitePromotion.create') }}"><i class="mdi mdi-circle"></i>Promption create</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">

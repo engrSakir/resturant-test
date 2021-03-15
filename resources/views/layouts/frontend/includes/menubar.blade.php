@@ -31,12 +31,7 @@
             <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                 <ul class="navbar-nav tr-d-md-none">
                     <li class="nav-item tr-dropdown active">
-                        <a class="nav-link" href="#">Home</a>
-                        <ul class="tr-dropdown-menu dropdown-left">
-                            <li class="nav-item active"><a class="nav-link" href="index-2.html">Home V-1</a></li>
-                            <li class="nav-item"><a class="nav-link" href="index1.html">Home V-2</a></li>
-                            <li class="nav-item"><a class="nav-link" href="index2.html">Home V-3</a></li>
-                        </ul>
+                        <a class="nav-link" href="{{ route('frontend.index') }}">Home</a>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="shop-list.html">Store</a></li>
                     <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing Table</a></li>

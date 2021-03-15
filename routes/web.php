@@ -11,6 +11,7 @@ use App\Http\Controllers\VariationCategoryController;
 use App\Http\Controllers\VariationController;
 use App\Http\Controllers\WebsiteBannerController;
 use App\Http\Controllers\WebsiteMessageController;
+use App\Http\Controllers\WebsitePromotionController;
 use App\Models\ProductCategory;
 use Illuminate\Support\Facades\Route;
 
@@ -58,3 +59,4 @@ Route::group(['middleware' => 'branch'], function (){
 });
 
 Route::resource('/websiteMessage', WebsiteMessageController::class);
+Route::resource('/websitePromotion', WebsitePromotionController::class);
