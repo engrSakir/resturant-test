@@ -50,9 +50,6 @@
                                     aria-controls="v-pills-product" aria-selected="true"><i
                                         class="feather icon-grid mr-2"></i>{{ $product_category->name }}</a>
                             @endforeach
-                            <a class="nav-link" id="v-pills-logout-tab" data-toggle="pill" href="#v-pills-logout" role="tab"
-                                aria-controls="v-pills-logout" aria-selected="false"><i
-                                    class="feather icon-log-out mr-2"></i>Logout</a>
                         </div>
                     </div>
                 </div>
@@ -87,34 +84,6 @@
                         </div>
                         <!-- Product End -->
                     @endforeach
-
-                    <div class="tab-pane fade" id="v-pills-logout" role="tabpanel" aria-labelledby="v-pills-logout-tab">
-                        <div class="card m-b-30">
-                            <div class="card-header">
-                                <h5 class="card-title mb-0">Logout</h5>
-                            </div>
-                            <div class="card-body">
-                                <div class="row justify-content-center">
-                                    <div class="col-lg-6 col-xl-4">
-                                        <div class="logout-content text-center my-5">
-                                            <img src="assets/backend/images/ecommerce/logout.svg" class="img-fluid mb-5"
-                                                alt="logout">
-                                            <h2 class="text-success">Logout ?</h2>
-                                            <p class="my-4">Are you sure to want to Log out? You will miss your instant
-                                                checkout deal.</p>
-                                            <div class="button-list">
-                                                <button type="button" class="btn btn-danger font-16"><i
-                                                        class="feather icon-check mr-2"></i>Yes, I am sure</button>
-                                                <button type="button" class="btn btn-success-rgba font-16"><i
-                                                        class="feather icon-x mr-2"></i>Cancel</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- My Logout End -->
                 </div>
             </div>
             <!-- End col -->

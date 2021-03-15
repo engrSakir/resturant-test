@@ -43,6 +43,32 @@
                     <li class="dropdown">
                         <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><img
                                 src="assets/backend/images/svg-icon/apps.svg" class="img-fluid"
+                                alt="apps"><span>Website</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ url('template/apps-calender') }}"><i class="mdi mdi-circle"></i>Calender</a>
+                            </li>
+                            <li><a href="{{ url('template/apps-chat') }}"><i class="mdi mdi-circle"></i>Chat</a></li>
+                            <li class="dropdown">
+                                <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><i
+                                        class="mdi mdi-circle"></i>Email</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{{ url('template/apps-email-inbox') }}"><i
+                                                class="mdi mdi-circle"></i>Email Inbox</a></li>
+                                    <li><a href="{{ url('template/apps-email-open') }}"><i
+                                                class="mdi mdi-circle"></i>Email Open</a></li>
+                                    <li><a href="{{ url('template/apps-email-compose') }}"><i
+                                                class="mdi mdi-circle"></i>Email Compose</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="{{ url('template/apps-kanban-board') }}"><i class="mdi mdi-circle"></i>Kanban
+                                    Board</a></li>
+                            <li><a href="{{ url('template/apps-onboarding-screens') }}"><i
+                                        class="mdi mdi-circle"></i>Onboarding Screens</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><img
+                                src="assets/backend/images/svg-icon/apps.svg" class="img-fluid"
                                 alt="apps"><span>Apps</span></a>
                         <ul class="dropdown-menu">
                             <li><a href="{{ url('template/apps-calender') }}"><i class="mdi mdi-circle"></i>Calender</a>

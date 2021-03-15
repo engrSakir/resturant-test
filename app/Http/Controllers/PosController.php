@@ -6,14 +6,14 @@ use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\VariationCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class PosController extends Controller
 {
     // pos
     public function pos(){
-        $products = Product::all();
-        $product_categories = ProductCategory::all();
-        return view('backend.pos.index', compact('products','product_categories'));
+        $product_categories = Session::get('branch')->productCategories;
+        return view('backend.pos.index', compact('product_categories'));
     }
 
     // get Variations By Product
