@@ -256,21 +256,27 @@
                         ready_table += ''+
                         ' <div class="card m-b-30">'+
                         '<div class="card-header">'+
-                        ' <h5 class="card-title">'+variation_category.name+'</h5>'+
+                        ' <h5 class="card-title bg-danger">'+variation_category.name+'</h5>'+
                         '</div>'+
                         ' <div class="card-body">'+
                         '<div class="table-responsive">'+
                         '<table class="table">'+
                         '<thead>'+
                         ' <tr>'+
-                        ' <th scope="col">#</th>'+
-                        ' <th scope="col">First</th>'+
-                        '<th scope="col">Last</th>'+
-                        ' <th scope="col">Handle</th>'+
+                        ' <th scope="col">Name</th>'+
+                        '<th scope="col">QT</th>'+
+                        ' <th scope="col">Price</th>'+
                         ' </tr>'+
                         '</thead>'+
                         '<tbody>'+
+                            variation_category.variations.forEach(function(variation){
+                                '<tr>'+
+                                console.log(variation.name)
+                                console.log(variation.price)
+                                '<td>'+variation.name+'</td>'+
 
+                                '</tr>'
+                            });
                         '</tbody>'+
                         '</table>'+
                         '</div>'+
@@ -279,8 +285,7 @@
                     });
                     $('#modal-body').html(ready_table);
                 }
-
-            })
+            });
         }
 
 
