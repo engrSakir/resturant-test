@@ -36,7 +36,7 @@ Route::post('/social-link-static-option-update', [SettingController::class, 'soc
 Route::group(['middleware' => 'branch'], function (){
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
     Route::get('/pos', [PosController::class, 'pos'])->name('pos');
-    Route::get('/get-variations-by-product', [PosController::class, 'getVariationsByProduct'])->name('getVariationsByProduct');
+    Route::get('/get-variations-by-product/{product_id}', [PosController::class, 'getVariationsByProduct'])->name('getVariationsByProduct');
     Route::resource('/productCategory', ProductCategoryController::class);
     Route::resource('/product', ProductController::class);
     Route::resource('/variation', VariationController::class);

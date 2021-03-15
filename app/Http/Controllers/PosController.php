@@ -9,14 +9,14 @@ use Illuminate\Http\Request;
 
 class PosController extends Controller
 {
-    //pos
+    // pos
     public function pos(){
         $products = Product::all();
         $product_categories = ProductCategory::all();
         return view('backend.pos.index', compact('products','product_categories'));
     }
 
-    //get Variations By Product
+    // get Variations By Product
     public function getVariationsByProduct(Product $product){
         $var_categories = $product->variationCategories;
 
