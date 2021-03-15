@@ -15,11 +15,4 @@ class DashboardController extends Controller
         return view('backend.dashboard.index');
     }
 
-    //pos
-    public function pos(){
-        $products = Product::all();
-        $product_categories = ProductCategory::all();
-        return view('backend.dashboard.pos', compact('products','product_categories'));
-    }
-
 }

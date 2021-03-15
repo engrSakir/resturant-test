@@ -3,6 +3,7 @@
 use App\Http\Controllers\BranchController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\PosController;
 use App\Http\Controllers\ProductCategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SettingController;
@@ -34,7 +35,8 @@ Route::post('/social-link-static-option-update', [SettingController::class, 'soc
 
 Route::group(['middleware' => 'branch'], function (){
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
-    Route::get('/pos', [DashboardController::class, 'pos'])->name('pos');
+    Route::get('/pos', [PosController::class, 'pos'])->name('pos');
+    Route::get('/get-variations-by-product', [PosController::class, 'getVariationsByProduct'])->name('getVariationsByProduct');
     Route::resource('/productCategory', ProductCategoryController::class);
     Route::resource('/product', ProductController::class);
     Route::resource('/variation', VariationController::class);

@@ -68,15 +68,16 @@
                             <div class="row">
                                 <!-- Start col -->
                                 @foreach ($product_category->products as $product)
-                                    <div class="col-md-6 col-lg-6 col-xl-3 text-center product-items mb-3"
-                                        onclick="addItem({{ $product->id }})">
+                                    <div class="col-md-6 col-lg-6 col-xl-3 text-center product-items mb-3" onclick="addVariation({{ $product->id }})">
                                         <div class="card text-center">
                                             <img class="card-img-top"
                                                 src="{{ asset($product->image ?? 'assets/backend/images/ui-cards/ui-cards-1.jpg') }}"
                                                 alt="Card image cap">
                                             <div class="card-body">
-                                                <input id="item-per-unit-price-id-{{ $product->id }}" type="hidden" value="{{ $product->price }}">
-                                                <h5 class="card-title font-18" id="item-name-id-{{ $product->id }}">{{ $product->name }}</h5>
+                                                <input id="item-per-unit-price-id-{{ $product->id }}" type="hidden"
+                                                    value="{{ $product->price }}">
+                                                <h5 class="card-title font-18" id="item-name-id-{{ $product->id }}">
+                                                    {{ $product->name }}</h5>
                                             </div>
                                         </div>
                                     </div>
@@ -236,14 +237,31 @@
                     '"> <input id="ids" type="hidden" value="' + id + '">' + document.getElementById(
                         'item-name-id-' + id).innerHTML + '</td>\n' +
                     '                                        <td id="table-item-id-unit-price-' + id +
-                    '">'+ document.getElementById(
-                        'item-per-unit-price-id-' + id).value +'</td>\n' +
-                    '                                        <td id="table-item-id-price-' + id + '">'+ document.getElementById(
-                        'item-per-unit-price-id-' + id).value +'</td>\n' +
+                    '">' + document.getElementById(
+                        'item-per-unit-price-id-' + id).value + '</td>\n' +
+                    '                                        <td id="table-item-id-price-' + id + '">' + document
+                    .getElementById(
+                        'item-per-unit-price-id-' + id).value + '</td>\n' +
                     '                                    </tr>' +
                     '' +
                     '');
             }
+        }
+
+        //Add Variation
+        function addVariation(id) {
+
+            getVariationsOfThisProduct(id);
+        }
+
+        //Get Variations Of This Product
+        function getVariationsOfThisProduct(id) {
+            $.getJSON('/get-variations-by-product/'+id, function (data) {
+                //console.log(data)
+                data.forEach(function(item){
+                    $("#item-quantity-id-"+item.id).html(item.quantity)
+                })
+            })
         }
 
     </script>
