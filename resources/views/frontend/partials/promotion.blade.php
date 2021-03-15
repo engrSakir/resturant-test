@@ -1,54 +1,16 @@
 <div class="tr-promotion">
     <div class="container">
         <div class="row">
-            <div class="col-md-4 mb-5">
-                <div class="promotion" style="background-image: url(images/bg/promotion1.png);">
-                    <div class="promotion-info">
-                        <h1>Healthy <span>Vegetable</span></h1>
-                        <p>Donec fringilla, erat et mper eleifend, justo quam.</p>
+            @foreach ($promotions as $promotion)
+                <div class="col-md-4 mb-5">
+                    <div class="promotion" style="background-image: url({{ asset('assets/frontend/images/bg/promotion1.png') }});">
+                        <div class="promotion-info">
+                            <h1>{{ $promotion->highlight }} <span>{{ $promotion->title }} </span></h1>
+                            <p>{{ $promotion->description }} </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4 mb-5">
-                <div class="promotion" style="background-image: url(images/bg/promotion2.png);">
-                    <div class="promotion-info">
-                        <h1>Organic <span>Juice</span></h1>
-                        <p>Donec fringilla, erat et mper eleifend, justo quam.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-5">
-                <div class="promotion" style="background-image: url(images/bg/promotion3.png);">
-                    <div class="promotion-info">
-                        <h1>Organic <span>Fruit</span></h1>
-                        <p>Donec fringilla, erat et mper eleifend, justo quam.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-5">
-                <div class="promotion" style="background-image: url(images/bg/promotion1.png);">
-                    <div class="promotion-info">
-                        <h1>Healthy <span>Vegetable</span></h1>
-                        <p>Donec fringilla, erat et mper eleifend, justo quam.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-5">
-                <div class="promotion" style="background-image: url(images/bg/promotion2.png);">
-                    <div class="promotion-info">
-                        <h1>Organic <span>Juice</span></h1>
-                        <p>Donec fringilla, erat et mper eleifend, justo quam.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-5">
-                <div class="promotion" style="background-image: url(images/bg/promotion3.png);">
-                    <div class="promotion-info">
-                        <h1>Organic <span>Fruit</span></h1>
-                        <p>Donec fringilla, erat et mper eleifend, justo quam.</p>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </div>

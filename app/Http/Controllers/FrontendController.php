@@ -4,12 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\Branch;
 use App\Models\ContactUs;
+use App\Models\SpecialProduct;
+use App\Models\WebsitePromotion;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
 {
     public function index(){
-        return view('frontend.index');
+        $special_products = SpecialProduct::all();
+        $promotions = WebsitePromotion::all();
+        return view('frontend.index', compact('promotions','special_products'));
     }
 
     // contact Us

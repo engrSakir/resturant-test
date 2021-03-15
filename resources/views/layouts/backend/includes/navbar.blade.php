@@ -56,6 +56,8 @@
                             <li><a href="{{ route('websiteMessage.index') }}"><i class="mdi mdi-circle"></i>Messages</a></li>
                             <li><a href="{{ route('websitePromotion.index') }}"><i class="mdi mdi-circle"></i>Promption list</a></li>
                             <li><a href="{{ route('websitePromotion.create') }}"><i class="mdi mdi-circle"></i>Promption create</a></li>
+                            <li><a href="{{ route('specialProduct.index') }}"><i class="mdi mdi-circle"></i>Special product</a></li>
+                            <li><a href="{{ route('specialProduct.create') }}"><i class="mdi mdi-circle"></i>Special product create</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">

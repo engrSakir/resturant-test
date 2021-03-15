@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\GlobalImages;
 use App\Models\StaticOption;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Mail;
@@ -46,5 +47,9 @@ if (!function_exists('random_code')){
             return true;
         }
         return false;
+    }
+
+    function get_global_images(){
+        return GlobalImages::all();
     }
 }

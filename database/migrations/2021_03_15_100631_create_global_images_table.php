@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateWebsitePromotionsTable extends Migration
+class CreateGlobalImagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreateWebsitePromotionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('website_promotions', function (Blueprint $table) {
+        Schema::create('global_images', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('highlight');
-            $table->text('description');
             $table->string('image')->nullable();
             $table->timestamps();
         });
@@ -30,6 +27,6 @@ class CreateWebsitePromotionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('website_promotions');
+        Schema::dropIfExists('global_images');
     }
 }

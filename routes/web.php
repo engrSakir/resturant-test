@@ -7,6 +7,7 @@ use App\Http\Controllers\PosController;
 use App\Http\Controllers\ProductCategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SettingController;
+use App\Http\Controllers\SpecialProductController;
 use App\Http\Controllers\VariationCategoryController;
 use App\Http\Controllers\VariationController;
 use App\Http\Controllers\WebsiteBannerController;
@@ -60,3 +61,4 @@ Route::group(['middleware' => 'branch'], function (){
 
 Route::resource('/websiteMessage', WebsiteMessageController::class);
 Route::resource('/websitePromotion', WebsitePromotionController::class);
+Route::resource('/specialProduct', SpecialProductController::class);

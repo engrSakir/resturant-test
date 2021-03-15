@@ -1,5 +1,5 @@
 @push('title')
-    Promotion
+    Special product
 @endpush
 @extends('layouts.backend.app')
 @push('style')
@@ -10,17 +10,17 @@
     <div class="breadcrumbbar">
         <div class="row align-items-center">
             <div class="col-md-8 col-lg-8">
-                <h4 class="page-title">Promotion</h4>
+                <h4 class="page-title">Special product</h4>
                 <div class="breadcrumb-list">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('dashboard.index') }}">Dashboard</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Promotion</li>
+                        <li class="breadcrumb-item active" aria-current="page">Special product</li>
                     </ol>
                 </div>
             </div>
             <div class="col-md-4 col-lg-4">
                 <div class="widgetbar">
-                    <a href="{{ route('websitePromotion.create') }}" class="btn btn-primary">Create</a>
+                    <a href="{{ route('specialProduct.create') }}" class="btn btn-primary">Create</a>
                 </div>
             </div>
         </div>
@@ -34,31 +34,29 @@
             <div class="col-lg-12">
                 <div class="card m-b-30">
                     <div class="card-header">
-                        <h5 class="card-title">Promotion </h5>
+                        <h5 class="card-title">Special product </h5>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table id="datatable" class="display table table-striped table-bordered">
                                 <thead>
                                     <tr>
-                                        <th>Highlight</th>
                                         <th>Title</th>
                                         <th>Description</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($promotions as $promotion)
+                                    @foreach ($special_products as $special_product)
                                         <tr>
-                                            <td> {{ $promotion->highlight }}</td>
-                                            <td> {{ $promotion->title }}</td>
-                                            <td> {{ $promotion->description }}</td>
+                                            <td> {{ $special_product->title }}</td>
+                                            <td> {{ $special_product->description }}</td>
                                             <td>
-                                                <a href="{{ route('websitePromotion.edit', $promotion) }}"
+                                                <a href="{{ route('specialProduct.edit', $special_product) }}"
                                                     class="btn btn-info"><i class="fa fa-edit"></i> </a>
 
                                                 <button class="btn btn-danger" onclick="delete_function(this)"
-                                                    value="{{ route('websitePromotion.destroy', $promotion) }}"><i
+                                                    value="{{ route('specialProduct.destroy', $special_product) }}"><i
                                                         class="fa fa-trash"></i> </button>
                                             </td>
                                         </tr>
@@ -66,7 +64,6 @@
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <th>Highlight</th>
                                         <th>Title</th>
                                         <th>Description</th>
                                         <th>Action</th>

@@ -22,5 +22,7 @@ class DatabaseSeeder extends Seeder
         $this->call(VariationSeeder::class);
         $this->call(VariationCategorySeeder::class);
         $this->call(WebsitePromotionSeeder::class);
+        $this->call(SpecialProductSeeder::class);
+        $this->call(GlobalImagesSeeder::class);
     }
 }
