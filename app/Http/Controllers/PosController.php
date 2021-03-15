@@ -30,7 +30,7 @@ class PosController extends Controller
 
         return Response::json([
              'variation_categories' => $variation_categories,
-             'variations' => $variations,
+            //  'variations' => $variations,
         ]);
 
         // dd($variation_categories);
