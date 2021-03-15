@@ -30,7 +30,7 @@ class StaticOptionSeeder extends Seeder
         set_static_option('custom_head_code', null);
         set_static_option('custom_foot_code', null);
 
-        set_static_option('footer_credit', 'lorem ipsum');
+        set_static_option('footer_credit', 'lorem ipsum Footer credit ....');
 
         set_static_option('banner_highlight', 'Welcome To ...');
         set_static_option('banner_description','Lorem ipsum dolor sit amet' );

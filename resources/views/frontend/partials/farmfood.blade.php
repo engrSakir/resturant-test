@@ -1,4 +1,4 @@
-<div class="tr-farmfood farmfood-one bg-image" style="background-image: url(images/bg/farmfood.jpg);">
+<div class="tr-farmfood farmfood-one bg-image" style="background-image: url({{ asset('assets/frontend/images/bg/farmfood.jpg') }});">
     <div class="container">
         <div class="section-title">
             <h1>Hot deal of the day</h1>
@@ -42,7 +42,6 @@
                                 </li>
                             @endif
                         @endforeach
-
                     </ul>
                 </div>
             </div>
