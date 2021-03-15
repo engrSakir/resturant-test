@@ -19,6 +19,11 @@ class SettingController extends Controller
         return view('backend.setting.seo');
     }
 
+    // social Link Static Form
+    public function socialLinkStaticForm(){
+        return view('backend.setting.social-link');
+    }
+
     // update static option
     public function generalStaticUpdate(Request $request){
         $request->validate([
@@ -29,7 +34,6 @@ class SettingController extends Controller
             'company_email' => 'nullable|min:3',
             'company_phone' => 'nullable|min:3',
             'company_address' => 'nullable|min:3',
-            'company_facebook_link' => 'nullable|min:3',
 
             'custom_head_code' => 'nullable|min:3',
             'custom_foot_code' => 'nullable|min:3',
@@ -40,8 +44,6 @@ class SettingController extends Controller
             update_static_option('company_email', $request->company_email);
             update_static_option('company_phone', $request->company_phone);
             update_static_option('company_address', $request->company_address);
-            update_static_option('company_facebook_link', $request->company_facebook_link);
-
 
             update_static_option('custom_head_code', $request->custom_head_code);
             update_static_option('custom_foot_code', $request->custom_foot_code);
@@ -97,6 +99,31 @@ class SettingController extends Controller
         }
         return back()->withSuccess('Updated successfully!');
     }
+
+    // social link Static Option Update
+    public function sociallinkStaticOptionUpdate(Request $request){
+        $request->validate([
+
+            'company_facebook_link' => 'nullable|min:3',
+            'company_twitter_link' => 'nullable|min:3',
+            'company_youtube_link' => 'nullable|min:3',
+            'company_instagram_link' => 'nullable|min:3',
+
+
+        ]);
+        try {
+
+            update_static_option('company_facebook_link', $request->company_facebook_link);
+            update_static_option('company_twitter_link', $request->company_facebook_link);
+            update_static_option('company_youtube_link', $request->company_facebook_link);
+            update_static_option('company_instagram_link', $request->company_facebook_link);
+
+        }catch (\Exception $exception){
+            return back()->withErrors( 'Something went wrong !'.$exception->getMessage());
+        }
+        return back()->withSuccess('Updated successfully!');
+    }
+
     // seo Static Option Update
     public function seoStaticOptionUpdate(Request $request){
         $request->validate([
@@ -128,4 +155,6 @@ class SettingController extends Controller
         }
         return back()->withSuccess('Updated successfully!');
     }
+
+
 }

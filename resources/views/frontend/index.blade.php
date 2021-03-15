@@ -3,7 +3,6 @@
 
 @endpush
 @section('content')
-    @include('frontend.partials.menubar')
 
     @include('frontend.partials.carousel')
 
@@ -21,7 +20,6 @@
 
     @include('frontend.partials.brand')
 
-    @include('frontend.partials.footer')
 @endsection
 @push('foot')
 

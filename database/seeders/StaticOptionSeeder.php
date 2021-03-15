@@ -22,7 +22,10 @@ class StaticOptionSeeder extends Seeder
         set_static_option('company_email', 'company@gmail.com');
         set_static_option('company_phone', '01234567890');
         set_static_option('company_address', 'company---adddress');
-        set_static_option('company_facebook_link', 'facebook.com');
+        set_static_option('company_facebook_link', 'https://www.facebook.com/');
+        set_static_option('company_twitter_link', 'https://twitter.com/');
+        set_static_option('company_youtube_link', 'https://www.youtube.com/');
+        set_static_option('company_instagram_link', 'https://www.instagram.com/');
         set_static_option('custom_head_code', null);
         set_static_option('custom_foot_code', null);
 

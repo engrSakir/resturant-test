@@ -18,6 +18,7 @@
                         <ul class="dropdown-menu">
                             <li><a href="{{ route('getGeneralStaticForm') }}"><i class="mdi mdi-circle"></i>General static option</a></li>
                             <li><a href="{{ route('seoStaticOptionForm') }}"><i class="mdi mdi-circle"></i>Seo static option</a></li>
+                            <li><a href="{{ route('socialLinkStaticForm') }}"><i class="mdi mdi-circle"></i>Social link</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">

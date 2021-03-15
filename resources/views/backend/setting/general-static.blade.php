@@ -45,13 +45,6 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="company_facebook_link" class="col-sm-4 col-form-label">Company facebook link</label>
-                                <div class="col-sm-8">
-                                    <input value="{{ get_static_option('company_facebook_link') }}" name="company_facebook_link" type="text"
-                                        class="form-control-lg" id="company_facebook_link" placehget_static_optioner="Company facebook link">
-                                </div>
-                            </div>
-                            <div class="form-group row">
                                 <label for="footer_credit" class="col-sm-4 col-form-label">Footer credit</label>
                                 <div class="col-sm-8">
                                     <textarea class="form-control-lg summernote-description" name="footer_credit" id="footer_credit" cols="30" rows="10">{{ get_static_option('footer_credit') }}</textarea>

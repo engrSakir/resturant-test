@@ -2,7 +2,11 @@
     <div class="container">
         <div class="topbar-content">
             <div class="float-left">
-                <span><span class="icon icon-phone-call"></span> Call us <span class="number">+123 45 6789</span></span>
+                <span>
+                    <span class="icon icon-phone-call"></span>
+                    Call us
+                    <a href="tel:{{ get_static_option('company_phone') }}"><span class="number">{{ get_static_option('company_phone') }}</span></a>
+                </span>
             </div>
             <div class="float-right">
                 <div class="user-option">
@@ -21,7 +25,8 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="d-lg-none">
-                <a class="navbar-brand" href="index-2.html"><img class="img-fluid" src="{{ asset('assets/frontend/images/logo.png') }}" alt="Logo"></a>
+                <a class="navbar-brand" href="{{ route('frontend.index') }}"><img class="img-fluid"  width="109px;" height="56px;"
+                        src="{{ asset( get_static_option('frontend_logo') ?? get_static_option('no_image')) }}" alt="Logo"></a>
             </div>
             <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                 <ul class="navbar-nav tr-d-md-none">
@@ -35,8 +40,8 @@
                     </li>
                     <li class="nav-item"><a class="nav-link" href="shop-list.html">Store</a></li>
                     <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing Table</a></li>
-                    <li class="tr-middle-logo"><a class="navbar-brand" href="index-2.html"><img class="img-fluid"
-                                src="{{ asset('assets/frontend/images/logo.png') }}" alt="Logo"></a></li>
+                    <li class="tr-middle-logo"><a class="navbar-brand" href="{{ route('frontend.index') }}"><img class="img-fluid"  width="109px;" height="56px;"
+                                src="{{ asset( get_static_option('frontend_logo') ?? get_static_option('no_image')) }}" alt="Logo"></a></li>
                     <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
                     <li class="nav-item tr-dropdown">

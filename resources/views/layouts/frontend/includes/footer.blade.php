@@ -5,16 +5,16 @@
                 <div class="col-md-3">
                     <div class="footer-widget">
                         <div class="footer-logo">
-                            <a href="index-2.html"><img src="{{ asset('assets/frontend/images/logo.png') }}" alt="Logo" class="img-fluid"></a>
+                            <a href="index-2.html"><img   width="109px;" height="56px;"
+                                src="{{ asset( get_static_option('frontend_logo') ?? get_static_option('no_image')) }}"  alt="Logo" class="img-fluid"></a>
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                            incididunt ut labore et dolore magna aliqua.</p>
+                        <p>  {{ get_static_option('footer_credit') }}</p>
                         <div class="footer-social">
                             <ul class="global-list">
-                                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                <li><a target="_blank" href="{{ get_static_option('company_facebook_link') }}"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                <li><a target="_blank" href="{{ get_static_option('company_twitter_link') }}"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                <li><a target="_blank" href="{{ get_static_option('company_youtube_link') }}"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
+                                <li><a  target="_blank" href="{{ get_static_option('company_instagram_link') }}"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
                             </ul>
                         </div>
                     </div>
@@ -72,31 +72,9 @@
                         <li><img src="{{ asset('assets/frontend/images/others/card4.png') }}" alt="Payment Card" class="img-fluid"></li>
                     </ul>
                 </div>
-                <div class="float-right">
-                    <ul class="select-option global-list">
-                        <li>
-                            <span>Language:</span>
-                            <select>
-                                <option value="#">EN</option>
-                                <option value="#">BAN</option>
-                                <option value="#">EN</option>
-                                <option value="#">BAN</option>
-                            </select>
-                        </li>
-                        <li>
-                            <span>Price:</span>
-                            <select>
-                                <option value="#">USD</option>
-                                <option value="#">RUS</option>
-                                <option value="#">USD</option>
-                                <option value="#">RUS</option>
-                            </select>
-                        </li>
-                    </ul>
-                </div>
             </div>
             <div class="float-left">
-                <span>Copyright &copy; 2018 <a href="#">Biotic</a> - All Rights Reserved.</span>
+                <span>Copyright &copy; {{ date('Y') }} <a href="{{ route('frontend.index') }}"> {{ config('app.name') }} </a> - All Rights Reserved.</span>
             </div>
         </div>
     </div>
