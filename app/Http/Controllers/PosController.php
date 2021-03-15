@@ -7,6 +7,7 @@ use App\Models\ProductCategory;
 use App\Models\VariationCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Response;
 
 class PosController extends Controller
 {
@@ -17,16 +18,23 @@ class PosController extends Controller
     }
 
     // get Variations By Product
-    public function getVariationsByProduct(Product $product){
-        $var_categories = $product->variationCategories;
+    public function getVariationsByProduct($product_id){
+        $variation_categories = Product::find($product_id)->variationCategories;
 
-        $stack = array("");
-
-        foreach($var_categories as $var_category){
-            array_push($stack,$var_category->variations);
+        $variations=array();
+        foreach($variation_categories as $varriation_category){
+            foreach($varriation_category->variations as $variation){
+                array_push($variations, $variation);
+            };
         }
 
-        $var_categories = $product->variationCategories;
+        return Response::json([
+             'variation_categories' => $variation_categories,
+             'variations' => $variations,
+        ]);
+
+        // dd($variation_categories);
 
     }
+
 }
