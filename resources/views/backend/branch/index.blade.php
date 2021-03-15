@@ -18,8 +18,8 @@
         <!-- Start col -->
         @foreach ($branches as $branch)
         <div class="col-md-6 col-lg-6 col-xl-3 text-center">
-            <div class="card text-center">
-                <img class="card-img-top" src="{{ asset($branch->image ?? 'assets/backend/images/ui-cards/ui-cards-1.jpg') }}" alt="Card image cap">
+            <div class="card text-center m-b-20">
+                <img class="card-img-top"  height="197px;" width="286px;"  src="{{ asset($branch->image ?? 'assets/backend/images/ui-cards/ui-cards-1.jpg') }}" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title font-18">{{ $branch->name }}</h5>
                     <a href="{{ route('branch.show', $branch) }}" class="btn btn-primary">Dashboard</a>
@@ -31,7 +31,7 @@
         <div class="col-md-6 col-lg-6 col-xl-3 text-center">
             <div class="card m-b-30">
                 <a href="{{ route('branch.create') }}">
-                    <img class="card-img-top" src="{{ asset('uploads/images/plus.png') }}" alt="Card image cap">
+                    <img class="card-img-top rounded-circle border border-success " src="{{ asset('uploads/images/plus.png') }}" alt="Card image cap">
                 </a>
 
             </div>

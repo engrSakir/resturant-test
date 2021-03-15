@@ -1,5 +1,5 @@
 @push('title')
-    Theta - Home
+    Branch edit
 @endpush
 @extends('layouts.backend.branch')
 @push('style')
@@ -8,7 +8,21 @@
 @section('content')
     <!-- Start Breadcrumbbar -->
     <div class="breadcrumbbar">
+        <div class="row align-items-center">
+            <div class="col-md-8 col-lg-8">
+                <h4 class="page-title">Branch edit</h4>
+                <div class="breadcrumb-list">
+                    <ol class="breadcrumb">
 
+                    </ol>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-4">
+                <div class="widgetbar">
+                    <a href="{{ route('branch.index') }}" class="btn btn-primary">Back to list</a>
+                </div>
+            </div>
+        </div>
     </div>
     <!-- End Breadcrumbbar -->
     <!-- Start Contentbar -->
@@ -20,7 +34,8 @@
                     <h5 class="card-title">Branch edit</h5>
                 </div>
                 <div class="card-body">
-                    <form class="row" method="post" action="{{ route('branch.update', $branch) }}" enctype="multipart/form-data">
+                    <form class="row" method="post" action="{{ route('branch.update', $branch) }}"
+                        enctype="multipart/form-data">
                         @csrf
                         @method('PATCH')
                         <div class="col-lg-6">
@@ -48,8 +63,8 @@
                             <div class="form-group row">
                                 <label for="address" class="col-sm-4 col-form-label">Address</label>
                                 <div class="col-sm-8">
-                                    <input value="{{ $branch->address }}" name="address" type="text" class="form-control-lg"
-                                        id="address" placeholder="Address">
+                                    <input value="{{ $branch->address }}" name="address" type="text"
+                                        class="form-control-lg" id="address" placeholder="Address">
                                 </div>
                             </div>
 
@@ -65,19 +80,21 @@
                             <div class="form-group row">
                                 <label for="serial" class="col-sm-4 col-form-label">Serial</label>
                                 <div class="col-sm-8">
-                                    <input value="{{ $branch->serial }}" name="serial" type="number" class="form-control-lg"
-                                        id="serial" placeholder="Serial">
+                                    <input value="{{ $branch->serial }}" name="serial" type="number"
+                                        class="form-control-lg" id="serial" placeholder="Serial">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <img class="rounded-circle" width="70px;" height="70px;" src="{{ asset($branch->image ?? get_static_option('no_image')) }}" alt="">
+                                <img class="rounded-circle" width="70px;" height="70px;"
+                                    src="{{ asset($branch->image ?? get_static_option('no_image')) }}" alt="">
                                 <label for="image" class="col-sm-4 col-form-label">Image</label>
                                 <div class="col-sm-8">
                                     <input name="image" type="file" accept="image/*" class="form-control-lg" id="image">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <img class="rounded-circle" width="70px;" height="70px;" src="{{ asset($branch->logo ?? get_static_option('no_image')) }}" alt="">
+                                <img class="rounded-circle" width="70px;" height="70px;"
+                                    src="{{ asset($branch->logo ?? get_static_option('no_image')) }}" alt="">
                                 <label for="logo" class="col-sm-4 col-form-label">logo</label>
                                 <div class="col-sm-8">
                                     <input name="logo" type="file" accept="image/*" class="form-control-lg" id="logo">
@@ -91,9 +108,10 @@
 
                         </div>
                     </form>
-                 <div class="row mt-5 text-center justify-content-center">
-                    <button class="text-white btn btn-danger col-10" onclick="delete_function(this)" value="{{ route('branch.destroy', $branch) }}">Delete</button>
-                 </div>
+                    <div class="row mt-5 text-center justify-content-center">
+                        <button class="text-white btn btn-danger col-10" onclick="delete_function(this)"
+                            value="{{ route('branch.destroy', $branch) }}">Delete</button>
+                    </div>
                 </div>
             </div>
         </div>

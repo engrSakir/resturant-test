@@ -8,7 +8,21 @@
 @section('content')
     <!-- Start Breadcrumbbar -->
     <div class="breadcrumbbar">
+        <div class="row align-items-center">
+            <div class="col-md-8 col-lg-8">
+                <h4 class="page-title">Branch Create</h4>
+                <div class="breadcrumb-list">
+                    <ol class="breadcrumb">
 
+                    </ol>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-4">
+                <div class="widgetbar">
+                    <a href="{{ route('branch.index') }}" class="btn btn-primary">Back to list</a>
+                </div>
+            </div>
+        </div>
     </div>
     <!-- End Breadcrumbbar -->
     <!-- Start Contentbar -->

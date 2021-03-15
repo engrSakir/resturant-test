@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\VariationCategory;
 use Illuminate\Database\Seeder;
 
 class VariationCategorySeeder extends Seeder
@@ -13,6 +14,6 @@ class VariationCategorySeeder extends Seeder
      */
     public function run()
     {
-        //
+        VariationCategory::factory()->count(6)->create();
     }
 }

@@ -17,5 +17,8 @@ class DatabaseSeeder extends Seeder
         $this->call(BranchSeeder::class);
         $this->call(StaticOptionSeeder::class);
         $this->call(ProductCategorySeeder::class);
+        $this->call(ProductSeeder::class);
+        $this->call(VariationSeeder::class);
+        $this->call(VariationCategorySeeder::class);
     }
 }

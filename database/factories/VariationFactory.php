@@ -22,7 +22,9 @@ class VariationFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name'          => $this->faker->name,
+            'category_id'         => 1,
+            'price'         => $this->faker->numberBetween(1, 200)
         ];
     }
 }

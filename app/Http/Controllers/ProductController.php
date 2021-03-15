@@ -71,7 +71,7 @@ class ProductController extends Controller
         $request->validate([
             'category' => 'required|exists:product_categories,id',
             'name' => 'required|string',
-            'price' => 'required',
+            'price' => 'nullable|string',
             'status' => 'nullable',
             'image' => 'nullable|image',
         ]);
@@ -129,7 +129,7 @@ class ProductController extends Controller
         $request->validate([
             'category' => 'required|exists:product_categories,id',
             'name' => 'required|string',
-            'price' => 'required',
+            'price' => 'nullable|string',
             'status' => 'nullable',
             'image' => 'nullable|image',
         ]);

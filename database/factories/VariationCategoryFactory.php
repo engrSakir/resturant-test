@@ -22,7 +22,8 @@ class VariationCategoryFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name'          => $this->faker->name,
+            'product_id'         => 1,
         ];
     }
 }
