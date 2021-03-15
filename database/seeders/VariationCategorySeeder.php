@@ -21,5 +21,12 @@ class VariationCategorySeeder extends Seeder
             $variation_category->product_id = 1;
             $variation_category->save();
         }
+
+        for ($i = 1; $i <= 9; $i++) {
+            $variation_category = new VariationCategory();
+            $variation_category->name = 'Variation Category 1'.$i;
+            $variation_category->product_id = 2;
+            $variation_category->save();
+        }
     }
 }

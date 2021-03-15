@@ -22,5 +22,13 @@ class VariationSeeder extends Seeder
             $variation->price = rand(10,100);
             $variation->save();
         }
+
+        for ($i = 1; $i <= 9; $i++) {
+            $variation = new Variation();
+            $variation->name = 'Variation 1'.$i;
+            $variation->category_id = 2;
+            $variation->price = rand(10,100);
+            $variation->save();
+        }
     }
 }
