@@ -252,9 +252,10 @@
                 // console.log(data.variation_categories.length)
                 if (data.variation_categories.length > 0) {
                     //if has variation categories more than zero
-                    $('#modal').modal('show');
+
                     var ready_table = '';
                     var tr = "";
+                    var check_variation = null;
                     data.variation_categories.forEach(function(variation_category) {
                         variation_category.variations.forEach(function(variation){
                             tr +='<tr class="bg-ganger">'+
@@ -265,6 +266,7 @@
                             });
                         //If has variations than show variation caregory name
                         if( variation_category.variations.length > 0){
+                        check_variation = true;
                         ready_table += '' +
                             '<div class="card m-b-30">' +
                                 '<div class="card-header bg-danger">' +
@@ -289,7 +291,20 @@
                             '</div>';
                         }
                     });
-                    $('#modal-body').html(ready_table);
+                    if(check_variation == true){
+                        $('#modal').modal('show');
+                        $('#modal-body').html(ready_table);
+                    }else{
+                        Swal.fire({
+                            title: 'No variation exists for this item. Please add vatiation to the category.',
+                            showClass: {
+                                popup: 'animate__animated animate__fadeInDown'
+                            },
+                            hideClass: {
+                                popup: 'animate__animated animate__fadeOutUp'
+                            }
+                            });
+                    }
                 }
             });
         }
