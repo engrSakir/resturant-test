@@ -13,7 +13,7 @@
                     <li class="scroll dropdown">
                         <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><img
                                 src="assets/backend/images/svg-icon/dashboard.svg" class="img-fluid"
-                                alt="dashboard"><span>Dashboard</span></a>
+                                alt="dashboard"><span>Setting</span></a>
                         <ul class="dropdown-menu">
                             <li><a href="{{ route('getGeneralStaticForm') }}"><i class="mdi mdi-circle"></i>General
                                     static option</a></li>
@@ -21,6 +21,7 @@
                                     option</a></li>
                             <li><a href="{{ route('socialLinkStaticForm') }}"><i class="mdi mdi-circle"></i>Social
                                     link</a></li>
+                            <li><a href="{{ route('specialProductStaticForm') }}"><i class="mdi mdi-circle"></i>Special product</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">

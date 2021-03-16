@@ -41,6 +41,12 @@ class StaticOptionSeeder extends Seeder
         set_static_option('meta_author', null);
         set_static_option('meta_image', null);
 
+        set_static_option('product_highlight', 'Discover our');
+        set_static_option('product_title', 'Popular farmfoom');
+        set_static_option('special_product_highlight', 'Hot deal of the day');
+        set_static_option('special_product_title','We are o.........' );
+        set_static_option('special_product_image', null );
+
 
     }
 }

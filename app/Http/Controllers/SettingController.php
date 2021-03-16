@@ -29,6 +29,11 @@ class SettingController extends Controller
         return view('backend.setting.social-link');
     }
 
+    // special Product Static Form
+    public function specialProductStaticForm(){
+        return view('backend.setting.special-product');
+    }
+
     // update static option
     public function generalStaticUpdate(Request $request){
         $request->validate([
@@ -122,6 +127,42 @@ class SettingController extends Controller
             update_static_option('company_twitter_link', $request->company_facebook_link);
             update_static_option('company_youtube_link', $request->company_facebook_link);
             update_static_option('company_instagram_link', $request->company_facebook_link);
+
+        }catch (\Exception $exception){
+            return back()->withErrors( 'Something went wrong !'.$exception->getMessage());
+        }
+        return back()->withSuccess('Updated successfully!');
+    }
+
+    // special Product Static Option Update
+    public function specialProductStaticOptionUpdate(Request $request){
+        $request->validate([
+
+            'special_product_highlight' => 'nullable|min:3',
+            'special_product_title' => 'nullable|min:3',
+            'product_highlight' => 'nullable|min:3',
+            'product_title' => 'nullable|min:3',
+            'special_product_image' => 'nullable|image',
+
+
+        ]);
+        try {
+
+            update_static_option('product_highlight', $request->product_highlight);
+            update_static_option('product_title', $request->product_title);
+            update_static_option('special_product_highlight', $request->special_product_highlight);
+            update_static_option('special_product_title', $request->special_product_title);
+
+            if($request->hasFile('special_product_image')){
+                if (get_static_option('special_product_image') != null)
+                    File::delete(public_path(get_static_option('special_product_image'))); //Old image delete
+                $image             = $request->file('special_product_image');
+                $folder_path       = 'uploads/images/website/';
+                $image_new_name    = Str::random(20).'-'.now()->timestamp.'.'.$image->getClientOriginalExtension();
+                //resize and save to server
+                Image::make($image->getRealPath())->save($folder_path.$image_new_name);
+                update_static_option('special_product_image',$folder_path.$image_new_name);
+            }
 
         }catch (\Exception $exception){
             return back()->withErrors( 'Something went wrong !'.$exception->getMessage());
