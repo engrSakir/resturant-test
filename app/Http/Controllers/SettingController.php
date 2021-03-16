@@ -55,6 +55,7 @@ class SettingController extends Controller
             'fav_icon' => 'nullable|image',
             'frontend_logo' => 'nullable|image',
             'backend_logo' => 'nullable|image',
+            'breadcrumb_image' => 'nullable|image',
 
             'company_email' => 'nullable|min:3',
             'company_phone' => 'nullable|min:3',
@@ -96,6 +97,17 @@ class SettingController extends Controller
                 //resize and save to server
                 Image::make($image->getRealPath())->save($folder_path.$image_new_name);
                 update_static_option('frontend_logo',$folder_path.$image_new_name);
+            }
+
+            if($request->hasFile('breadcrumb_image')){
+                if (get_static_option('breadcrumb_image') != null)
+                    File::delete(public_path(get_static_option('breadcrumb_image'))); //Old image delete
+                $image             = $request->file('breadcrumb_image');
+                $folder_path       = 'uploads/images/website/';
+                $image_new_name    = Str::random(20).'-'.now()->timestamp.'.'.$image->getClientOriginalExtension();
+                //resize and save to server
+                Image::make($image->getRealPath())->save($folder_path.$image_new_name);
+                update_static_option('breadcrumb_image',$folder_path.$image_new_name);
             }
             if($request->hasFile('backend_logo')){
                 if (get_static_option('backend_logo') != null)

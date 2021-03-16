@@ -17,6 +17,7 @@ class StaticOptionSeeder extends Seeder
 
         set_static_option('fav_icon', null);
         set_static_option('frontend_logo', null);
+        set_static_option('breadcrumb_image', null);
         set_static_option('backend_logo', null);
         set_static_option('website_meta_image', null);
         set_static_option('banner_image', null);

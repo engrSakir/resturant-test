@@ -34,6 +34,7 @@ Route::get('/', [FrontendController::class, 'index'])->name('frontend.index');
 Route::get('/contact-us', [FrontendController::class, 'contactUs'])->name('frontend.contactUs');
 Route::get('/blog-detail/{slug}', [FrontendController::class, 'blogDetail'])->name('frontend.blogDetail');
 Route::get('/blogs', [FrontendController::class, 'blogs'])->name('frontend.blogs');
+Route::get('/images', [FrontendController::class, 'images'])->name('frontend.images');
 Route::post('/contact-us-store', [FrontendController::class, 'contactUsStore'])->name('frontend.contactUsStore');
 
 Route::resource('/branch', BranchController::class);

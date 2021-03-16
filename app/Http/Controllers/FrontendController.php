@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Blog;
 use App\Models\Branch;
 use App\Models\ContactUs;
+use App\Models\Gallery;
 use App\Models\Partner;
 use App\Models\Product;
 use App\Models\SpecialProduct;
@@ -37,6 +38,12 @@ class FrontendController extends Controller
     public function blogs(){
         $blogs = Blog::all();
         return view('frontend.blogs', compact('blogs'));
+    }
+
+    // images
+    public function images(){
+        $galleries = Gallery::all();
+        return view('frontend.gallery', compact('galleries'));
     }
 
     // contact Us Store
