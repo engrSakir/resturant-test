@@ -4,6 +4,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\BranchController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\PosController;
 use App\Http\Controllers\ProductCategoryController;
@@ -41,6 +42,7 @@ Route::get('/seo-static-option-form', [SettingController::class, 'seoStaticOptio
 Route::get('/social-link-static-form', [SettingController::class, 'socialLinkStaticForm'])->name('socialLinkStaticForm');
 Route::get('/special-product-static-form', [SettingController::class, 'specialProductStaticForm'])->name('specialProductStaticForm');
 Route::get('/offer-static-form', [SettingController::class, 'offerStaticForm'])->name('offerStaticForm');
+Route::get('/app-static-form', [SettingController::class, 'appStaticForm'])->name('appStaticForm');
 Route::get('/blog-static-form', [SettingController::class, 'blogStaticForm'])->name('blogStaticForm');
 Route::get('/website-banner-form', [SettingController::class, 'websiteBannerForm'])->name('websiteBannerForm');
 
@@ -51,6 +53,7 @@ Route::post('/social-link-static-option-update', [SettingController::class, 'soc
 Route::post('/special-product-static-option-update', [SettingController::class, 'specialProductStaticOptionUpdate'])->name('specialProductStaticOptionUpdate');
 Route::post('/offer-static-option-update', [SettingController::class, 'offerStaticOptionUpdate'])->name('offerStaticOptionUpdate');
 Route::post('/blog-static-option-update', [SettingController::class, 'blogStaticOptionUpdate'])->name('blogStaticOptionUpdate');
+Route::post('/app-static-option-update', [SettingController::class, 'appStaticOptionUpdate'])->name('appStaticOptionUpdate');
 Route::post('/website-banner-update', [SettingController::class, 'websiteBannerUpdate'])->name('websiteBannerUpdate');
 
 Route::group(['middleware' => 'branch'], function () {
@@ -61,6 +64,7 @@ Route::group(['middleware' => 'branch'], function () {
     Route::resource('/product', ProductController::class);
     Route::resource('/blog', BlogController::class);
     Route::resource('/partner', PartnerController::class);
+    Route::resource('/gallery', GalleryController::class);
     Route::resource('/variation', VariationController::class);
     Route::resource('/variationCategory', VariationCategoryController::class);
 

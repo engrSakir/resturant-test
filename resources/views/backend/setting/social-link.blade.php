@@ -45,7 +45,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="Company instagram link" class="col-sm-4 col-form-label">company_instagram_link</label>
+                                <label for="Company instagram link" class="col-sm-4 col-form-label">Company instagram link</label>
                                 <div class="col-sm-8">
                                     <input value="{{ get_static_option('company_instagram_link') }}" name="company_instagram_link" type="text"
                                         class="form-control" id="company_instagram_link" placeholder="Company instagram link">

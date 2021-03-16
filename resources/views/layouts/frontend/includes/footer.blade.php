@@ -24,9 +24,8 @@
                         <h3>Quick Link</h3>
                         <ul class="global-list">
                             <li><a href="{{ route('frontend.index') }}">Home</a></li>
+                            <li><a href="{{ route('frontend.blogs') }}">Blogs</a></li>
                             <li><a href="{{ route('frontend.contactUs') }}">Contact us</a></li>
-                            <li><a href="#">Consultant</a></li>
-                            <li><a href="#">Help & FAQs</a></li>
                             <li><a href="#">Locations & Store</a></li>
                             <li><a href="#">News</a></li>
                         </ul>

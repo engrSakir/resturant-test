@@ -44,6 +44,11 @@ class SettingController extends Controller
         return view('backend.setting.blog');
     }
 
+    // app Static Form
+    public function appStaticForm(){
+        return view('backend.setting.application');
+    }
+
     // update static option
     public function generalStaticUpdate(Request $request){
         $request->validate([
@@ -211,6 +216,7 @@ class SettingController extends Controller
         }
         return back()->withSuccess('Updated successfully!');
     }
+
     // blog Static Option Update
     public function blogStaticOptionUpdate(Request $request){
         $request->validate([
@@ -225,6 +231,54 @@ class SettingController extends Controller
             return back()->withErrors( 'Something went wrong !'.$exception->getMessage());
         }
         return back()->withSuccess('Updated successfully!');
+    }
+
+    // app Static Option Update
+    public function appStaticOptionUpdate(Request $request){
+        $request->validate([
+
+            'app_name' => 'required',
+            'app_env' => 'required',
+            'app_debug' => 'required',
+            'mailer' => 'required',
+            'host' => 'required',
+            'port' => 'required',
+            'username' => 'required',
+            'password' => 'required',
+            'encryption' => 'required',
+            'from_name' => 'required',
+            'from_email' => 'required'
+        ]);
+        try {
+            $env_val['APP_NAME'] = !empty($request->app_name) ? $request->app_name : 'YOUR_APP_NAME';
+            $env_val['APP_ENV'] = !empty($request->app_env) ? $request->app_env : 'YOUR_APP_ENV';
+            $env_val['APP_DEBUG'] = !empty($request->app_debug) ? $request->app_debug : 'YOUR_APP_DEBUG';
+            $env_val['MAIL_MAILER'] = !empty($request->mailer) ? $request->mailer : 'YOUR_MAILER';
+            $env_val['MAIL_HOST'] = !empty($request->host) ? $request->host : 'YOUR_SMTP_MAIL_HOST';
+            $env_val['MAIL_PORT'] = !empty($request->port) ? $request->port : 'YOUR_SMTP_MAIL_POST';
+            $env_val['MAIL_USERNAME'] = !empty($request->username) ? $request->username : 'YOUR_SMTP_MAIL_USERNAME';
+            $env_val['MAIL_PASSWORD'] = !empty($request->password) ? $request->password : 'YOUR_SMTP_MAIL_USERNAME_PASSWORD';
+            $env_val['MAIL_ENCRYPTION'] = !empty($request->encryption) ? $request->encryption : 'YOUR_SMTP_MAIL_ENCRYPTION';
+            $env_val['MAIL_FROM_NAME'] = !empty($request->from_name) ? $request->from_name : 'YOUR_SMTP_FROM_NAME';
+            $env_val['MAIL_FROM_ADDRESS'] = !empty($request->from_email) ? $request->from_email : 'YOUR_MAIL_FROM_ADDRESS';
+
+            set_env_value([
+                'APP_NAME' => '"'.$env_val['APP_NAME'].'"',
+                'APP_ENV' => '"'.$env_val['APP_ENV'].'"',
+                'APP_DEBUG' => '"'.$env_val['APP_DEBUG'].'"',
+                'MAIL_MAILER' => '"'.$env_val['MAIL_MAILER'].'"',
+                'MAIL_HOST' => '"'.$env_val['MAIL_HOST'].'"',
+                'MAIL_PORT' =>  '"'.$env_val['MAIL_PORT'].'"',
+                'MAIL_USERNAME' => '"'.$env_val['MAIL_USERNAME'].'"',
+                'MAIL_PASSWORD' => '"'.$env_val['MAIL_PASSWORD'].'"',
+                'MAIL_ENCRYPTION' => '"'.$env_val['MAIL_ENCRYPTION'].'"',
+                'MAIL_FROM_NAME' => '"'.$env_val['MAIL_FROM_NAME'].'"',
+                'MAIL_FROM_ADDRESS' => '"'.$env_val['MAIL_FROM_ADDRESS'].'"'
+            ]);
+            return redirect()->route('frontend.index')->withSuccess('Successfully application setting updated!');
+        }catch (\Exception $exception){
+            return redirect()->back()->withErrors('Something going wrong. Error:'.$exception->getMessage());
+        }
     }
 
     // seo Static Option Update

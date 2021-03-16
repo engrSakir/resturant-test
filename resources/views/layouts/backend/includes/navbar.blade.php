@@ -24,6 +24,7 @@
                             <li><a href="{{ route('specialProductStaticForm') }}"><i class="mdi mdi-circle"></i>Special product</a></li>
                             <li><a href="{{ route('offerStaticForm') }}"><i class="mdi mdi-circle"></i>Special offer</a></li>
                             <li><a href="{{ route('blogStaticForm') }}"><i class="mdi mdi-circle"></i>Blog</a></li>
+                            <li><a href="{{ route('appStaticForm') }}"><i class="mdi mdi-circle"></i>Application</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
@@ -56,15 +57,17 @@
                                 alt="apps"><span>Website</span></a>
                         <ul class="dropdown-menu">
                             <li><a href="{{ route('websiteBannerForm') }}"><i class="mdi mdi-circle"></i>Banner</a></li>
-                            <li><a href="{{ route('websiteMessage.index') }}"><i class="mdi mdi-circle"></i>Messages</a></li>
-                            <li><a href="{{ route('websitePromotion.index') }}"><i class="mdi mdi-circle"></i>Promption list</a></li>
-                            <li><a href="{{ route('websitePromotion.create') }}"><i class="mdi mdi-circle"></i>Promption create</a></li>
+                            <li><a href="{{ route('websiteMessage.index') }}"><i class="mdi mdi-circle"></i>Messages <span class="badge badge-danger">{{ website_incomplete_messages() }}</span></a></li>
+                            <li><a href="{{ route('websitePromotion.index') }}"><i class="mdi mdi-circle"></i>Promotion list</a></li>
+                            <li><a href="{{ route('websitePromotion.create') }}"><i class="mdi mdi-circle"></i>Promotion create</a></li>
                             <li><a href="{{ route('specialProduct.index') }}"><i class="mdi mdi-circle"></i>Special product</a></li>
                             <li><a href="{{ route('specialProduct.create') }}"><i class="mdi mdi-circle"></i>Special product create</a></li>
                             <li><a href="{{ route('blog.index') }}"><i class="mdi mdi-circle"></i>Blog list</a></li>
                             <li><a href="{{ route('blog.create') }}"><i class="mdi mdi-circle"></i>Blog create</a></li>
                             <li><a href="{{ route('partner.create') }}"><i class="mdi mdi-circle"></i>Partner create</a></li>
                             <li><a href="{{ route('partner.index') }}"><i class="mdi mdi-circle"></i>Partner list</a></li>
+                            <li><a href="{{ route('gallery.create') }}"><i class="mdi mdi-circle"></i>Gallery create</a></li>
+                            <li><a href="{{ route('gallery.index') }}"><i class="mdi mdi-circle"></i>Gallery list</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
