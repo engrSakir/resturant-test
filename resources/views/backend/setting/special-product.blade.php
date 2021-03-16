@@ -38,14 +38,14 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="Product_highlight" class="col-sm-4 col-form-label">product highlight</label>
+                                <label for="Product_highlight" class="col-sm-4 col-form-label">Product highlight</label>
                                 <div class="col-sm-8">
                                     <input value="{{ get_static_option('product_highlight') }}" name="product_highlight" type="text"
                                         class="form-control" id="product_highlight" placeholder="Product highlight">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="Product_title" class="col-sm-4 col-form-label">product title</label>
+                                <label for="Product_title" class="col-sm-4 col-form-label">Product title</label>
                                 <div class="col-sm-8">
                                     <input value="{{ get_static_option('product_title') }}" name="product_title" type="text"
                                         class="form-control" id="product_title" placeholder="Product title">
