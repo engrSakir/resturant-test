@@ -34,6 +34,11 @@ class SettingController extends Controller
         return view('backend.setting.special-product');
     }
 
+    // offer Static Form
+    public function offerStaticForm(){
+        return view('backend.setting.offer');
+    }
+
     // update static option
     public function generalStaticUpdate(Request $request){
         $request->validate([
@@ -143,8 +148,6 @@ class SettingController extends Controller
             'product_highlight' => 'nullable|min:3',
             'product_title' => 'nullable|min:3',
             'special_product_image' => 'nullable|image',
-
-
         ]);
         try {
 
@@ -162,6 +165,40 @@ class SettingController extends Controller
                 //resize and save to server
                 Image::make($image->getRealPath())->save($folder_path.$image_new_name);
                 update_static_option('special_product_image',$folder_path.$image_new_name);
+            }
+
+        }catch (\Exception $exception){
+            return back()->withErrors( 'Something went wrong !'.$exception->getMessage());
+        }
+        return back()->withSuccess('Updated successfully!');
+    }
+
+    // offer Static Option Update
+    public function offerStaticOptionUpdate(Request $request){
+        $request->validate([
+
+            'offer_highlight' => 'nullable|min:3',
+            'offer_percentage' => 'nullable|min:3',
+            'offer_description' => 'nullable|min:3',
+            'offer_deadline' => 'nullable',
+            'offer_image' => 'nullable|image',
+        ]);
+        try {
+
+            update_static_option('offer_highlight', $request->offer_highlight);
+            update_static_option('offer_percentage', $request->offer_percentage);
+            update_static_option('offer_description', $request->offer_description);
+            update_static_option('offer_deadline', $request->offer_deadline);
+
+            if($request->hasFile('offer_image')){
+                if (get_static_option('offer_image') != null)
+                    File::delete(public_path(get_static_option('offer_image'))); //Old image delete
+                $image             = $request->file('offer_image');
+                $folder_path       = 'uploads/images/website/';
+                $image_new_name    = Str::random(20).'-'.now()->timestamp.'.'.$image->getClientOriginalExtension();
+                //resize and save to server
+                Image::make($image->getRealPath())->save($folder_path.$image_new_name);
+                update_static_option('offer_image',$folder_path.$image_new_name);
             }
 
         }catch (\Exception $exception){

@@ -24,5 +24,9 @@ class DatabaseSeeder extends Seeder
         $this->call(WebsitePromotionSeeder::class);
         $this->call(SpecialProductSeeder::class);
         $this->call(GlobalImagesSeeder::class);
+        $this->call(GlobalImagesSeeder::class);
+        $this->call(UserSeeder::class);
+        $this->call(BlogSeeder::class);
+        $this->call(PartnerSeeder::class);
     }
 }

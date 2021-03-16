@@ -29,7 +29,6 @@ class StaticOptionSeeder extends Seeder
         set_static_option('company_instagram_link', 'https://www.instagram.com/');
         set_static_option('custom_head_code', null);
         set_static_option('custom_foot_code', null);
-
         set_static_option('footer_credit', 'lorem ipsum Footer credit ....');
 
         set_static_option('banner_highlight', 'Welcome To ...');
@@ -47,6 +46,11 @@ class StaticOptionSeeder extends Seeder
         set_static_option('special_product_title','We are o.........' );
         set_static_option('special_product_image', null );
 
+        set_static_option('offer_highlight','Special Offers' );
+        set_static_option('offer_percentage','Get 50% off' );
+        set_static_option('offer_description','YOUR ORDER OF $500 OR MORE' );
+        set_static_option('offer_deadline',null );
+        set_static_option('offer_image', null );
 
     }
 }

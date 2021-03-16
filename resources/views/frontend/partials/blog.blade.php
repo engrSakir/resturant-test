@@ -7,212 +7,29 @@
         <div class="blog-slider">
             <div class="blog-item">
                 <div class="row">
-                    <div class="col-md-4">
-                        <div class="tr-post">
-                            <div class="entry-header">
-                                <div class="entry-thumbnail">
-                                    <a href="blog-details.html"><img src="images/blog/1.jpg" alt="Image"
-                                            class="img-fluid"></a>
+                    @foreach ($blogs as $blog)
+                        <div class="col-md-4">
+                            <div class="tr-post">
+                                <div class="entry-header">
+                                    <div class="entry-thumbnail">
+                                        <a href="blog-details.html"><img src="{{ asset($blog->image ?? get_static_option('no_image')) }}" alt="Image" class="img-fluid"></a>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="entry-content">
-                                <div class="entry-meta">
-                                    <ul class="global-list">
-                                        <li><a href="#">Jhon Doe</a></li>
-                                        <li><a href="#">3 Comments</a></li>
-                                    </ul>
+                                <div class="entry-content">
+                                    <div class="entry-meta">
+                                        <ul class="global-list">
+                                            @if ($blog->writer)
+                                                <li>{{ $blog->writer->name }}</li>
+                                            @endif
+                                            <li>{{ $blog->created_at->format('D-d/m/Y') }}</li>
+                                        </ul>
+                                    </div>
+                                    <h2 class="entry-title"><a href="blog-details.html">{{ $blog->title }}</a></h2>
+                                    <p>{!! $blog->description !!}</p>
                                 </div>
-                                <h2 class="entry-title"><a href="blog-details.html">15 Best fruits for your healthy
-                                        hair & skin.</a></h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra pellentesque
-                                    urna varius vitae. Sed dui lorem, adipiscing... </p>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="tr-post">
-                            <div class="entry-header">
-                                <div class="entry-thumbnail">
-                                    <a href="blog-details.html"><img src="images/blog/2.jpg" alt="Image"
-                                            class="img-fluid"></a>
-                                </div>
-                            </div>
-                            <div class="entry-content">
-                                <div class="entry-meta">
-                                    <ul class="global-list">
-                                        <li><a href="#">Jhon Doe</a></li>
-                                        <li><a href="#">3 Comments</a></li>
-                                    </ul>
-                                </div>
-                                <h2 class="entry-title"><a href="blog-details.html">15 Best fruits for your healthy
-                                        hair & skin.</a></h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra pellentesque
-                                    urna varius vitae. Sed dui lorem, adipiscing... </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="tr-post">
-                            <div class="entry-header">
-                                <div class="entry-thumbnail">
-                                    <a href="blog-details.html"><img src="images/blog/3.jpg" alt="Image"
-                                            class="img-fluid"></a>
-                                </div>
-                            </div>
-                            <div class="entry-content">
-                                <div class="entry-meta">
-                                    <ul class="global-list">
-                                        <li><a href="#">Jhon Doe</a></li>
-                                        <li><a href="#">3 Comments</a></li>
-                                    </ul>
-                                </div>
-                                <h2 class="entry-title"><a href="blog-details.html">15 Best fruits for your healthy
-                                        hair & skin.</a></h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra pellentesque
-                                    urna varius vitae. Sed dui lorem, adipiscing... </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="blog-item">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="tr-post">
-                            <div class="entry-header">
-                                <div class="entry-thumbnail">
-                                    <a href="blog-details.html"><img src="images/blog/1.jpg" alt="Image"
-                                            class="img-fluid"></a>
-                                </div>
-                            </div>
-                            <div class="entry-content">
-                                <div class="entry-meta">
-                                    <ul class="global-list">
-                                        <li><a href="#">Jhon Doe</a></li>
-                                        <li><a href="#">3 Comments</a></li>
-                                    </ul>
-                                </div>
-                                <h2 class="entry-title"><a href="blog-details.html">15 Best fruits for your healthy
-                                        hair & skin.</a></h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra pellentesque
-                                    urna varius vitae. Sed dui lorem, adipiscing... </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="tr-post">
-                            <div class="entry-header">
-                                <div class="entry-thumbnail">
-                                    <a href="blog-details.html"><img src="images/blog/2.jpg" alt="Image"
-                                            class="img-fluid"></a>
-                                </div>
-                            </div>
-                            <div class="entry-content">
-                                <div class="entry-meta">
-                                    <ul class="global-list">
-                                        <li><a href="#">Jhon Doe</a></li>
-                                        <li><a href="#">3 Comments</a></li>
-                                    </ul>
-                                </div>
-                                <h2 class="entry-title"><a href="blog-details.html">15 Best fruits for your healthy
-                                        hair & skin.</a></h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra pellentesque
-                                    urna varius vitae. Sed dui lorem, adipiscing... </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="tr-post">
-                            <div class="entry-header">
-                                <div class="entry-thumbnail">
-                                    <a href="blog-details.html"><img src="images/blog/3.jpg" alt="Image"
-                                            class="img-fluid"></a>
-                                </div>
-                            </div>
-                            <div class="entry-content">
-                                <div class="entry-meta">
-                                    <ul class="global-list">
-                                        <li><a href="#">Jhon Doe</a></li>
-                                        <li><a href="#">3 Comments</a></li>
-                                    </ul>
-                                </div>
-                                <h2 class="entry-title"><a href="blog-details.html">15 Best fruits for your healthy
-                                        hair & skin.</a></h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra pellentesque
-                                    urna varius vitae. Sed dui lorem, adipiscing... </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="blog-item">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="tr-post">
-                            <div class="entry-header">
-                                <div class="entry-thumbnail">
-                                    <a href="blog-details.html"><img src="images/blog/1.jpg" alt="Image"
-                                            class="img-fluid"></a>
-                                </div>
-                            </div>
-                            <div class="entry-content">
-                                <div class="entry-meta">
-                                    <ul class="global-list">
-                                        <li><a href="#">Jhon Doe</a></li>
-                                        <li><a href="#">3 Comments</a></li>
-                                    </ul>
-                                </div>
-                                <h2 class="entry-title"><a href="blog-details.html">15 Best fruits for your healthy
-                                        hair & skin.</a></h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra pellentesque
-                                    urna varius vitae. Sed dui lorem, adipiscing... </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="tr-post">
-                            <div class="entry-header">
-                                <div class="entry-thumbnail">
-                                    <a href="blog-details.html"><img src="images/blog/2.jpg" alt="Image"
-                                            class="img-fluid"></a>
-                                </div>
-                            </div>
-                            <div class="entry-content">
-                                <div class="entry-meta">
-                                    <ul class="global-list">
-                                        <li><a href="#">Jhon Doe</a></li>
-                                        <li><a href="#">3 Comments</a></li>
-                                    </ul>
-                                </div>
-                                <h2 class="entry-title"><a href="blog-details.html">15 Best fruits for your healthy
-                                        hair & skin.</a></h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra pellentesque
-                                    urna varius vitae. Sed dui lorem, adipiscing... </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="tr-post">
-                            <div class="entry-header">
-                                <div class="entry-thumbnail">
-                                    <a href="blog-details.html"><img src="images/blog/3.jpg" alt="Image"
-                                            class="img-fluid"></a>
-                                </div>
-                            </div>
-                            <div class="entry-content">
-                                <div class="entry-meta">
-                                    <ul class="global-list">
-                                        <li><a href="#">Jhon Doe</a></li>
-                                        <li><a href="#">3 Comments</a></li>
-                                    </ul>
-                                </div>
-                                <h2 class="entry-title"><a href="blog-details.html">15 Best fruits for your healthy
-                                        hair & skin.</a></h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra pellentesque
-                                    urna varius vitae. Sed dui lorem, adipiscing... </p>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>

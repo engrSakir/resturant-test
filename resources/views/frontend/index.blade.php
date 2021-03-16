@@ -14,8 +14,6 @@
 
     @include('frontend.partials.offer')
 
-    @include('frontend.partials.products-two')
-
     @include('frontend.partials.blog')
 
     @include('frontend.partials.brand')

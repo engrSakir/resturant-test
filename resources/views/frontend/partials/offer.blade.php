@@ -3,14 +3,14 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="cta-image">
-                    <img src="images/others/cta-image.png" alt="Image" class="img-fluid">
+                    <img src="{{ asset(get_static_option('offer_image') ?? get_static_option('no_image') ) }}" alt="Image" class="img-fluid">
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="cta-info">
-                    <h1>Special Offers</h1>
-                    <h2>Get 50% off</h2>
-                    <h3>your order of $500 or more</h3>
+                    <h1>{{ get_static_option('offer_highlight') }}</h1>
+                    <h2>{{ get_static_option('offer_percentage') }}</h2>
+                    <h3>{{ get_static_option('offer_description') }}</h3>
                     <ul class="countdown global-list">
                         <li>
                             <span class="days">00</span>
