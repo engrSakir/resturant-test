@@ -72,6 +72,7 @@ class BlogController extends Controller
         $blog->title    =   $request->title;
         $blog->is_active    =  $request->status;
         $blog->description    =  $request->description;
+        $blog->slug    =  time().'-'.Str::random(12);
         $blog->writer_id    =  1;
 
         if($request->hasFile('image')){

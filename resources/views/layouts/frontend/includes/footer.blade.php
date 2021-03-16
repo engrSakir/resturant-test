@@ -23,8 +23,8 @@
                     <div class="footer-widget">
                         <h3>Quick Link</h3>
                         <ul class="global-list">
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Search</a></li>
+                            <li><a href="{{ route('frontend.index') }}">Home</a></li>
+                            <li><a href="{{ route('frontend.contactUs') }}">Contact us</a></li>
                             <li><a href="#">Consultant</a></li>
                             <li><a href="#">Help & FAQs</a></li>
                             <li><a href="#">Locations & Store</a></li>
@@ -44,6 +44,8 @@
                     </div>
                 </div>
                 <div class="col-md-5 col-lg-4">
+
+
                     <div class="footer-widget">
                         <h3>Get Newsletter</h3>
                         <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium</p>

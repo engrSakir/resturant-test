@@ -39,6 +39,11 @@ class SettingController extends Controller
         return view('backend.setting.offer');
     }
 
+    // blog Static Form
+    public function blogStaticForm(){
+        return view('backend.setting.blog');
+    }
+
     // update static option
     public function generalStaticUpdate(Request $request){
         $request->validate([
@@ -201,6 +206,21 @@ class SettingController extends Controller
                 update_static_option('offer_image',$folder_path.$image_new_name);
             }
 
+        }catch (\Exception $exception){
+            return back()->withErrors( 'Something went wrong !'.$exception->getMessage());
+        }
+        return back()->withSuccess('Updated successfully!');
+    }
+    // blog Static Option Update
+    public function blogStaticOptionUpdate(Request $request){
+        $request->validate([
+
+            'blog_highlight' => 'nullable|min:3',
+            'blog_title' => 'nullable|min:3',
+        ]);
+        try {
+            update_static_option('blog_highlight', $request->blog_highlight);
+            update_static_option('blog_title', $request->blog_title);
         }catch (\Exception $exception){
             return back()->withErrors( 'Something went wrong !'.$exception->getMessage());
         }

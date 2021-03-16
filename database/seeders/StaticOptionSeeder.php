@@ -48,9 +48,11 @@ class StaticOptionSeeder extends Seeder
 
         set_static_option('offer_highlight','Special Offers' );
         set_static_option('offer_percentage','Get 50% off' );
-        set_static_option('offer_description','YOUR ORDER OF $500 OR MORE' );
-        set_static_option('offer_deadline',null );
+        set_static_option('offer_description','YOUR ORDER OF $500 OR MORE' );        set_static_option('offer_deadline',null );
         set_static_option('offer_image', null );
+
+        set_static_option('blog_highlight', 'From our press' );
+        set_static_option('blog_title', 'latest News & Blogs' );
 
     }
 }

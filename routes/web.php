@@ -31,6 +31,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [FrontendController::class, 'index'])->name('frontend.index');
 Route::get('/contact-us', [FrontendController::class, 'contactUs'])->name('frontend.contactUs');
+Route::get('/blog-detail/{slug}', [FrontendController::class, 'blogDetail'])->name('frontend.blogDetail');
+Route::get('/blogs', [FrontendController::class, 'blogs'])->name('frontend.blogs');
 Route::post('/contact-us-store', [FrontendController::class, 'contactUsStore'])->name('frontend.contactUsStore');
 
 Route::resource('/branch', BranchController::class);
@@ -39,12 +41,16 @@ Route::get('/seo-static-option-form', [SettingController::class, 'seoStaticOptio
 Route::get('/social-link-static-form', [SettingController::class, 'socialLinkStaticForm'])->name('socialLinkStaticForm');
 Route::get('/special-product-static-form', [SettingController::class, 'specialProductStaticForm'])->name('specialProductStaticForm');
 Route::get('/offer-static-form', [SettingController::class, 'offerStaticForm'])->name('offerStaticForm');
+Route::get('/blog-static-form', [SettingController::class, 'blogStaticForm'])->name('blogStaticForm');
 Route::get('/website-banner-form', [SettingController::class, 'websiteBannerForm'])->name('websiteBannerForm');
+
+
 Route::post('/general-static-option-update', [SettingController::class, 'generalStaticUpdate'])->name('generalStaticUpdate');
 Route::post('/seo-static-option-update', [SettingController::class, 'seoStaticOptionUpdate'])->name('seoStaticOptionUpdate');
 Route::post('/social-link-static-option-update', [SettingController::class, 'sociallinkStaticOptionUpdate'])->name('sociallinkStaticOptionUpdate');
 Route::post('/special-product-static-option-update', [SettingController::class, 'specialProductStaticOptionUpdate'])->name('specialProductStaticOptionUpdate');
 Route::post('/offer-static-option-update', [SettingController::class, 'offerStaticOptionUpdate'])->name('offerStaticOptionUpdate');
+Route::post('/blog-static-option-update', [SettingController::class, 'blogStaticOptionUpdate'])->name('blogStaticOptionUpdate');
 Route::post('/website-banner-update', [SettingController::class, 'websiteBannerUpdate'])->name('websiteBannerUpdate');
 
 Route::group(['middleware' => 'branch'], function () {

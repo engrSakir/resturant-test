@@ -1,9 +1,11 @@
 <div class="tr-blog section-padding section-bg-white">
     <div class="container">
-        <div class="section-title">
-            <h1>From our press</h1>
-            <h2>latest News & <strong>Blogs</strong></h2>
-        </div>
+        @if (Request::route('frontend.index'))
+            <div class="section-title">
+                <h1>{{ get_static_option('blog_highlight') }}</h1>
+                <h2>{{ get_static_option('blog_title') }}</h2>
+            </div>
+        @endif
         <div class="blog-slider">
             <div class="blog-item">
                 <div class="row">
@@ -12,7 +14,9 @@
                             <div class="tr-post">
                                 <div class="entry-header">
                                     <div class="entry-thumbnail">
-                                        <a href="blog-details.html"><img src="{{ asset($blog->image ?? get_static_option('no_image')) }}" alt="Image" class="img-fluid"></a>
+                                        <a href="{{ route('frontend.blogDetail', $blog->slug) }}"><img
+                                                src="{{ asset($blog->image ?? get_static_option('no_image')) }}"
+                                                alt="Image" class="img-fluid"></a>
                                     </div>
                                 </div>
                                 <div class="entry-content">
@@ -24,7 +28,9 @@
                                             <li>{{ $blog->created_at->format('D-d/m/Y') }}</li>
                                         </ul>
                                     </div>
-                                    <h2 class="entry-title"><a href="blog-details.html">{{ $blog->title }}</a></h2>
+                                    <h2 class="entry-title"><a
+                                            href="{{ route('frontend.blogDetail', $blog->slug) }}">{{ $blog->title }}</a>
+                                    </h2>
                                     <p>{!! $blog->description !!}</p>
                                 </div>
                             </div>

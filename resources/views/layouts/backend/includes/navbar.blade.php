@@ -23,6 +23,7 @@
                                     link</a></li>
                             <li><a href="{{ route('specialProductStaticForm') }}"><i class="mdi mdi-circle"></i>Special product</a></li>
                             <li><a href="{{ route('offerStaticForm') }}"><i class="mdi mdi-circle"></i>Special offer</a></li>
+                            <li><a href="{{ route('blogStaticForm') }}"><i class="mdi mdi-circle"></i>Blog</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
@@ -62,7 +63,8 @@
                             <li><a href="{{ route('specialProduct.create') }}"><i class="mdi mdi-circle"></i>Special product create</a></li>
                             <li><a href="{{ route('blog.index') }}"><i class="mdi mdi-circle"></i>Blog list</a></li>
                             <li><a href="{{ route('blog.create') }}"><i class="mdi mdi-circle"></i>Blog create</a></li>
-                            <li><a href="{{ route('partner.index') }}"><i class="mdi mdi-circle"></i>Partner</a></li>
+                            <li><a href="{{ route('partner.create') }}"><i class="mdi mdi-circle"></i>Partner create</a></li>
+                            <li><a href="{{ route('partner.index') }}"><i class="mdi mdi-circle"></i>Partner list</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
