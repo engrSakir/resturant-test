@@ -65,7 +65,8 @@
                             <div class="row">
                                 <!-- Start col -->
                                 @foreach ($product_category->products as $product)
-                                    <div class="col-md-6 col-lg-6 col-xl-3 text-center product-items mb-3" onclick="checkVariations({{ $product->id }})">
+                                    <div class="col-md-6 col-lg-6 col-xl-3 text-center product-items mb-3"
+                                        onclick="checkVariations({{ $product->id }})">
                                         <div class="card text-center">
                                             <img class="card-img-top"
                                                 src="{{ asset($product->image ?? 'assets/backend/images/ui-cards/ui-cards-1.jpg') }}"
@@ -163,25 +164,26 @@
     <!-- End Contentbar -->
 
     <!-- Modal -->
-<div class="modal fade" id="modal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+    <div class="modal fade" id="modal" data-backdrop="static" tabindex="-1" role="dialog"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Understood</button>
+                </div>
+            </div>
         </div>
-        <div class="modal-body" id="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Understood</button>
-        </div>
-      </div>
     </div>
-  </div>
 
 @endsection
 @push('script')
@@ -246,48 +248,51 @@
 
         //Get Variations Of This Product
         function getVariationsOfThisProduct(id) {
-            $.getJSON('/get-variations-by-product/'+id, function (data) {
+            $.getJSON('/get-variations-by-product/' + id, function(data) {
                 // console.log(data.variation_categories.length)
-                if(data.variation_categories.length > 0){
+                if (data.variation_categories.length > 0) {
                     //if has variation categories more than zero
                     $('#modal').modal('show');
                     var ready_table = '';
-                    data.variation_categories.forEach(function(variation_category){
-                        ready_table += ''+
-                        ' <div class="card m-b-30">'+
-                        '<div class="card-header">'+
-                        ' <h5 class="card-title bg-danger">'+variation_category.name+'</h5>'+
-                        '</div>'+
-                        ' <div class="card-body">'+
-                        '<div class="table-responsive">'+
-                        '<table class="table">'+
-                        '<thead>'+
-                        ' <tr>'+
-                        ' <th scope="col">Name</th>'+
-                        '<th scope="col">QT</th>'+
-                        ' <th scope="col">Price</th>'+
-                        ' </tr>'+
-                        '</thead>'+
-                        '<tbody>'+
-                            variation_category.variations.forEach(function(variation){
-                                '<tr>'+
-                                console.log(variation.name)
-                                console.log(variation.price)
+                    var tr = "";
+                    data.variation_categories.forEach(function(variation_category) {
+                        variation_category.variations.forEach(function(variation){
+                            tr +='<tr class="bg-ganger">'+
                                 '<td>'+variation.name+'</td>'+
-
-                                '</tr>'
+                                '<td>QT</td>'+
+                                '<td>'+variation.price+'</td>'+
+                                '</tr>';
                             });
-                        '</tbody>'+
-                        '</table>'+
-                        '</div>'+
-                        '</div>'+
-                        ' </div>';
+                        //If has variations than show variation caregory name
+                        if( variation_category.variations.length > 0){
+                        ready_table += '' +
+                            '<div class="card m-b-30">' +
+                                '<div class="card-header bg-danger">' +
+                                    '<h5 class="card-title">' + variation_category.name + '</h5>' +
+                                '</div>' +
+                                '<div class="card-body">' +
+                                    '<div class="table-responsive">' +
+                                        '<table class="table">' +
+                                            '<thead>' +
+                                                '<tr>' +
+                                                    '<th scope="col">Name</th>' +
+                                                    '<th scope="col">QT</th>' +
+                                                    '<th scope="col">Price</th>' +
+                                                '</tr>' +
+                                            '</thead>' +
+                                            '<tbody>' +
+                                                tr +
+                                            '</tbody>' +
+                                        '</table>' +
+                                    '</div>' +
+                                '</div>' +
+                            '</div>';
+                        }
                     });
                     $('#modal-body').html(ready_table);
                 }
             });
         }
-
 
     </script>
 @endpush
