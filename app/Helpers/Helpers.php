@@ -78,6 +78,10 @@ if (!function_exists('random_code')){
         return GlobalImages::all();
     }
 
+    function custom_pages(){
+        return \App\Models\CustomPage::all();
+    }
+
     function website_incomplete_messages(){
         return \App\Models\ContactUs::where('is_process_complete', false)->count();
     }

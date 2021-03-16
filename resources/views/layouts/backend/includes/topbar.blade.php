@@ -10,7 +10,7 @@
                         <ul class="list-inline mb-0">
                             <li class="list-inline-item">
                                 <div class="logobar">
-                                    <a href="{{url('template/')}}" class="logo-small"><img width="50px" src="{{ asset(get_static_option('backend_logo') ?? get_static_option('no_image')) }}" class="img-fluid" alt="logo"></a>
+                                    <a href="{{route('pos')}}" class="logo-small"><img width="50px" src="{{ asset(get_static_option('backend_logo') ?? get_static_option('no_image')) }}" class="img-fluid" alt="logo"></a>
                                 </div>
                             </li>
                             <li class="list-inline-item">

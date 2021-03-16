@@ -3,7 +3,7 @@
     <div class="row align-items-center">
         <div class="col-md-12">
             <div class="mobile-logobar">
-                <a href="{{ url('template/') }}" class="mobile-logo"><img width="120px;" height="30px;" src="{{ asset(get_static_option('backend_logo') ?? get_static_option('no_image')) }}"
+                <a href="{{ route('pos') }}" class="mobile-logo"><img width="120px;" height="30px;" src="{{ asset(get_static_option('backend_logo') ?? get_static_option('no_image')) }}"
                         class="img-fluid" alt="logo"></a>
             </div>
             <div class="mobile-togglebar">

@@ -16,6 +16,7 @@ use App\Http\Controllers\VariationController;
 use App\Http\Controllers\WebsiteBannerController;
 use App\Http\Controllers\WebsiteMessageController;
 use App\Http\Controllers\WebsitePromotionController;
+use App\Http\Controllers\CustomPageController;
 use App\Models\ProductCategory;
 use Illuminate\Support\Facades\Route;
 
@@ -65,8 +66,9 @@ Route::group(['middleware' => 'branch'], function () {
     Route::resource('/product', ProductController::class);
     Route::resource('/blog', BlogController::class);
     Route::resource('/partner', PartnerController::class);
-    Route::resource('/gallery', GalleryController::class);
     Route::resource('/variation', VariationController::class);
+    Route::resource('/gallery', GalleryController::class);
+    Route::resource('/customPage', CustomPageController::class);
     Route::resource('/variationCategory', VariationCategoryController::class);
 
     // create blade
