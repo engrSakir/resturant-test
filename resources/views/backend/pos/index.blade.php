@@ -66,7 +66,7 @@
                                 <!-- Start col -->
                                 @foreach ($product_category->products as $product)
                                     <div class="col-md-6 col-lg-6 col-xl-3 text-center product-items mb-3"
-                                        onclick="checkVariations({{ $product->id }})">
+                                        onclick="getVariationsOfThisProduct({{ $product->id }})">
                                         <div class="card text-center">
                                             <img class="card-img-top"
                                                 src="{{ asset($product->image ?? 'assets/backend/images/ui-cards/ui-cards-1.jpg') }}"
@@ -125,14 +125,8 @@
                                     </table>
                                     <hr>
                                     <div class="card-body">
-                                        <div class="input-group mb-3">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text" id="basic-addon3"
-                                                    style="background-color: #752323">Paid Amount</span>
-                                            </div>
-                                            <input type="text" class="form-control" id="paid_amount"
-                                                aria-describedby="basic-addon3">
-                                        </div>
+
+
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text" id="basic-addon3">Name</span>
@@ -233,10 +227,58 @@
             }
         }
 
-        //checkVariations
-        function checkVariations(id) {
-            getVariationsOfThisProduct(id);
+        //Add selected items in table for calculation with variation
+        function addItemWithVariation(product_id, variation_id) {
+            if ($("#table-variation-id-" + variation_id).length > 0) {
+
+                document.getElementById('table-variation-id-qty-' + variation_id).innerHTML = parseInt(document.getElementById(
+                    'table-variation-id-qty-' + variation_id).innerHTML) + 1;
+
+                // Auto update price with incease quantity
+                document.getElementById("table-variation-id-price-" + variation_id).innerHTML =
+                    parseInt(document.getElementById('table-variation-id-unit-price-' + variation_id).innerHTML) *
+                    parseInt(document.getElementById('table-variation-id-qty-' + variation_id).innerHTML);
+                //Total calculate with increase
+                totalPrice()
+
+            } else {
+                //jQuery append row in table
+                $('#table-body').append('' +
+                    '' +
+                    '<tr  id="table-variation-id-' + variation_id + '">\n' +
+                    '                                        <td id="table-variation-id-qty-' + variation_id +
+                    '" style="text-align:center; vertical-align: middle">1</td>\n' +
+                    '                                        <td scope="row" id="table-variation-id-qty-btn-' + variation_id +
+                    '">' +
+                    '<button type="button" class="btn btn-round btn-outline-success" onclick="addItemWithVariation(' + product_id +','+variation_id+
+                    ')"><i class="feather icon-plus-circle"></i></button>' +
+                    '<button type="button" class="btn btn-round btn-outline-danger" onclick="removeItemWithVariation(' + variation_id +
+                    ')"><i class="feather icon-minus-circle"></i></button>' +
+                    '</td>\n' +
+                    '                                        <td id="table-variation-id-name-' + variation_id +
+                    '"> <input id="ids" type="hidden" value="' + variation_id + '">'+
+
+                     document.getElementById('item-name-id-' + product_id).innerHTML +
+                    '('+
+                     document.getElementById('variation-name-id-' + variation_id).innerHTML +
+                    ')'+
+
+                    '</td>\n' +
+                    '                                        <td id="table-variation-id-unit-price-' + variation_id +
+                    '">' + document.getElementById(
+                        'variation-per-unit-price-id-' + variation_id).innerHTML + '</td>\n' +
+                    '                                        <td id="table-variation-id-price-' + variation_id + '">' + document
+                        .getElementById(
+                            'variation-per-unit-price-id-' + variation_id).innerHTML + '</td>\n' +
+                    '                                    </tr>' +
+                    '' +
+                    '');
+                totalPrice()
+                // totalPriceWithVariation()
+
+            }
         }
+
 
         //Auto total Calculation
         function totalPrice(){
@@ -290,6 +332,47 @@
             }
         }
 
+        //Remove Item from table WithVariation
+        function removeItemWithVariation(variation_id){
+            if($("#table-variation-id-"+variation_id).length > 0)
+            {
+                if (parseInt(document.getElementById('table-variation-id-qty-'+variation_id).innerHTML) <= 1){
+                    Swal.fire({
+                        title: 'Are you sure?',
+                        text: "Do you want to remove this item !",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Yes, remove it!'
+                    }).then((result) => {
+                        if (result.value) {
+                            var row = document.getElementById('table-variation-id-'+variation_id+'');
+                            row.parentNode.removeChild(row);
+                            //Update total ptice
+                            totalPrice()
+                            Swal.fire(
+                                'Removed!',
+                                'Your item has been removed.',
+                                'success'
+                            )
+                        }
+                    })
+
+                }else{
+                    //Decrease quantity
+                    document.getElementById('table-variation-id-qty-'+variation_id).innerHTML = parseInt(document.getElementById('table-variation-id-qty-'+variation_id).innerHTML) - 1;
+                    // Auto update price with descrease quantity
+                    document.getElementById("table-variation-id-price-"+variation_id).innerHTML =
+                        parseInt(document.getElementById('table-variation-id-unit-price-'+variation_id).innerHTML)
+                        *
+                        parseInt(document.getElementById('table-variation-id-qty-'+variation_id).innerHTML);
+                    //Total calculate with descrease
+                    totalPrice()
+                }
+            }
+        }
+
         //Get Variations Of This Product
         function getVariationsOfThisProduct(id) {
             $.getJSON('/get-variations-by-product/' + id, function(data) {
@@ -303,14 +386,14 @@
                     data.variation_categories.forEach(function(variation_category) {
                         variation_category.variations.forEach(function(variation){
                             tr +='<tr class="bg-ganger">'+
-                                '<td>'+variation.name+'</td>'+
+                                '<td id="variation-name-id-'+variation.id+'">'+variation.name+'</td>'+
                                 '<td scope="col">'+
-                                '<button type="button" class="btn btn-round btn-outline-success" onclick="addItem(' + id +
+                                '<button type="button" class="btn btn-round btn-outline-success" onclick="addItemWithVariation(' + id +','+variation.id+
                                 ')"><i class="feather icon-plus-circle"></i></button>' +
-                                '<button type="button" class="btn btn-round btn-outline-danger" onclick="removeItem(' + id +
+                                '<button type="button" class="btn btn-round btn-outline-danger" onclick="removeItemWithVariation(' + variation.id +
                                 ')"><i class="feather icon-minus-circle"></i></button>' +
                                 '</td>' +
-                                '<td>'+variation.price+'</td>'+
+                                '<td id="variation-per-unit-price-id-'+variation.id+'">'+variation.price+'</td>'+
                                 '</tr>';
                             });
                         //If has variations than show variation caregory name
