@@ -188,30 +188,21 @@
 @endsection
 @push('script')
     <script>
+
         //Add selected items in table for calculation
         function addItem(id) {
 
             if ($("#table-item-id-" + id).length > 0) {
+                document.getElementById('table-item-id-qty-' + id).innerHTML = parseInt(document.getElementById(
+                    'table-item-id-qty-' + id).innerHTML) + 1;
 
-                if (parseInt(document.getElementById('item-quantity-id-' + id).innerHTML) > parseInt(document
-                        .getElementById('table-item-id-qty-' + id).innerHTML)) {
-                    document.getElementById('table-item-id-qty-' + id).innerHTML = parseInt(document.getElementById(
-                        'table-item-id-qty-' + id).innerHTML) + 1;
-                    // Auto update price with incease quantity
-                    document.getElementById("table-item-id-price-" + id).innerHTML =
-                        parseInt(document.getElementById('item-id-unit-price-' + id).value) *
-                        parseInt(document.getElementById('table-item-id-qty-' + id).innerHTML);
-                    //Total calculate with increase
-                    totalPrice()
+                // Auto update price with incease quantity
+                document.getElementById("table-item-id-price-" + id).innerHTML =
+                    parseInt(document.getElementById('table-item-id-unit-price-' + id).innerHTML) *
+                    parseInt(document.getElementById('table-item-id-qty-' + id).innerHTML);
+                //Total calculate with increase
+                totalPrice()
 
-                } else {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Oops...',
-                        text: 'There is no enough products!',
-                        footer: 'Please collect this item first.'
-                    })
-                }
             } else {
                 //jQuery append row in table
                 $('#table-body').append('' +
@@ -238,12 +229,65 @@
                     '                                    </tr>' +
                     '' +
                     '');
+                totalPrice()
             }
         }
 
         //checkVariations
         function checkVariations(id) {
             getVariationsOfThisProduct(id);
+        }
+
+        //Auto total Calculation
+        function totalPrice(){
+            var records = document.getElementById('table-body').rows, i, total = 0, price;
+            for (i = 0; i < records.length; i++) {
+                price = parseFloat(records[i].cells[4].innerHTML);
+                total += price;
+            }
+            total = total.toFixed(2);
+            document.getElementById('total-price').innerHTML = total;
+        }
+
+        //Remove Item from table
+        function removeItem(id){
+            if($("#table-item-id-"+id).length > 0)
+            {
+                if (parseInt(document.getElementById('table-item-id-qty-'+id).innerHTML) <= 1){
+                    Swal.fire({
+                        title: 'Are you sure?',
+                        text: "Do you want to remove this item !",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Yes, remove it!'
+                    }).then((result) => {
+                        if (result.value) {
+                            var row = document.getElementById('table-item-id-'+id+'');
+                            row.parentNode.removeChild(row);
+                            //Update total ptice
+                            totalPrice()
+                            Swal.fire(
+                                'Removed!',
+                                'Your item has been removed.',
+                                'success'
+                            )
+                        }
+                    })
+
+                }else{
+                    //Decrease quantity
+                    document.getElementById('table-item-id-qty-'+id).innerHTML = parseInt(document.getElementById('table-item-id-qty-'+id).innerHTML) - 1;
+                    // Auto update price with descrease quantity
+                    document.getElementById("table-item-id-price-"+id).innerHTML =
+                        parseInt(document.getElementById('table-item-id-unit-price-'+id).innerHTML)
+                        *
+                        parseInt(document.getElementById('table-item-id-qty-'+id).innerHTML);
+                    //Total calculate with descrease
+                    totalPrice()
+                }
+            }
         }
 
         //Get Variations Of This Product
@@ -260,7 +304,12 @@
                         variation_category.variations.forEach(function(variation){
                             tr +='<tr class="bg-ganger">'+
                                 '<td>'+variation.name+'</td>'+
-                                '<td>QT</td>'+
+                                '<td scope="col">'+
+                                '<button type="button" class="btn btn-round btn-outline-success" onclick="addItem(' + id +
+                                ')"><i class="feather icon-plus-circle"></i></button>' +
+                                '<button type="button" class="btn btn-round btn-outline-danger" onclick="removeItem(' + id +
+                                ')"><i class="feather icon-minus-circle"></i></button>' +
+                                '</td>' +
                                 '<td>'+variation.price+'</td>'+
                                 '</tr>';
                             });
@@ -303,11 +352,12 @@
                             hideClass: {
                                 popup: 'animate__animated animate__fadeOutUp'
                             }
-                            });
+                        });
                     }
+                }else{
+                    addItem(id);
                 }
             });
         }
-
     </script>
 @endpush
