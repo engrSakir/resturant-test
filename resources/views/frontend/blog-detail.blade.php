@@ -1,6 +1,6 @@
 @extends('layouts.frontend.app')
 @push('title')
-    Contact us
+    Blog details
 @endpush
 @section('content')
 <div class="tr-breadcrumb text-center bg-image" style="background-image: url({{ asset( get_static_option('breadcrumb_image') ?? 'assets/frontend/images/bg/breadcrumb-bg.jpg') }});">

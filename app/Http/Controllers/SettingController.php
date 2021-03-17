@@ -44,6 +44,16 @@ class SettingController extends Controller
         return view('backend.setting.blog');
     }
 
+    // gallery Static Form
+    public function galleryStaticForm(){
+        return view('backend.setting.gallery');
+    }
+
+    // other Static Form
+    public function otherStaticForm(){
+        return view('backend.setting.other');
+    }
+
     // app Static Form
     public function appStaticForm(){
         return view('backend.setting.application');
@@ -145,8 +155,6 @@ class SettingController extends Controller
             'company_twitter_link' => 'nullable|min:3',
             'company_youtube_link' => 'nullable|min:3',
             'company_instagram_link' => 'nullable|min:3',
-
-
         ]);
         try {
 
@@ -239,6 +247,39 @@ class SettingController extends Controller
         try {
             update_static_option('blog_highlight', $request->blog_highlight);
             update_static_option('blog_title', $request->blog_title);
+        }catch (\Exception $exception){
+            return back()->withErrors( 'Something went wrong !'.$exception->getMessage());
+        }
+        return back()->withSuccess('Updated successfully!');
+    }
+
+    // gallery Static Option Update
+    public function galleryStaticOptionUpdate(Request $request){
+        $request->validate([
+
+            'gallery_highlight' => 'nullable|min:3',
+            'gallery_title' => 'nullable|min:3',
+        ]);
+        try {
+            update_static_option('gallery_highlight', $request->gallery_highlight);
+            update_static_option('gallery_title', $request->gallery_title);
+        }catch (\Exception $exception){
+            return back()->withErrors( 'Something went wrong !'.$exception->getMessage());
+        }
+        return back()->withSuccess('Updated successfully!');
+    }
+
+    // other Static Option Update
+    public function otherStaticOptionUpdate(Request $request){
+        $request->validate([
+            'subscribe_title' => 'nullable|min:3',
+            'subscribe_description' => 'nullable|min:3',
+            'map_link' => 'nullable|min:3',
+        ]);
+        try {
+            update_static_option('subscribe_title', $request->subscribe_title);
+            update_static_option('subscribe_description', $request->subscribe_description);
+            update_static_option('map_link', $request->map_link);
         }catch (\Exception $exception){
             return back()->withErrors( 'Something went wrong !'.$exception->getMessage());
         }

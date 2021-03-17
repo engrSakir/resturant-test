@@ -79,7 +79,7 @@ if (!function_exists('random_code')){
     }
 
     function custom_pages(){
-        return \App\Models\CustomPage::all();
+        return \App\Models\CustomPage::orderBy('serial', 'asc')->get();
     }
 
     function website_incomplete_messages(){

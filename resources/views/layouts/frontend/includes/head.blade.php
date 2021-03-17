@@ -1,7 +1,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <meta name="keywords" content="{{ $meta_keywords ?? get_static_option('meta_keywords') }}">
 <meta name="description" content="{{ $meta_description ?? get_static_option('meta_description') }}">
 <meta name="author" content="{{ $meta_author ?? (get_static_option('meta_author') ?? config('app.name')) }}">
@@ -34,9 +34,9 @@
 <link rel="apple-touch-icon" sizes="57x57"
     href="{{ asset('assets/frontend/images/ico/apple-touch-icon-57-precomposed.png') }}">
 
-
-
 <!--[if lt IE 9]>
           <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
           <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+<!--====== AJAX ======-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

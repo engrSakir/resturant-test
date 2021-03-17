@@ -13,7 +13,7 @@ use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SpecialProductController;
 use App\Http\Controllers\VariationCategoryController;
 use App\Http\Controllers\VariationController;
-use App\Http\Controllers\WebsiteBannerController;
+use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\WebsiteMessageController;
 use App\Http\Controllers\WebsitePromotionController;
 use App\Http\Controllers\CustomPageController;
@@ -35,8 +35,10 @@ Route::get('/', [FrontendController::class, 'index'])->name('frontend.index');
 Route::get('/contact-us', [FrontendController::class, 'contactUs'])->name('frontend.contactUs');
 Route::get('/blog-detail/{slug}', [FrontendController::class, 'blogDetail'])->name('frontend.blogDetail');
 Route::get('/blogs', [FrontendController::class, 'blogs'])->name('frontend.blogs');
+Route::get('/page/{slug}', [FrontendController::class, 'customPage'])->name('frontend.customPage');
 Route::get('/images', [FrontendController::class, 'images'])->name('frontend.images');
 Route::post('/contact-us-store', [FrontendController::class, 'contactUsStore'])->name('frontend.contactUsStore');
+Route::post('/subscribe/store', [FrontendController::class, 'subscribeStore'])->name('frontend.subscribeStore');
 
 Route::resource('/branch', BranchController::class);
 Route::get('/get-general-static-option-form', [SettingController::class, 'getGeneralStaticForm'])->name('getGeneralStaticForm');
@@ -46,6 +48,8 @@ Route::get('/special-product-static-form', [SettingController::class, 'specialPr
 Route::get('/offer-static-form', [SettingController::class, 'offerStaticForm'])->name('offerStaticForm');
 Route::get('/app-static-form', [SettingController::class, 'appStaticForm'])->name('appStaticForm');
 Route::get('/blog-static-form', [SettingController::class, 'blogStaticForm'])->name('blogStaticForm');
+Route::get('/gallery-static-form', [SettingController::class, 'galleryStaticForm'])->name('galleryStaticForm');
+Route::get('/other-static-form', [SettingController::class, 'otherStaticForm'])->name('otherStaticForm');
 Route::get('/website-banner-form', [SettingController::class, 'websiteBannerForm'])->name('websiteBannerForm');
 
 
@@ -55,6 +59,8 @@ Route::post('/social-link-static-option-update', [SettingController::class, 'soc
 Route::post('/special-product-static-option-update', [SettingController::class, 'specialProductStaticOptionUpdate'])->name('specialProductStaticOptionUpdate');
 Route::post('/offer-static-option-update', [SettingController::class, 'offerStaticOptionUpdate'])->name('offerStaticOptionUpdate');
 Route::post('/blog-static-option-update', [SettingController::class, 'blogStaticOptionUpdate'])->name('blogStaticOptionUpdate');
+Route::post('/gallery-static-option-update', [SettingController::class, 'galleryStaticOptionUpdate'])->name('galleryStaticOptionUpdate');
+Route::post('/other-static-option-update', [SettingController::class, 'otherStaticOptionUpdate'])->name('otherStaticOptionUpdate');
 Route::post('/app-static-option-update', [SettingController::class, 'appStaticOptionUpdate'])->name('appStaticOptionUpdate');
 Route::post('/website-banner-update', [SettingController::class, 'websiteBannerUpdate'])->name('websiteBannerUpdate');
 
@@ -68,6 +74,7 @@ Route::group(['middleware' => 'branch'], function () {
     Route::resource('/partner', PartnerController::class);
     Route::resource('/variation', VariationController::class);
     Route::resource('/gallery', GalleryController::class);
+    Route::resource('/subscriber', SubscriberController::class);
     Route::resource('/customPage', CustomPageController::class);
     Route::resource('/variationCategory', VariationCategoryController::class);
 

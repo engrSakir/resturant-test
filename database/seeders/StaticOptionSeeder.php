@@ -55,5 +55,12 @@ class StaticOptionSeeder extends Seeder
         set_static_option('blog_highlight', 'From our press' );
         set_static_option('blog_title', 'latest News & Blogs' );
 
+        set_static_option('gallery_title', 'Gallery title...' );
+        set_static_option('gallery_highlight', 'Gallery highlight...' );
+
+        set_static_option('map_link', null);
+        set_static_option('subscribe_title', 'Get Newsletter..' );
+        set_static_option('subscribe_description', 'lorem ipsum subscribe description ....' );
+
     }
 }

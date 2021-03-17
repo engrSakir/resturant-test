@@ -14,7 +14,10 @@
     <div class="main-content bg-color">
         <div class="tr-map">
             <div class="container">
-                <div id="gmap"></div>
+                <!-- contact-map area start -->
+                    <iframe src="{{ get_static_option('map_link') ?? 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.0133007741124!2d90.36988341434908!3d23.78254069346602!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c1bb07d0e771%3A0x127069c31b3f2ad7!2sDATATECH%20BD%20LTD.!5e0!3m2!1sbn!2sbd!4v1615650025797!5m2!1sbn!2sbd' }}"
+                            style="border:0;" allowfullscreen=""></iframe>
+                <!-- contact-map area end -->
             </div>
         </div>
         <div class="tr-contact">

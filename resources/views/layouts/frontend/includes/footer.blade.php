@@ -24,37 +24,33 @@
                         <h3>Quick Link</h3>
                         <ul class="global-list">
                             <li><a href="{{ route('frontend.index') }}">Home</a></li>
+                            <li><a href="{{ route('frontend.images') }}">Gallery</a></li>
                             <li><a href="{{ route('frontend.blogs') }}">Blogs</a></li>
                             <li><a href="{{ route('frontend.contactUs') }}">Contact us</a></li>
-                            <li><a href="#">Locations & Store</a></li>
-                            <li><a href="#">News</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-md-2 col-lg-3">
                     <div class="footer-widget">
-                        <h3>Product</h3>
+                        <h3>About</h3>
                         <ul class="global-list">
-                            <li><a href="#">Vegetable</a></li>
-                            <li><a href="#">Organic Juice</a></li>
-                            <li><a href="#">Fruit</a></li>
-                            <li><a href="#">Harbal Drug</a></li>
+                            @foreach(custom_pages()->where('status', true) as $page)
+                                <li><a href="{{ route('frontend.customPage', $page->slug) }}">{{ $page->name }}</a></li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
                 <div class="col-md-5 col-lg-4">
-
-
                     <div class="footer-widget">
-                        <h3>Get Newsletter</h3>
-                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium</p>
-                        <form method="post" action="#">
+                        <h3>{{ get_static_option('subscribe_title') }}</h3>
+                        <p>{{ get_static_option('subscribe_description') }}</p>
+                        <form>
                             <div class="form-group">
-                                <input type="email" class="form-control" required="required"
+                                <input id="subscribe-email" type="email" class="form-control" required="required"
                                     placeholder="Enter Your Email Address">
                             </div>
                             <div class="form-group">
-                                <input type="submit" class="btn btn-primary">
+                                <input type="button" class="btn btn-primary subscribe-now-btn">
                             </div>
                         </form>
                     </div>
