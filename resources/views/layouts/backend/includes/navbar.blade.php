@@ -127,6 +127,15 @@
                     <li class="dropdown">
                         <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><img
                                 src="assets/backend/images/svg-icon/apps.svg" class="img-fluid"
+                                alt="apps"><span>Expense</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ route('expenseCategory.index') }}"><i class="mdi mdi-circle"></i>Expense Category</a></li>
+                            <li><a href="{{ route('expense.index') }}"><i class="mdi mdi-circle"></i>Expense </a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><img
+                                src="assets/backend/images/svg-icon/apps.svg" class="img-fluid"
                                 alt="apps"><span>Apps</span></a>
                         <ul class="dropdown-menu">
                             <li><a href="{{ url('template/apps-calender') }}"><i

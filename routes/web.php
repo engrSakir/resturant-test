@@ -17,7 +17,9 @@ use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\WebsiteMessageController;
 use App\Http\Controllers\WebsitePromotionController;
 use App\Http\Controllers\CustomPageController;
-use App\Http\Controllers\faqController;
+use App\Http\Controllers\FaqController;
+use App\Http\Controllers\ExpenseCategoryController;
+use App\Http\Controllers\ExpenseController;
 use App\Models\ProductCategory;
 use Illuminate\Support\Facades\Route;
 
@@ -80,7 +82,9 @@ Route::group(['middleware' => 'branch'], function () {
     Route::resource('/gallery', GalleryController::class);
     Route::resource('/subscriber', SubscriberController::class);
     Route::resource('/customPage', CustomPageController::class);
-    Route::resource('/faq', faqController::class);
+    Route::resource('/faq', FaqController::class);
+    Route::resource('/expenseCategory', ExpenseCategoryController::class);
+    Route::resource('/expense', ExpenseController::class);
     Route::resource('/variationCategory', VariationCategoryController::class);
 
     // create blade

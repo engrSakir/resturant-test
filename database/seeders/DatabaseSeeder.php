@@ -30,5 +30,7 @@ class DatabaseSeeder extends Seeder
         $this->call(PartnerSeeder::class);
         $this->call(GallerySeeder::class);
         $this->call(FaqSeeder::class);
+        $this->call(ExpenseCategorySeeder::class);
+        $this->call(ExpenseSeeder::class);
     }
 }
