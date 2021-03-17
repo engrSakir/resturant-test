@@ -62,5 +62,8 @@ class StaticOptionSeeder extends Seeder
         set_static_option('subscribe_title', 'Get Newsletter..' );
         set_static_option('subscribe_description', 'lorem ipsum subscribe description ....' );
 
+        set_static_option('faq_highlight', 'Faq highlight...' );
+        set_static_option('faq_title', 'Faq title...' );
+
     }
 }

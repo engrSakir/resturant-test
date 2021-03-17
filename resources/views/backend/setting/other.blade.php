@@ -55,6 +55,23 @@
                                 </div>
                             </div>
                             <div class="form-group row">
+                                <label for="faq_highlight" class="col-sm-4 col-form-label">Faq highlight</label>
+                                <div class="col-sm-8">
+                                    <input value="{{ get_static_option('faq_highlight') }}" name="faq_highlight"
+                                           type="text" class="form-control" id="faq_highlight"
+                                           placeholder="Faq highlight">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="faq_title" class="col-sm-4 col-form-label">Faq title</label>
+                                <div class="col-sm-8">
+                                    <input value="{{ get_static_option('faq_title') }}" name="faq_title"
+                                           type="text" class="form-control" id="faq_title"
+                                           placeholder="Faq title">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
                                 <label for="map_link" class="col-sm-4 col-form-label">Map link</label>
                                 <div class="col-sm-8">
                                     <textarea name="map_link" type="text" class="form-control" id="map_link">{{ get_static_option('map_link') }}</textarea>

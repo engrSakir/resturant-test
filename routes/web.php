@@ -17,6 +17,7 @@ use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\WebsiteMessageController;
 use App\Http\Controllers\WebsitePromotionController;
 use App\Http\Controllers\CustomPageController;
+use App\Http\Controllers\faqController;
 use App\Models\ProductCategory;
 use Illuminate\Support\Facades\Route;
 
@@ -35,6 +36,7 @@ Route::get('/', [FrontendController::class, 'index'])->name('frontend.index');
 Route::get('/contact-us', [FrontendController::class, 'contactUs'])->name('frontend.contactUs');
 Route::get('/blog-detail/{slug}', [FrontendController::class, 'blogDetail'])->name('frontend.blogDetail');
 Route::get('/blogs', [FrontendController::class, 'blogs'])->name('frontend.blogs');
+Route::get('/faqs', [FrontendController::class, 'faqs'])->name('frontend.faqs');
 Route::get('/page/{slug}', [FrontendController::class, 'customPage'])->name('frontend.customPage');
 Route::get('/images', [FrontendController::class, 'images'])->name('frontend.images');
 Route::post('/contact-us-store', [FrontendController::class, 'contactUsStore'])->name('frontend.contactUsStore');
@@ -76,6 +78,7 @@ Route::group(['middleware' => 'branch'], function () {
     Route::resource('/gallery', GalleryController::class);
     Route::resource('/subscriber', SubscriberController::class);
     Route::resource('/customPage', CustomPageController::class);
+    Route::resource('/faq', faqController::class);
     Route::resource('/variationCategory', VariationCategoryController::class);
 
     // create blade

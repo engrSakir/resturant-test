@@ -274,11 +274,15 @@ class SettingController extends Controller
         $request->validate([
             'subscribe_title' => 'nullable|min:3',
             'subscribe_description' => 'nullable|min:3',
+            'faq_highlight' => 'nullable|min:3',
+            'faq_title' => 'nullable|min:3',
             'map_link' => 'nullable|min:3',
         ]);
         try {
             update_static_option('subscribe_title', $request->subscribe_title);
             update_static_option('subscribe_description', $request->subscribe_description);
+            update_static_option('faq_highlight', $request->faq_highlight);
+            update_static_option('faq_title', $request->faq_title);
             update_static_option('map_link', $request->map_link);
         }catch (\Exception $exception){
             return back()->withErrors( 'Something went wrong !'.$exception->getMessage());

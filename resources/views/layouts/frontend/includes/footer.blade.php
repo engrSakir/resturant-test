@@ -5,7 +5,7 @@
                 <div class="col-md-3">
                     <div class="footer-widget">
                         <div class="footer-logo">
-                            <a href="index-2.html"><img   width="109px;" height="56px;"
+                            <a href="{{ route('frontend.index') }}"><img   width="109px;" height="56px;"
                                 src="{{ asset( get_static_option('frontend_logo') ?? get_static_option('no_image')) }}"  alt="Logo" class="img-fluid"></a>
                         </div>
                         <p>  {{ get_static_option('footer_credit') }}</p>

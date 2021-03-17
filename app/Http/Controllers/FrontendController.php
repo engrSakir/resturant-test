@@ -6,6 +6,7 @@ use App\Models\Blog;
 use App\Models\Branch;
 use App\Models\ContactUs;
 use App\Models\CustomPage;
+use App\Models\Faq;
 use App\Models\Gallery;
 use App\Models\Partner;
 use App\Models\Product;
@@ -41,6 +42,12 @@ class FrontendController extends Controller
     public function blogs(){
         $blogs = Blog::all();
         return view('frontend.blogs', compact('blogs'));
+    }
+
+    // faqs
+    public function faqs(){
+        $faqs = Faq::all();
+        return view('frontend.faqs', compact('faqs'));
     }
 
     // custom Page

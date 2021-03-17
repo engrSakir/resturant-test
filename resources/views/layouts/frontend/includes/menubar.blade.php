@@ -41,10 +41,11 @@
                             @endforeach
                         </ul>
                     </li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('frontend.images') }}">Gallery</a></li>
                     <li class="tr-middle-logo"><a class="navbar-brand" href="{{ route('frontend.index') }}"><img class="img-fluid"  width="109px;" height="56px;"
                                 src="{{ asset( get_static_option('frontend_logo') ?? get_static_option('no_image')) }}" alt="Logo"></a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('frontend.images') }}">Gallery</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('frontend.blogs') }}">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('frontend.faqs') }}">Faqs</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('frontend.contactUs') }}">Contact Us</a></li>
                 </ul>
                 <ul class="navbar-nav d-lg-none">

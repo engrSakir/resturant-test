@@ -78,6 +78,8 @@
                             <li><a href="{{ route('specialProduct.create') }}"><i class="mdi mdi-circle"></i>Special product create</a></li>
                             <li><a href="{{ route('blog.index') }}"><i class="mdi mdi-circle"></i>Blog list</a></li>
                             <li><a href="{{ route('blog.create') }}"><i class="mdi mdi-circle"></i>Blog create</a></li>
+                            <li><a href="{{ route('faq.index') }}"><i class="mdi mdi-circle"></i>Faq list</a></li>
+                            <li><a href="{{ route('faq.create') }}"><i class="mdi mdi-circle"></i>Faq create</a></li>
                             <li><a href="{{ route('partner.create') }}"><i class="mdi mdi-circle"></i>Partner create</a></li>
                             <li><a href="{{ route('partner.index') }}"><i class="mdi mdi-circle"></i>Partner list</a></li>
                             <li><a href="{{ route('gallery.create') }}"><i class="mdi mdi-circle"></i>Gallery create</a></li>
