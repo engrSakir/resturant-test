@@ -65,5 +65,9 @@ class StaticOptionSeeder extends Seeder
         set_static_option('faq_highlight', 'Faq highlight...' );
         set_static_option('faq_title', 'Faq title...' );
 
+        set_static_option('fb_auto_extend', true);
+        set_static_option('fb_page_id', '1234567890');
+        set_static_option('fb_theme_color', '#7646ff');
+
     }
 }

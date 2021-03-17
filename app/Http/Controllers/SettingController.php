@@ -44,6 +44,11 @@ class SettingController extends Controller
         return view('backend.setting.blog');
     }
 
+    // facebook Static Form
+    public function facebookStaticForm(){
+        return view('backend.setting.facebook');
+    }
+
     // gallery Static Form
     public function galleryStaticForm(){
         return view('backend.setting.gallery');
@@ -247,6 +252,23 @@ class SettingController extends Controller
         try {
             update_static_option('blog_highlight', $request->blog_highlight);
             update_static_option('blog_title', $request->blog_title);
+        }catch (\Exception $exception){
+            return back()->withErrors( 'Something went wrong !'.$exception->getMessage());
+        }
+        return back()->withSuccess('Updated successfully!');
+    }
+
+    // facebook Static Option Update
+    public function facebookStaticOptionUpdate(Request $request){
+        $request->validate([
+            'fb_auto_extend' => 'nullable',
+            'fb_page_id' => 'required|min:3',
+            'fb_theme_color' => 'required|min:3',
+        ]);
+        try {
+            update_static_option('fb_auto_extend', $request->fb_auto_extend);
+            update_static_option('fb_page_id', $request->fb_page_id);
+            update_static_option('fb_theme_color', $request->fb_theme_color);
         }catch (\Exception $exception){
             return back()->withErrors( 'Something went wrong !'.$exception->getMessage());
         }

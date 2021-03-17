@@ -24,6 +24,7 @@
                             <li><a href="{{ route('specialProductStaticForm') }}"><i class="mdi mdi-circle"></i>Special product</a></li>
                             <li><a href="{{ route('offerStaticForm') }}"><i class="mdi mdi-circle"></i>Special offer</a></li>
                             <li><a href="{{ route('blogStaticForm') }}"><i class="mdi mdi-circle"></i>Blog</a></li>
+                            <li><a href="{{ route('facebookStaticForm') }}"><i class="mdi mdi-circle"></i>Facebook</a></li>
                             <li><a href="{{ route('galleryStaticForm') }}"><i class="mdi mdi-circle"></i>Gallery</a></li>
                             <li><a href="{{ route('appStaticForm') }}"><i class="mdi mdi-circle"></i>Application</a></li>
                             <li><a href="{{ route('otherStaticForm') }}"><i class="mdi mdi-circle"></i>Other</a></li>
@@ -72,18 +73,55 @@
                             <li><a href="{{ route('websiteBannerForm') }}"><i class="mdi mdi-circle"></i>Banner</a></li>
                             <li><a href="{{ route('websiteMessage.index') }}"><i class="mdi mdi-circle"></i>Messages <span class="badge badge-danger">{{ website_incomplete_messages() }}</span></a></li>
                             <li><a href="{{ route('subscriber.index') }}"><i class="mdi mdi-circle"></i>Subscribers</a></li>
-                            <li><a href="{{ route('websitePromotion.index') }}"><i class="mdi mdi-circle"></i>Promotion list</a></li>
-                            <li><a href="{{ route('websitePromotion.create') }}"><i class="mdi mdi-circle"></i>Promotion create</a></li>
-                            <li><a href="{{ route('specialProduct.index') }}"><i class="mdi mdi-circle"></i>Special product</a></li>
-                            <li><a href="{{ route('specialProduct.create') }}"><i class="mdi mdi-circle"></i>Special product create</a></li>
-                            <li><a href="{{ route('blog.index') }}"><i class="mdi mdi-circle"></i>Blog list</a></li>
-                            <li><a href="{{ route('blog.create') }}"><i class="mdi mdi-circle"></i>Blog create</a></li>
-                            <li><a href="{{ route('faq.index') }}"><i class="mdi mdi-circle"></i>Faq list</a></li>
-                            <li><a href="{{ route('faq.create') }}"><i class="mdi mdi-circle"></i>Faq create</a></li>
-                            <li><a href="{{ route('partner.create') }}"><i class="mdi mdi-circle"></i>Partner create</a></li>
-                            <li><a href="{{ route('partner.index') }}"><i class="mdi mdi-circle"></i>Partner list</a></li>
-                            <li><a href="{{ route('gallery.create') }}"><i class="mdi mdi-circle"></i>Gallery create</a></li>
-                            <li><a href="{{ route('gallery.index') }}"><i class="mdi mdi-circle"></i>Gallery list</a></li>
+                            <li class="dropdown">
+                                <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><i
+                                        class="mdi mdi-circle"></i>Promotion</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{{ route('websitePromotion.index') }}"><i class="mdi mdi-circle"></i>Promotion list</a></li>
+                                    <li><a href="{{ route('websitePromotion.create') }}"><i class="mdi mdi-circle"></i>Promotion create</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><i
+                                        class="mdi mdi-circle"></i>Special Product</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{{ route('specialProduct.index') }}"><i class="mdi mdi-circle"></i>Special product list</a></li>
+                                    <li><a href="{{ route('specialProduct.create') }}"><i class="mdi mdi-circle"></i>Special product create</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><i
+                                        class="mdi mdi-circle"></i>Blog</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{{ route('blog.index') }}"><i class="mdi mdi-circle"></i>Blog list</a></li>
+                                    <li><a href="{{ route('blog.create') }}"><i class="mdi mdi-circle"></i>Blog create</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><i
+                                        class="mdi mdi-circle"></i>Faq</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{{ route('faq.index') }}"><i class="mdi mdi-circle"></i>Faq list</a></li>
+                                    <li><a href="{{ route('faq.create') }}"><i class="mdi mdi-circle"></i>Faq create</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><i
+                                        class="mdi mdi-circle"></i>Partner</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{{ route('partner.index') }}"><i class="mdi mdi-circle"></i>Partner list</a></li>
+                                    <li><a href="{{ route('partner.create') }}"><i class="mdi mdi-circle"></i>Partner create</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><i
+                                        class="mdi mdi-circle"></i>Gallery</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{{ route('gallery.index') }}"><i class="mdi mdi-circle"></i>Gallery list</a></li>
+                                    <li><a href="{{ route('gallery.create') }}"><i class="mdi mdi-circle"></i>Gallery create</a></li>
+                                </ul>
+                            </li>
+
                         </ul>
                     </li>
                     <li class="dropdown">

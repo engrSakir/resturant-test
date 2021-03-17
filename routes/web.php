@@ -50,6 +50,7 @@ Route::get('/special-product-static-form', [SettingController::class, 'specialPr
 Route::get('/offer-static-form', [SettingController::class, 'offerStaticForm'])->name('offerStaticForm');
 Route::get('/app-static-form', [SettingController::class, 'appStaticForm'])->name('appStaticForm');
 Route::get('/blog-static-form', [SettingController::class, 'blogStaticForm'])->name('blogStaticForm');
+Route::get('/facebook-static-form', [SettingController::class, 'facebookStaticForm'])->name('facebookStaticForm');
 Route::get('/gallery-static-form', [SettingController::class, 'galleryStaticForm'])->name('galleryStaticForm');
 Route::get('/other-static-form', [SettingController::class, 'otherStaticForm'])->name('otherStaticForm');
 Route::get('/website-banner-form', [SettingController::class, 'websiteBannerForm'])->name('websiteBannerForm');
@@ -61,6 +62,7 @@ Route::post('/social-link-static-option-update', [SettingController::class, 'soc
 Route::post('/special-product-static-option-update', [SettingController::class, 'specialProductStaticOptionUpdate'])->name('specialProductStaticOptionUpdate');
 Route::post('/offer-static-option-update', [SettingController::class, 'offerStaticOptionUpdate'])->name('offerStaticOptionUpdate');
 Route::post('/blog-static-option-update', [SettingController::class, 'blogStaticOptionUpdate'])->name('blogStaticOptionUpdate');
+Route::post('/facebook-static-option-update', [SettingController::class, 'facebookStaticOptionUpdate'])->name('facebookStaticOptionUpdate');
 Route::post('/gallery-static-option-update', [SettingController::class, 'galleryStaticOptionUpdate'])->name('galleryStaticOptionUpdate');
 Route::post('/other-static-option-update', [SettingController::class, 'otherStaticOptionUpdate'])->name('otherStaticOptionUpdate');
 Route::post('/app-static-option-update', [SettingController::class, 'appStaticOptionUpdate'])->name('appStaticOptionUpdate');
