@@ -49,7 +49,8 @@ class StaticOptionSeeder extends Seeder
 
         set_static_option('offer_highlight','Special Offers' );
         set_static_option('offer_percentage','Get 50% off' );
-        set_static_option('offer_description','YOUR ORDER OF $500 OR MORE' );        set_static_option('offer_deadline',null );
+        set_static_option('offer_description','YOUR ORDER OF $500 OR MORE' );
+        set_static_option('offer_deadline',null );
         set_static_option('offer_image', null );
 
         set_static_option('blog_highlight', 'From our press' );
@@ -58,6 +59,7 @@ class StaticOptionSeeder extends Seeder
         set_static_option('gallery_title', 'Gallery title...' );
         set_static_option('gallery_highlight', 'Gallery highlight...' );
 
+        set_static_option('product_checkout_description', 'Product checkout description...');
         set_static_option('map_link', null);
         set_static_option('subscribe_title', 'Get Newsletter..' );
         set_static_option('subscribe_description', 'lorem ipsum subscribe description ....' );

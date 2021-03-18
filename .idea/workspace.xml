@@ -171,11 +171,22 @@
       <workItem from="1615834475143" duration="1385000" />
       <workItem from="1615881515907" duration="8574000" />
       <workItem from="1615946277173" duration="28337000" />
-      <workItem from="1616032713134" duration="2426000" />
+      <workItem from="1616032713134" duration="24161000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/resources/views/frontend/product-checkout.blade.php</url>
+          <line>76</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

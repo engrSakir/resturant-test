@@ -1,4 +1,4 @@
-<div class="tr-farmfood farmfood-one bg-image" style="background-image: url({{ asset('assets/frontend/images/bg/farmfood.jpg') }});">
+<div class="tr-farmfood farmfood-one bg-image" style="background-image: url({{ asset('uploads/images/global/food-bg1.jpg') }});">
     <div class="container">
         <div class="section-title">
             <h1>{{ get_static_option('special_product_highlight') }}</h1>

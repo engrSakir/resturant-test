@@ -17,6 +17,7 @@ class CreateInvoiceItemsTable extends Migration
             $table->id();
             $table->foreignId('invoice_id');
             $table->foreignId('product_id');
+            $table->foreignId('variation_id')->nullable();
             $table->integer('quantity')->default(1);
             $table->double('price');
             $table->softDeletes();

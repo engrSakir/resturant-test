@@ -12,17 +12,16 @@
                             @if ($loop->first)
                                 <div class="col-md-6 col-lg-3">
                                     <div class="product">
-                                        <a href="shop-details.html">
+                                        <a href="{{ route('frontend.productDetail', $product->name) }}">
                                             <span class="product-image">
-                                                <img src="{{ asset($product->image ?? get_static_option('no_image')) }}"
-                                                    alt="Image" class="img-fluid">
+                                                <img src="{{ asset($product->image ?? get_static_option('no_image')) }}" alt="Image" class="img-fluid">
                                             </span>
                                             <span class="product-title">{{ $product->name }}</span>
                                         </a>
                                         <div class="product-icon text-center">
                                             <ul class="global-list">
                                                 <li></li>
-                                                <li><a href="#"><span class="icon icon-shopping-cart"></span></a></li>
+                                                <li><a href="{{ route('frontend.productDetail', $product->name) }}"><span class="icon icon-shopping-cart"></span></a></li>
                                                 <li></li>
                                             </ul>
                                         </div>

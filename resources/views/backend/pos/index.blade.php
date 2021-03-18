@@ -100,7 +100,7 @@
 
                             <div class="text-center pb-0 px-0">
                                 <div class="table-responsive m-b-30">
-                                    <table class="table table-hover">
+                                    <table class="table table-hover ">
                                         <thead>
                                             <tr>
                                                 <th>QTY</th>
@@ -111,7 +111,7 @@
                                             </tr>
                                         </thead>
                                         <tbody id="table-body">
-
+                                            {{--data stored by javascript--}}
                                         </tbody>
                                         <tfoot>
                                             <tr>
@@ -129,20 +129,50 @@
 
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
-                                                <span class="input-group-text" id="basic-addon3">Name</span>
+                                                <span class="input-group-text">Name<span class="text-danger">*</span></span>
                                             </div>
-                                            <input type="text" class="form-control" id="customer"
-                                                aria-describedby="basic-addon3">
+                                            <input type="text" class="form-control" id="name" >
                                         </div>
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
-                                                <span class="input-group-text" id="basic-addon3">Phone</span>
+                                                <span class="input-group-text">Phone</span>
                                             </div>
-                                            <input type="text" class="form-control" id="phone"
-                                                aria-describedby="basic-addon3">
+                                            <input type="text" class="form-control" id="phone" >
                                         </div>
-                                        <button type="button" id="" onclick="storeInvoice()"
-                                            class="btn btn-success btn-lg btn-block">Confirm Sell</button>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">Email</span>
+                                            </div>
+                                            <input type="text" class="form-control" id="email">
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">Vat (%)</span>
+                                            </div>
+                                            <input type="number" class="form-control" id="vat">
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">Discount</span>
+                                                    </div>
+                                                    <input type="number" class="form-control" id="discount">
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">Type</span>
+                                                    </div>
+                                                    <select class="form-control" name="discount_type" id="discount_type">
+                                                        <option value="fixed">Fixed</option>
+                                                        <option value="percentage">Percentage</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button type="button" class="btn btn-success btn-lg btn-block  order-now-btn">Confirm Sell</button>
                                     </div>
                                 </div>
                             </div>
@@ -173,7 +203,27 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Understood</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="invoiceShowModal" data-backdrop="static" tabindex="-1" role="dialog"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="invoiceShowModalBody">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
@@ -212,7 +262,7 @@
                     ')"><i class="feather icon-minus-circle"></i></button>' +
                     '</td>\n' +
                     '                                        <td id="table-item-id-name-' + id +
-                    '"> <input id="ids" type="hidden" value="' + id + '">' + document.getElementById(
+                    '"> <input class="product_ids" type="hidden" value="' + id + '">' + document.getElementById(
                         'item-name-id-' + id).innerHTML + '</td>\n' +
                     '                                        <td id="table-item-id-unit-price-' + id +
                     '">' + document.getElementById(
@@ -256,7 +306,7 @@
                     ')"><i class="feather icon-minus-circle"></i></button>' +
                     '</td>\n' +
                     '                                        <td id="table-variation-id-name-' + variation_id +
-                    '"> <input id="ids" type="hidden" value="' + variation_id + '">'+
+                    '"> <input class="variation_ids" type="hidden" value="' + variation_id + '">'+
 
                      document.getElementById('item-name-id-' + product_id).innerHTML +
                     '('+
@@ -442,5 +492,101 @@
                 }
             });
         }
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('.order-now-btn').on('click', function() {
+                var product_ids = $(".product_ids")
+                var product_quantities = [];
+                var product_ids_arr = [];
+                for(var i = 0; i < product_ids.length; i++){
+                    product_quantities.push($('.bill-area').find('#table-item-id-qty-'+$(product_ids[i]).val()).text());
+                    product_ids_arr.push($(product_ids[i]).val());
+                }
+
+                var variation_ids = $(".variation_ids")
+                var variation_quantities = [];
+                var variation_ids_arr = [];
+                for(var i = 0; i < variation_ids.length; i++){
+                    variation_quantities.push($('.bill-area').find('#table-variation-id-qty-'+$(variation_ids[i]).val()).text());
+                    variation_ids_arr.push($(variation_ids[i]).val());
+                }
+
+
+                var formData = new FormData();
+                formData.append('name', $('#name').val())
+                formData.append('email', $('#email').val())
+                formData.append('phone', $('#phone').val())
+                formData.append('discount', $('#discount').val())
+                formData.append('discount_type', $('#discount_type').val())
+                formData.append('vat', $('#vat').val())
+                formData.append('products', product_ids_arr)
+                formData.append('product_quantities', product_quantities)
+                formData.append('variations', variation_ids_arr)
+                formData.append('variation_quantities', variation_quantities)
+                formData.append('total_price', $('#total-price').text())
+
+                var this_button = $(this);
+
+                $.ajax({
+                    method: 'POST',
+                    url: "{{ route('posStore') }}",
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    beforeSend: function() {
+                        this_button.prop("disabled", true)
+                    },
+                    complete: function() {
+                        this_button.prop("disabled", false)
+                    },
+                    success: function(response_data) {
+                        if(response_data.type == 'success'){
+                            $('#invoiceShowModal').modal('show');
+                            var linkHtml = '<div class="text-center" style="width: 100%; text-align: center;">' +
+                                '          <button  style="width: 100%; text-align: center" type="submit" class="btn btn-warning btn-lg btn-block"> <i class="fa fa-edit"></i> এডিট করুন</button>' +
+                                '          </div>'+
+                                '<embed src="'+response_data.invoice_url+'" width="100%" height="400px">';
+                            $("#invoiceShowModalBody").html(linkHtml)
+
+                            Swal.fire({
+                                position: 'top-end',
+                                icon: response_data.type,
+                                title: response_data.message,
+                                showConfirmButton: false,
+                                timer: 1500
+                            });
+                        }else{
+                            Swal.fire({
+                                icon: response_data.type,
+                                title: 'Oops...',
+                                text: response_data.message,
+                                footer: 'Something went wrong!'
+                            });
+                        }
+                    },
+                    error: function(xhr) {
+                        var errorMessage = '<div class="card bg-danger">\n' +
+                            '                        <div class="card-body text-center p-5">\n' +
+                            '                            <span class="text-white">';
+                        $.each(xhr.responseJSON.errors, function(key, value) {
+                            errorMessage += ('' + value + '<br>');
+                        });
+                        errorMessage += '</span>\n' +
+                            '                        </div>\n' +
+                            '                    </div>';
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            footer: errorMessage
+                        })
+                    },
+                })
+
+            });
+        });
     </script>
 @endpush

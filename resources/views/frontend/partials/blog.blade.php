@@ -1,6 +1,6 @@
 <div class="tr-blog section-padding section-bg-white">
     <div class="container">
-        @if (Request::route('frontend.index'))
+        @if(Route::is('frontend.index'))
             <div class="section-title">
                 <h1>{{ get_static_option('blog_highlight') }}</h1>
                 <h2>{{ get_static_option('blog_title') }}</h2>

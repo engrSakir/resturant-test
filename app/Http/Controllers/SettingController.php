@@ -295,6 +295,7 @@ class SettingController extends Controller
     public function otherStaticOptionUpdate(Request $request){
         $request->validate([
             'subscribe_title' => 'nullable|min:3',
+            'product_checkout_description' => 'nullable|min:3',
             'subscribe_description' => 'nullable|min:3',
             'faq_highlight' => 'nullable|min:3',
             'faq_title' => 'nullable|min:3',
@@ -306,6 +307,7 @@ class SettingController extends Controller
             update_static_option('faq_highlight', $request->faq_highlight);
             update_static_option('faq_title', $request->faq_title);
             update_static_option('map_link', $request->map_link);
+            update_static_option('product_checkout_description', $request->product_checkout_description);
         }catch (\Exception $exception){
             return back()->withErrors( 'Something went wrong !'.$exception->getMessage());
         }

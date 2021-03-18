@@ -55,7 +55,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="category" class="col-sm-4 col-form-label">category</label>
+                                <label for="category" class="col-sm-4 col-form-label">Category</label>
                                 <div class="col-sm-8">
                                     <select name="category" class="select2-single form-control">
                                         <option value="">Select</option>

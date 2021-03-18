@@ -14,6 +14,7 @@ use App\Models\SpecialProduct;
 use App\Models\Subscriber;
 use App\Models\WebsitePromotion;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 
 class FrontendController extends Controller
 {
@@ -36,6 +37,18 @@ class FrontendController extends Controller
     public function blogDetail($slug){
         $blog = Blog::where('slug', $slug)->first();
         return view('frontend.blog-detail', compact('blog'));
+    }
+
+    // product Detail
+    public function productDetail($product_name){
+        $products = Product::where('name', $product_name)->get();
+        return view('frontend.product-detail', compact('products'));
+    }
+
+    // product Checkout
+    public function productCheckout($product_id){
+        $product = Product::findOrFail(Crypt::decrypt($product_id));
+        return view('frontend.product-checkout', compact('product'));
     }
 
     // blogs

@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\InvoiceController;
+use Illuminate\Support\Facades\Crypt;
 use App\Http\Controllers\BranchController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FrontendController;
@@ -37,6 +39,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [FrontendController::class, 'index'])->name('frontend.index');
 Route::get('/contact-us', [FrontendController::class, 'contactUs'])->name('frontend.contactUs');
 Route::get('/blog-detail/{slug}', [FrontendController::class, 'blogDetail'])->name('frontend.blogDetail');
+Route::get('/product-detail/{product_id}', [FrontendController::class, 'productDetail'])->name('frontend.productDetail');
+Route::get('/product-checkout/{product_id}', [FrontendController::class, 'productCheckout'])->name('frontend.productCheckout');
 Route::get('/blogs', [FrontendController::class, 'blogs'])->name('frontend.blogs');
 Route::get('/faqs', [FrontendController::class, 'faqs'])->name('frontend.faqs');
 Route::get('/page/{slug}', [FrontendController::class, 'customPage'])->name('frontend.customPage');
@@ -73,19 +77,21 @@ Route::post('/website-banner-update', [SettingController::class, 'websiteBannerU
 Route::group(['middleware' => 'branch'], function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
     Route::get('/pos', [PosController::class, 'pos'])->name('pos');
+    Route::post('/pos-store', [PosController::class, 'posStore'])->name('posStore');
     Route::get('/get-variations-by-product/{product_id}', [PosController::class, 'getVariationsByProduct'])->name('getVariationsByProduct');
-    Route::resource('/productCategory', ProductCategoryController::class);
-    Route::resource('/product', ProductController::class);
-    Route::resource('/blog', BlogController::class);
-    Route::resource('/partner', PartnerController::class);
-    Route::resource('/variation', VariationController::class);
-    Route::resource('/gallery', GalleryController::class);
-    Route::resource('/subscriber', SubscriberController::class);
-    Route::resource('/customPage', CustomPageController::class);
-    Route::resource('/faq', FaqController::class);
-    Route::resource('/expenseCategory', ExpenseCategoryController::class);
-    Route::resource('/expense', ExpenseController::class);
-    Route::resource('/variationCategory', VariationCategoryController::class);
+    Route::resource('productCategory', ProductCategoryController::class);
+    Route::resource('product', ProductController::class);
+    Route::resource('blog', BlogController::class);
+    Route::resource('invoice', InvoiceController::class);
+    Route::resource('partner', PartnerController::class);
+    Route::resource('variation', VariationController::class);
+    Route::resource('gallery', GalleryController::class);
+    Route::resource('subscriber', SubscriberController::class);
+    Route::resource('customPage', CustomPageController::class);
+    Route::resource('faq', FaqController::class);
+    Route::resource('expenseCategory', ExpenseCategoryController::class);
+    Route::resource('expense', ExpenseController::class);
+    Route::resource('variationCategory', VariationCategoryController::class);
 
     // create blade
     Route::get('/variationCategory/create-with-product/{product_id}', [VariationCategoryController::class, 'createVariationCategoryWithProduct'])->name('createVariationCategoryWithProduct');
@@ -96,6 +102,6 @@ Route::group(['middleware' => 'branch'], function () {
     Route::get('/variation/create-with-category/{category_id}', [VariationController::class, 'createVariationWithCategory'])->name('createVariationWithCategory');
 });
 
-Route::resource('/websiteMessage', WebsiteMessageController::class);
-Route::resource('/websitePromotion', WebsitePromotionController::class);
-Route::resource('/specialProduct', SpecialProductController::class);
+Route::resource('websiteMessage', WebsiteMessageController::class);
+Route::resource('websitePromotion', WebsitePromotionController::class);
+Route::resource('specialProduct', SpecialProductController::class);

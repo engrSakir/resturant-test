@@ -38,7 +38,7 @@
                     <form class="row justify-content-center" method="POST" action="{{ route('otherStaticOptionUpdate') }}"
                           enctype="multipart/form-data">
                         @csrf
-                        <div class="col-lg-8">
+                        <div class="col-12">
                             <div class="form-group row">
                                 <label for="blog_highlight" class="col-sm-4 col-form-label">Subscribe title</label>
                                 <div class="col-sm-8">
@@ -77,6 +77,13 @@
                                     <textarea name="map_link" type="text" class="form-control" id="map_link">{{ get_static_option('map_link') }}</textarea>
                                 </div>
                             </div>
+                            <div class="form-group row">
+                                <label for="product_checkout_description" class="col-sm-4 col-form-label">Product checkout description</label>
+                                <br>
+                                <div class="col-12">
+                                    <textarea name="product_checkout_description" type="text" class="form-control description" id="product_checkout_description">{!! get_static_option('product_checkout_description') !!}</textarea>
+                                </div>
+                            </div>
                         </div>
                         <div class="col-12 text-center">
                             <button type="submit" id="submit-btn" class="btn btn-primary">Save</button>
@@ -95,5 +102,20 @@
 @endpush
 
 @push('note')
-
+    <script>
+        $('.description').summernote({
+            placeholder: 'Product checkout description...',
+            tabsize: 2,
+            height: 300,
+            toolbar: [
+                ['style', ['style']],
+                ['font', ['bold', 'underline', 'clear']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['table', ['table']],
+                ['insert', ['link', 'picture', 'video']],
+                ['view', ['fullscreen', 'codeview', 'help']]
+            ]
+        });
+    </script>
 @endpush

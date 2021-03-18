@@ -18,6 +18,8 @@ class CreateInvoicesTable extends Migration
             $table->foreignId('customer_id')->nullable();
             $table->string('invoice_id');
             $table->double('paid_amount');
+            $table->double('discount')->nullable()->default(0);
+            $table->string('discount_type')->default('fixed')->comment('fixed or percentage ');
             $table->foreignId('branch_id');
             $table->foreignId('staff_id');
             $table->softDeletes();

@@ -30,5 +30,13 @@ class ProductSeeder extends Seeder
             $product->price = rand(10,100);
             $product->save();
         }
+
+        for ($i = 1; $i <= 9; $i++) {
+            $product = new Product();
+            $product->name = 'Product 1'.$i;
+            $product->category_id = 3;
+            $product->price = rand(10,100);
+            $product->save();
+        }
     }
 }
