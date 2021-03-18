@@ -17,6 +17,7 @@ class GlobalImagesSeeder extends Seeder
         for ($i=1; $i <=4 ; $i++) {
            $image = new GlobalImages();
            $image->image = "/uploads/images/global/".$i.'.png';
+           $image->name = "global image ".$i;
            $image->save();
         }
     }

@@ -16,6 +16,7 @@ class CreateGlobalImagesTable extends Migration
         Schema::create('global_images', function (Blueprint $table) {
             $table->id();
             $table->string('image')->nullable();
+            $table->string('name')->nullable();
             $table->timestamps();
         });
     }

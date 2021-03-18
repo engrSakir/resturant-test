@@ -33,7 +33,7 @@
                                 <li class="media">
                                     <div class="icon ml-4">
                                         {{-- <span class="icon icon-steak"></span> --}}
-                                        <img src="{{ asset('uploads/images/food.png') }}" alt="">
+                                        <img src="{{ asset($special_product->image ?? 'uploads/images/food.png') }}" alt="">
                                     </div>
                                     <div class="food-info media-body">
                                         <h3>{{ $special_product->title }}</h3>

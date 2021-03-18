@@ -28,6 +28,7 @@
                             <li><a href="{{ route('galleryStaticForm') }}"><i class="mdi mdi-circle"></i>Gallery</a></li>
                             <li><a href="{{ route('appStaticForm') }}"><i class="mdi mdi-circle"></i>Application</a></li>
                             <li><a href="{{ route('otherStaticForm') }}"><i class="mdi mdi-circle"></i>Other</a></li>
+                            <li><a href="{{ route('globalImages.index') }}"><i class="mdi mdi-circle"></i>Global Image</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">

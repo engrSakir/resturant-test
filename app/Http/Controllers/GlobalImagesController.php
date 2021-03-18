@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\GlobalImages;
 use Illuminate\Http\Request;
+use Yajra\DataTables\Facades\DataTables;
+use Intervention\Image\ImageManagerStatic as Image;
+use Illuminate\Support\Str;
 
 class GlobalImagesController extends Controller
 {
@@ -12,9 +15,24 @@ class GlobalImagesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        if ($request->ajax()) {
+            $data = GlobalImages::all();
+            return datatables::of($data)
+                ->addColumn('image', function ($data) {
+                    if ($data->image) {
+                        return '<img height="70px;" class="rounded-circle" width="70px;" src="'.asset($data->image).'"/>';
+                    }
+                })->addColumn('action', function ($data) {
+                    return '<a href="' . route('globalImages.edit', $data) . '" class="btn btn-info"><i class="fa fa-edit"></i> </a>
+                <button class="btn btn-danger" onclick="delete_function(this)" value="' . route('globalImages.destroy', $data) . '"><i class="fa fa-trash"></i> </button>';
+                })
+                ->rawColumns(['image', 'action'])
+                ->make(true);
+        } else {
+            return view('backend.setting.global-images');
+        }
     }
 
     /**
@@ -35,7 +53,27 @@ class GlobalImagesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|string',
+            'image' => 'nullable|image',
+        ]);
+        $globalImage = new GlobalImages();
+        $globalImage->name    =   $request->name;
+        if($request->hasFile('image')){
+
+            $image             = $request->file('image');
+            $folder_path       = 'uploads/images/global/';
+            $image_new_name    = Str::random(20).'-'.now()->timestamp.'.'.$image->getClientOriginalExtension();
+            //resize and save to server
+            Image::make($image->getRealPath())->save($folder_path.$image_new_name);
+            $globalImage->image   = $folder_path . $image_new_name;
+        }
+        try {
+            $globalImage->save();
+            return back()->withToastSuccess('Successfully saved.');
+        }catch (\Exception $exception){
+            return back()->withErrors('Something going wrong. '.$exception->getMessage());
+        }
     }
 
     /**
@@ -57,7 +95,9 @@ class GlobalImagesController extends Controller
      */
     public function edit(GlobalImages $globalImages)
     {
-        //
+        dd($globalImages);
+        return view('backend.setting.global-image-edit', compact('globalImages'));
+        return view('backend.setting.global-image-edit',compact('$globalImages'));
     }
 
     /**

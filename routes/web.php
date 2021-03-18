@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\GlobalImagesController;
 use App\Http\Controllers\InvoiceController;
 use Illuminate\Support\Facades\Crypt;
 use App\Http\Controllers\BranchController;
@@ -92,6 +93,7 @@ Route::group(['middleware' => 'branch'], function () {
     Route::resource('expenseCategory', ExpenseCategoryController::class);
     Route::resource('expense', ExpenseController::class);
     Route::resource('variationCategory', VariationCategoryController::class);
+    Route::resource('globalImages', GlobalImagesController::class);
 
     // create blade
     Route::get('/variationCategory/create-with-product/{product_id}', [VariationCategoryController::class, 'createVariationCategoryWithProduct'])->name('createVariationCategoryWithProduct');
