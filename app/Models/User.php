@@ -45,4 +45,9 @@ class User extends Authenticatable
     public function blogs(){
         return $this->hasMany(User::class, 'writer_id', 'id');
     }
+
+    //createdInvoices
+    public function createdInvoices(){
+        return $this->hasMany(Invoice::class, 'staff_id', 'id');
+    }
 }

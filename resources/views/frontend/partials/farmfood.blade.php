@@ -29,7 +29,7 @@
                 <div class="farmfood farmfood-right">
                     <ul class="global-list">
                         @foreach ($special_products as $special_product)
-                            @if ($loop->odd){
+                            @if ($loop->odd)
                                 <li class="media">
                                     <div class="icon ml-4">
                                         {{-- <span class="icon icon-steak"></span> --}}

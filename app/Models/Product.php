@@ -18,4 +18,9 @@ class Product extends Model
     public function variationCategories(){
         return $this->hasMany(VariationCategory::class, 'product_id', 'id');
     }
+
+    //invoiceItems
+    public function invoiceItems(){
+        return $this->hasMany(InvoiceItem::class, 'product_id', 'id');
+    }
 }

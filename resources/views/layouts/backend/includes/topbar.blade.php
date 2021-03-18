@@ -26,8 +26,7 @@
                                 </div>
                             </li>
                             <li class="list-inline-item">
-                                {{ Session::get('branch')->id }}
-                                {{ Session::get('branch')->name }}
+                                <span class="badge badge-info">{{ Session::get('branch')->name }}</span>
                             </li>
                         </ul>
                     </div>

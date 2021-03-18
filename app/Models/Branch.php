@@ -18,4 +18,9 @@ class Branch extends Model
     public function messages(){
         return $this->hasMany(ContactUs::class, 'branch_id', 'id');
     }
+
+    //invoices
+    public function invoices(){
+        return $this->hasMany(Invoice::class, 'branch_id', 'id');
+    }
 }

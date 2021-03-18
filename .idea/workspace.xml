@@ -134,6 +134,10 @@
       <path value="$PROJECT_DIR$/vendor/sebastian/comparator" />
       <path value="$PROJECT_DIR$/vendor/symfony/routing" />
       <path value="$PROJECT_DIR$/vendor/sebastian/code-unit" />
+      <path value="$PROJECT_DIR$/vendor/mpdf/mpdf" />
+      <path value="$PROJECT_DIR$/vendor/paragonie/random_compat" />
+      <path value="$PROJECT_DIR$/vendor/niklasravnsborg/laravel-pdf" />
+      <path value="$PROJECT_DIR$/vendor/setasign/fpdi" />
     </include_path>
   </component>
   <component name="ProjectId" id="1po18S8M8Jmr4FOX1xkacrawdzx" />
@@ -166,7 +170,8 @@
       <updated>1615834474252</updated>
       <workItem from="1615834475143" duration="1385000" />
       <workItem from="1615881515907" duration="8574000" />
-      <workItem from="1615946277173" duration="28268000" />
+      <workItem from="1615946277173" duration="28337000" />
+      <workItem from="1616032713134" duration="2426000" />
     </task>
     <servers />
   </component>
