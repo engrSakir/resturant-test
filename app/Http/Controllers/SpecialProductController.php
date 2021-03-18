@@ -39,11 +39,12 @@ class SpecialProductController extends Controller
         $request->validate([
             'title' => 'required|min:3',
             'description' => 'required|min:3',
+            'image' => 'required|min:3',
         ]);
 
         $special_product = new SpecialProduct();
         $special_product->title = $request->title;
-        $special_product->description = $request->description;
+        $special_product->image = $request->image;
 
         try {
             $special_product->save();
@@ -87,11 +88,13 @@ class SpecialProductController extends Controller
         $request->validate([
             'title' => 'required|min:3',
             'description' => 'required|min:3',
+            'image' => 'required|min:3',
         ]);
 
         $special_product = $specialProduct;
         $special_product->title = $request->title;
         $special_product->description = $request->description;
+        $special_product->image = $request->image;
 
         try {
             $special_product->save();

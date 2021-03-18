@@ -3,7 +3,7 @@
 @endpush
 @extends('layouts.backend.app')
 @push('style')
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.css" />
 @endpush
 @section('content')
     <!-- Start Breadcrumbbar -->
@@ -54,12 +54,11 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="description" class="col-sm-4 col-form-label">Image</label>
+                                <label for="image" class="col-sm-4 col-form-label">Image</label>
                                 <div class="col-sm-8">
-                                    <select class="form-control" name="image" id="image">
-                                        @foreach (get_global_images() as $image)
-                                            <option style="background-image:url({{ asset($image->image) }});">
-                                                {{ $loop->iteration }}</option>
+                                    <select id="id_select2_example" name="image">
+                                        @foreach(get_global_images() as $image)
+                                            <option @if(old('image') == $image->image) selected @endif value="{{ $image->image }}" data-img_src="{{ asset($image->image) }}"></option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -77,7 +76,28 @@
     <!-- End Contentbar -->
 @endsection
 @push('script')
+    <!-- /content -->
+    <!-- scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.js"></script>
+    <script type="text/javascript">
+        function custom_template(obj){
+            var data = $(obj.element).data();
+            var text = $(obj.element).text();
+            if(data && data['img_src']){
+                img_src = data['img_src'];
+                template = $("<div><img src=\"" + img_src + "\" style=\";\"/><p style=\"text-align:center;\">" + text + "</p></div>");
+                return template;
+            }
+        }
+        var options = {
+            'templateSelection': custom_template,
+            'templateResult': custom_template,
+        }
+        $('#id_select2_example').select2(options);
+        $('.select2-container--default .select2-selection--single').css({'height': '50px'});
 
+    </script>
 @endpush
 
 @push('note')

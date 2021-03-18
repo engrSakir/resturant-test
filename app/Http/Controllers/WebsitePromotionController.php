@@ -40,6 +40,7 @@ class WebsitePromotionController extends Controller
         $request->validate([
             'highlight' => 'required|min:3',
             'title' => 'required|min:3',
+            'image' => 'required|min:3',
             'description' => 'required|min:3',
         ]);
 
@@ -47,6 +48,7 @@ class WebsitePromotionController extends Controller
         $promotion->highlight = $request->highlight;
         $promotion->title = $request->title;
         $promotion->description = $request->description;
+        $promotion->image = $request->image;
 
         try {
             $promotion->save();
@@ -90,6 +92,7 @@ class WebsitePromotionController extends Controller
         $request->validate([
             'highlight' => 'required|min:3',
             'title' => 'required|min:3',
+            'image' => 'required|min:3',
             'description' => 'required|min:3',
         ]);
 
@@ -97,6 +100,7 @@ class WebsitePromotionController extends Controller
         $promotion->highlight = $request->highlight;
         $promotion->title = $request->title;
         $promotion->description = $request->description;
+        $promotion->image = $request->image;
 
         try {
             $promotion->save();

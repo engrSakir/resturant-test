@@ -17,7 +17,7 @@
                                     </div>
                                     <div class="icon ml-4">
                                         {{-- <span class="icon icon-steak"></span> --}}
-                                        <img src="{{ asset('uploads/images/food.png') }}" alt="">
+                                        <img src="{{ asset($special_product->image ?? 'uploads/images/food.png') }}" alt="">
                                     </div>
                                 </li>
                             @endif
