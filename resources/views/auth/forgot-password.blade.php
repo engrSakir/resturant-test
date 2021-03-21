@@ -17,10 +17,10 @@
                         <div class="form-group">
                             <input name="email" value="{{ old('email') }}" type="email" class="form-control" placeholder="Email" required="required">
                         </div>
-                        <input type="submit" class="btn btn-primary" value="Email Password Reset Link">
-                        <div class="forgot-password">
-                            <a href="{{ route('password.request') }}">Forgot Password</a>
-                        </div>
+                        <input type="submit" class="btn btn-primary" value="Send Password Reset Link">
+{{--                        <div class="forgot-password">--}}
+{{--                            <a href="{{ route('password.request') }}">Forgot Password</a>--}}
+{{--                        </div>--}}
                     </form>
                 </div>
             </div>

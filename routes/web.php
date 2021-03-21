@@ -3,6 +3,7 @@
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\GlobalImageController;
 use App\Http\Controllers\InvoiceController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Crypt;
 use App\Http\Controllers\BranchController;
 use App\Http\Controllers\DashboardController;
@@ -79,6 +80,8 @@ Route::group(['middleware' => 'auth'], function (){
 
     Route::group(['middleware' => 'branch'], function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+        Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
+        Route::post('profile-password-update', [ProfileController::class, 'profilePasswordUpdate'])->name('profilePasswordUpdate');
         Route::get('/pos', [PosController::class, 'pos'])->name('pos');
         Route::post('/pos-store', [PosController::class, 'posStore'])->name('posStore');
         Route::get('/get-variations-by-product/{product_id}', [PosController::class, 'getVariationsByProduct'])->name('getVariationsByProduct');

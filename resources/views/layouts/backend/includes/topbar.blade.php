@@ -74,7 +74,7 @@
                                         <div class="dropdown-item">
                                             <div class="userbox">
                                                 <ul class="list-inline mb-0">
-                                                    <li class="list-inline-item"><a href="#" class="profile-icon"><img src="assets/backend/images/svg-icon/user.svg" class="img-fluid" alt="user"></a></li>
+                                                    <li class="list-inline-item"><a href="{{ route('profile.index') }}" class="profile-icon"><img src="assets/backend/images/svg-icon/user.svg" class="img-fluid" alt="user"></a></li>
                                                     <li class="list-inline-item"><a href="#" class="profile-icon"><img src="assets/backend/images/svg-icon/email.svg" class="img-fluid" alt="email"></a></li>
                                                     <li class="list-inline-item"><a href="javascript:0" class="profile-icon logout-btn"><img src="assets/backend/images/svg-icon/logout.svg" class="img-fluid" alt="logout"></a></li>
                                                 </ul>
