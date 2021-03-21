@@ -6,10 +6,11 @@
         <nav class="horizontal-nav mobile-navbar fixed-navbar">
             <div class="collapse navbar-collapse" id="navbar-menu">
                 <ul class="horizontal-menu">
+                    @hasanyrole('Super Admin|Admin|Employee')
                     <li class="scroll dropdown">
-                        <a href="{{ route('pos') }}"><img src="assets/backend/images/svg-icon/dashboard.svg"
-                                class="img-fluid" alt="dashboard"><span>Pos</span></a>
+                        <a href="{{ route('pos') }}"><img src="assets/backend/images/svg-icon/dashboard.svg" class="img-fluid" alt="dashboard"><span>Pos</span></a>
                     </li>
+                    @endrole
                     <li class="scroll dropdown">
                         <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><img
                                 src="assets/backend/images/svg-icon/dashboard.svg" class="img-fluid"
@@ -19,13 +20,7 @@
                                     static option</a></li>
                             <li><a href="{{ route('seoStaticOptionForm') }}"><i class="mdi mdi-circle"></i>Seo static
                                     option</a></li>
-                            <li><a href="{{ route('socialLinkStaticForm') }}"><i class="mdi mdi-circle"></i>Social
-                                    link</a></li>
-                            <li><a href="{{ route('specialProductStaticForm') }}"><i class="mdi mdi-circle"></i>Special product</a></li>
-                            <li><a href="{{ route('offerStaticForm') }}"><i class="mdi mdi-circle"></i>Special offer</a></li>
-                            <li><a href="{{ route('blogStaticForm') }}"><i class="mdi mdi-circle"></i>Blog</a></li>
-                            <li><a href="{{ route('facebookStaticForm') }}"><i class="mdi mdi-circle"></i>Facebook</a></li>
-                            <li><a href="{{ route('galleryStaticForm') }}"><i class="mdi mdi-circle"></i>Gallery</a></li>
+                            <li><a href="{{ route('socialLinkStaticForm') }}"><i class="mdi mdi-circle"></i>Social link</a></li>
                             <li><a href="{{ route('appStaticForm') }}"><i class="mdi mdi-circle"></i>Application</a></li>
                             <li><a href="{{ route('otherStaticForm') }}"><i class="mdi mdi-circle"></i>Other</a></li>
                             <li><a href="{{ route('globalImage.index') }}"><i class="mdi mdi-circle"></i>Global Image</a></li>
@@ -36,23 +31,17 @@
                                 src="assets/backend/images/svg-icon/layouts.svg" class="img-fluid"
                                 alt="layouts"><span>Product</span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="{{ route('product.create') }}"><i class="mdi mdi-circle"></i>Product
-                                    create</a></li>
+                            <li><a href="{{ route('product.create') }}"><i class="mdi mdi-circle"></i>Product create</a></li>
                             <li><a href="{{ route('product.index') }}"><i class="mdi mdi-circle"></i>Product list</a>
                             </li>
-                            <li><a href="{{ route('productCategory.index') }}"><i class="mdi mdi-circle"></i>Product
-                                    category list</a></li>
+                            <li><a href="{{ route('productCategory.index') }}"><i class="mdi mdi-circle"></i>Product category list</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
-                        <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><img
-                                src="assets/backend/images/svg-icon/layouts.svg" class="img-fluid"
-                                alt="layouts"><span>Variation</span></a>
+                        <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><img src="assets/backend/images/svg-icon/layouts.svg" class="img-fluid" alt="layouts"><span>Variation</span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="{{ route('variation.index') }}"><i class="mdi mdi-circle"></i>Variation
-                                    list</a></li>
-                            <li><a href="{{ route('variationCategory.index') }}"><i
-                                        class="mdi mdi-circle"></i>Variation category list</a></li>
+                            <li><a href="{{ route('variation.index') }}"><i class="mdi mdi-circle"></i>Variation list</a></li>
+                            <li><a href="{{ route('variationCategory.index') }}"><i class="mdi mdi-circle"></i>Variation category list</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
@@ -71,9 +60,18 @@
                                 src="assets/backend/images/svg-icon/apps.svg" class="img-fluid"
                                 alt="apps"><span>Website</span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="{{ route('websiteBannerForm') }}"><i class="mdi mdi-circle"></i>Banner</a></li>
+
                             <li><a href="{{ route('websiteMessage.index') }}"><i class="mdi mdi-circle"></i>Messages <span class="badge badge-danger">{{ website_incomplete_messages() }}</span></a></li>
                             <li><a href="{{ route('subscriber.index') }}"><i class="mdi mdi-circle"></i>Subscribers</a></li>
+                            <li class="dropdown">
+                                <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><i
+                                        class="mdi mdi-circle"></i>Other</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{{ route('websiteBannerForm') }}"><i class="mdi mdi-circle"></i>Banner</a></li>
+                                    <li><a href="{{ route('offerStaticForm') }}"><i class="mdi mdi-circle"></i>Special offer</a></li>
+                                    <li><a href="{{ route('facebookStaticForm') }}"><i class="mdi mdi-circle"></i>Facebook</a></li>
+                                </ul>
+                            </li>
                             <li class="dropdown">
                                 <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><i
                                         class="mdi mdi-circle"></i>Promotion</a>
@@ -86,6 +84,7 @@
                                 <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><i
                                         class="mdi mdi-circle"></i>Special Product</a>
                                 <ul class="dropdown-menu">
+                                    <li><a href="{{ route('specialProductStaticForm') }}"><i class="mdi mdi-circle"></i>Special product title</a></li>
                                     <li><a href="{{ route('specialProduct.index') }}"><i class="mdi mdi-circle"></i>Special product list</a></li>
                                     <li><a href="{{ route('specialProduct.create') }}"><i class="mdi mdi-circle"></i>Special product create</a></li>
                                 </ul>
@@ -94,6 +93,7 @@
                                 <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><i
                                         class="mdi mdi-circle"></i>Blog</a>
                                 <ul class="dropdown-menu">
+                                    <li><a href="{{ route('blogStaticForm') }}"><i class="mdi mdi-circle"></i>Blog title</a></li>
                                     <li><a href="{{ route('blog.index') }}"><i class="mdi mdi-circle"></i>Blog list</a></li>
                                     <li><a href="{{ route('blog.create') }}"><i class="mdi mdi-circle"></i>Blog create</a></li>
                                 </ul>
@@ -118,6 +118,7 @@
                                 <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><i
                                         class="mdi mdi-circle"></i>Gallery</a>
                                 <ul class="dropdown-menu">
+                                    <li><a href="{{ route('galleryStaticForm') }}"><i class="mdi mdi-circle"></i>Gallery title</a></li>
                                     <li><a href="{{ route('gallery.index') }}"><i class="mdi mdi-circle"></i>Gallery list</a></li>
                                     <li><a href="{{ route('gallery.create') }}"><i class="mdi mdi-circle"></i>Gallery create</a></li>
                                 </ul>

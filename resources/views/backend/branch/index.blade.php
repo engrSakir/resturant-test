@@ -23,7 +23,9 @@
                 <div class="card-body">
                     <h5 class="card-title font-18">{{ $branch->name }}</h5>
                     <a href="{{ route('branch.show', $branch) }}" class="btn btn-primary">Dashboard</a>
+                    @hasanyrole('Super Admin|Admin')
                     <a href="{{ route('branch.edit', $branch->id) }}" class="btn btn-info">Edit</a>
+                    @endrole
                 </div>
             </div>
         </div>

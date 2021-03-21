@@ -24,7 +24,7 @@
 <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
 
-<link rel="icon" href="{{ asset('assets/frontend/images/ico/favicon.ico') }}">
+<link rel="icon" href="{{ asset(get_static_option('fav_icon') ?? get_static_option('no_image')) }}">
 <link rel="apple-touch-icon" sizes="144x144"
     href="{{ asset('assets/frontend/images/ico/apple-touch-icon-144-precomposed.png') }}">
 <link rel="apple-touch-icon" sizes="114x114"

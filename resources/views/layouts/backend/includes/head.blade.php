@@ -9,7 +9,7 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <title>@stack('title') | {{ config('app.name') }}</title>
 <!-- Fevicon -->
-<link rel="shortcut icon" href="{{ asset('assets/backend/images/favicon.ico') }}">
+<link rel="shortcut icon" href="{{ asset(get_static_option('fav_icon') ?? get_static_option('no_image')) }}">
 <!-- Start CSS -->
 @stack('style')
 <link href="{{ asset('assets/backend/plugins/switchery/switchery.min.css') }}" rel="stylesheet" type="text/css">

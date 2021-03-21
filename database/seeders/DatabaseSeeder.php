@@ -24,7 +24,6 @@ class DatabaseSeeder extends Seeder
         $this->call(WebsitePromotionSeeder::class);
         $this->call(SpecialProductSeeder::class);
         $this->call(GlobalImageSeeder::class);
-        $this->call(UserSeeder::class);
         $this->call(BlogSeeder::class);
         $this->call(PartnerSeeder::class);
         $this->call(GallerySeeder::class);
@@ -32,5 +31,6 @@ class DatabaseSeeder extends Seeder
         $this->call(ExpenseCategorySeeder::class);
         $this->call(ExpenseSeeder::class);
         $this->call(RoleAndPermissionSeeder::class);
+        $this->call(UserSeeder::class);
     }
 }
