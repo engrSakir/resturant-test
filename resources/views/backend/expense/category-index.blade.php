@@ -32,21 +32,28 @@
         <div class="row">
             <!-- Start col -->
             <div class="col-12 ">
-                <form action="{{ route('expenseCategory.store') }}" method="post" class="row justify-content-center" enctype="multipart/form-data">
-                    @csrf
-                    <div class="form-group col-12">
-                        <label for="name">Category Name</label>
-                        <input type="text" class="form-control" id="name" name="name" placeholder="name" value="{{ old('name') }}">
-                        @error('name')
-                        <div class="alert alert-danger" role="alert">
-                            {{ $message }}
-                        </div>
-                        @enderror
+                <div class="card m-b-30">
+                    <div class="card-header">
+                        <h5 class="card-title">Expense category </h5>
                     </div>
-                    <div class="form-group col-4">
-                        <button type="submit" class="btn btn-success mr-1 col-12" id="save-category">SAVE</button>
+                    <div class="card-body">
+                        <form action="{{ route('expenseCategory.store') }}" method="post" class="row justify-content-center" enctype="multipart/form-data">
+                            @csrf
+                            <div class="form-group col-12">
+                                <label for="name">Category Name</label>
+                                <input type="text" class="form-control" id="name" name="name" placeholder="name" value="{{ old('name') }}">
+                                @error('name')
+                                <div class="alert alert-danger" role="alert">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+                            <div class="form-group col-4">
+                                <button type="submit" class="btn btn-success mr-1 col-12" id="save-category">SAVE</button>
+                            </div>
+                        </form>
                     </div>
-                </form>
+                </div>
             </div>
             <div class="col-lg-12">
                 <div class="card m-b-30">

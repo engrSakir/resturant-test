@@ -34,6 +34,46 @@
             <div class="col-lg-12">
                 <div class="card m-b-30">
                     <div class="card-header">
+                        <h5 class="card-title">Product category create </h5>
+                    </div>
+                    <div class="card-body">
+                        <form action="{{ route('productCategory.store') }}" method="post" class="row"
+                              enctype="multipart/form-data">
+                            @csrf
+                            <div class="form-group col-12">
+                                <label for="name">Category Name</label>
+                                <input type="text" class="form-control" id="name" name="name" placeholder="name"
+                                       value="{{ old('name') }}">
+                                @error('name')
+                                <div class="alert alert-danger" role="alert">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+                            <div class="form-group col-12">
+                                <label for="status">Status</label>
+                                <select name="status" class="select2-single form-control" name="state">
+                                    <option @if (old('status') == 1) selected @endif value="1">Active</option>
+                                    <option @if (old('status') == 0) selected @endif value="0">Inactive</option>
+                                </select>
+                                @error('name')
+                                <div class="alert alert-danger" role="alert">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+                            <div class="form-group col-12">
+                                <button type="submit" class="btn btn-success mr-1 col-12" id="save-category">SAVE</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- End col -->
+            <!-- Start col -->
+            <div class="col-lg-12">
+                <div class="card m-b-30">
+                    <div class="card-header">
                         <h5 class="card-title">Product category </h5>
                     </div>
                     <div class="card-body">

@@ -32,57 +32,64 @@
         <div class="row">
             <!-- Start col -->
             <div class="col-12 ">
-                <form action="{{ route('expense.store') }}" method="post" class="row justify-content-center" enctype="multipart/form-data">
-                    @csrf
-                    <div class="form-group col-12">
-                        <label for="name">Expense Name</label>
-                        <input type="text" class="form-control" id="name" name="name" placeholder="Name" value="{{ old('name') }}">
-                        @error('name')
-                        <div class="alert alert-danger" role="alert">
-                            {{ $message }}
-                        </div>
-                        @enderror
+                <div class="card m-b-30">
+                    <div class="card-header">
+                        <h5 class="card-title">Expense </h5>
                     </div>
-                    <div class="form-group col-12">
-                        <label for="category">Category</label>
-                        <select class="form-control" name="category" id="category">
-                            @foreach($expenseCategories as $expenseCategory)
-                                <option @if(old('category') == $expenseCategory->id) selected @endif value="{{ $expenseCategory->id }}">{{ $expenseCategory->name }}</option>
-                            @endforeach
-                        </select>
-                        @error('category')
-                        <div class="alert alert-danger" role="alert">
-                            {{ $message }}
-                        </div>
-                        @enderror
+                    <div class="card-body">
+                        <form action="{{ route('expense.store') }}" method="post" class="row justify-content-center" enctype="multipart/form-data">
+                            @csrf
+                            <div class="form-group col-12">
+                                <label for="name">Expense Name</label>
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Name" value="{{ old('name') }}">
+                                @error('name')
+                                <div class="alert alert-danger" role="alert">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+                            <div class="form-group col-12">
+                                <label for="category">Category</label>
+                                <select class="form-control" name="category" id="category">
+                                    @foreach($expenseCategories as $expenseCategory)
+                                        <option @if(old('category') == $expenseCategory->id) selected @endif value="{{ $expenseCategory->id }}">{{ $expenseCategory->name }}</option>
+                                    @endforeach
+                                </select>
+                                @error('category')
+                                <div class="alert alert-danger" role="alert">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+                            <div class="form-group col-12">
+                                <label for="amount">Amount</label>
+                                <input type="number" class="form-control" id="amount" name="amount" placeholder="Amount" value="{{ old('amount') }}">
+                                @error('amount')
+                                <div class="alert alert-danger" role="alert">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+                            <div class="form-group col-12">
+                                <label for="description">Description</label>
+                                <textarea  class="form-control"  name="description" id="description" >{!! old('description') !!}</textarea>
+                                @error('description')
+                                <div class="alert alert-danger" role="alert">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+                            <div class="form-group col-4">
+                                <button type="submit" class="btn btn-success mr-1 col-12" id="save-category">SAVE</button>
+                            </div>
+                        </form>
                     </div>
-                    <div class="form-group col-12">
-                        <label for="amount">Amount</label>
-                        <input type="number" class="form-control" id="amount" name="amount" placeholder="Amount" value="{{ old('amount') }}">
-                        @error('amount')
-                        <div class="alert alert-danger" role="alert">
-                            {{ $message }}
-                        </div>
-                        @enderror
-                    </div>
-                    <div class="form-group col-12">
-                        <label for="description">Description</label>
-                        <textarea  class="form-control"  name="description" id="description" >{!! old('description') !!}</textarea>
-                        @error('description')
-                        <div class="alert alert-danger" role="alert">
-                            {{ $message }}
-                        </div>
-                        @enderror
-                    </div>
-                    <div class="form-group col-4">
-                        <button type="submit" class="btn btn-success mr-1 col-12" id="save-category">SAVE</button>
-                    </div>
-                </form>
+                </div>
             </div>
             <div class="col-lg-12">
                 <div class="card m-b-30">
                     <div class="card-header">
-                        <h5 class="card-title">Expense category </h5>
+                        <h5 class="card-title">Expense </h5>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">

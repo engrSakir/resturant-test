@@ -96,39 +96,6 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <table class="table table-striped table-bordered">
-                        <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Status</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                        </tbody>
-                        <tfoot>
-                            @foreach ($product_categories as $product_category)
-                                <tr>
-                                    <td>{{ $product_category->name }}</td>
-                                    <td>
-                                        @if ($product_category->status == true)
-                                            <span class="badge badge-pill badge-success">Active</span>
-                                        @else
-                                            <span class="badge badge-pill badge-danger">Inactive</span>
-                                        @endif
-                                    </td>
-                                    <td>
-                                        <a href="{{ route('productCategory.edit', $product_category) }}"
-                                            class="btn btn-info"><i class="fa fa-edit"></i> </a> <button
-                                            class="btn btn-danger" onclick="delete_function(this)"
-                                            value="{{ route('productCategory.destroy', $product_category) }}"><i
-                                                class="fa fa-trash"></i> </button>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tfoot>
-                    </table>
                     <form action="{{ route('productCategory.store') }}" method="post" class="row"
                         enctype="multipart/form-data">
                         @csrf

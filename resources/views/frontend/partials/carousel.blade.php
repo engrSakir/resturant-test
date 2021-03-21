@@ -1,5 +1,5 @@
 <div id="home-carousel" class="carousel slide home-slider tr-banner" data-ride="carousel"
-    style="background-image: url({{ asset(get_static_option('banner_highlight') ?? 'images/bg/slider1.jpg') }});">
+    style="background-image: url({{ asset(get_static_option('banner_image') ?? 'images/bg/slider1.jpg') }});">
     <div class="carousel-inner text-center" role="listbox">
         <div class="carousel-item item active">
             <div class="item-middle">
