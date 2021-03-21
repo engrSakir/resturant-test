@@ -138,6 +138,7 @@
       <path value="$PROJECT_DIR$/vendor/paragonie/random_compat" />
       <path value="$PROJECT_DIR$/vendor/niklasravnsborg/laravel-pdf" />
       <path value="$PROJECT_DIR$/vendor/setasign/fpdi" />
+      <path value="$PROJECT_DIR$/vendor/laravel/breeze" />
     </include_path>
   </component>
   <component name="ProjectId" id="1po18S8M8Jmr4FOX1xkacrawdzx" />
@@ -173,7 +174,7 @@
       <workItem from="1615946277173" duration="28337000" />
       <workItem from="1616032713134" duration="24340000" />
       <workItem from="1616061380685" duration="3490000" />
-      <workItem from="1616292503915" duration="919000" />
+      <workItem from="1616292503915" duration="5192000" />
     </task>
     <servers />
   </component>

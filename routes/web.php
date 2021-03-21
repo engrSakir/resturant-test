@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\GlobalImageController;
-use App\Http\Controllers\GlobalImagesController;
 use App\Http\Controllers\InvoiceController;
 use Illuminate\Support\Facades\Crypt;
 use App\Http\Controllers\BranchController;
@@ -50,61 +49,65 @@ Route::get('/images', [FrontendController::class, 'images'])->name('frontend.ima
 Route::post('/contact-us-store', [FrontendController::class, 'contactUsStore'])->name('frontend.contactUsStore');
 Route::post('/subscribe/store', [FrontendController::class, 'subscribeStore'])->name('frontend.subscribeStore');
 
-Route::resource('/branch', BranchController::class);
-Route::get('/get-general-static-option-form', [SettingController::class, 'getGeneralStaticForm'])->name('getGeneralStaticForm');
-Route::get('/seo-static-option-form', [SettingController::class, 'seoStaticOptionForm'])->name('seoStaticOptionForm');
-Route::get('/social-link-static-form', [SettingController::class, 'socialLinkStaticForm'])->name('socialLinkStaticForm');
-Route::get('/special-product-static-form', [SettingController::class, 'specialProductStaticForm'])->name('specialProductStaticForm');
-Route::get('/offer-static-form', [SettingController::class, 'offerStaticForm'])->name('offerStaticForm');
-Route::get('/app-static-form', [SettingController::class, 'appStaticForm'])->name('appStaticForm');
-Route::get('/blog-static-form', [SettingController::class, 'blogStaticForm'])->name('blogStaticForm');
-Route::get('/facebook-static-form', [SettingController::class, 'facebookStaticForm'])->name('facebookStaticForm');
-Route::get('/gallery-static-form', [SettingController::class, 'galleryStaticForm'])->name('galleryStaticForm');
-Route::get('/other-static-form', [SettingController::class, 'otherStaticForm'])->name('otherStaticForm');
-Route::get('/website-banner-form', [SettingController::class, 'websiteBannerForm'])->name('websiteBannerForm');
+
+Route::group(['middleware' => 'auth'], function (){
+    Route::resource('/branch', BranchController::class);
+    Route::get('/get-general-static-option-form', [SettingController::class, 'getGeneralStaticForm'])->name('getGeneralStaticForm');
+    Route::get('/seo-static-option-form', [SettingController::class, 'seoStaticOptionForm'])->name('seoStaticOptionForm');
+    Route::get('/social-link-static-form', [SettingController::class, 'socialLinkStaticForm'])->name('socialLinkStaticForm');
+    Route::get('/special-product-static-form', [SettingController::class, 'specialProductStaticForm'])->name('specialProductStaticForm');
+    Route::get('/offer-static-form', [SettingController::class, 'offerStaticForm'])->name('offerStaticForm');
+    Route::get('/app-static-form', [SettingController::class, 'appStaticForm'])->name('appStaticForm');
+    Route::get('/blog-static-form', [SettingController::class, 'blogStaticForm'])->name('blogStaticForm');
+    Route::get('/facebook-static-form', [SettingController::class, 'facebookStaticForm'])->name('facebookStaticForm');
+    Route::get('/gallery-static-form', [SettingController::class, 'galleryStaticForm'])->name('galleryStaticForm');
+    Route::get('/other-static-form', [SettingController::class, 'otherStaticForm'])->name('otherStaticForm');
+    Route::get('/website-banner-form', [SettingController::class, 'websiteBannerForm'])->name('websiteBannerForm');
 
 
-Route::post('/general-static-option-update', [SettingController::class, 'generalStaticUpdate'])->name('generalStaticUpdate');
-Route::post('/seo-static-option-update', [SettingController::class, 'seoStaticOptionUpdate'])->name('seoStaticOptionUpdate');
-Route::post('/social-link-static-option-update', [SettingController::class, 'sociallinkStaticOptionUpdate'])->name('sociallinkStaticOptionUpdate');
-Route::post('/special-product-static-option-update', [SettingController::class, 'specialProductStaticOptionUpdate'])->name('specialProductStaticOptionUpdate');
-Route::post('/offer-static-option-update', [SettingController::class, 'offerStaticOptionUpdate'])->name('offerStaticOptionUpdate');
-Route::post('/blog-static-option-update', [SettingController::class, 'blogStaticOptionUpdate'])->name('blogStaticOptionUpdate');
-Route::post('/facebook-static-option-update', [SettingController::class, 'facebookStaticOptionUpdate'])->name('facebookStaticOptionUpdate');
-Route::post('/gallery-static-option-update', [SettingController::class, 'galleryStaticOptionUpdate'])->name('galleryStaticOptionUpdate');
-Route::post('/other-static-option-update', [SettingController::class, 'otherStaticOptionUpdate'])->name('otherStaticOptionUpdate');
-Route::post('/app-static-option-update', [SettingController::class, 'appStaticOptionUpdate'])->name('appStaticOptionUpdate');
-Route::post('/website-banner-update', [SettingController::class, 'websiteBannerUpdate'])->name('websiteBannerUpdate');
+    Route::post('/general-static-option-update', [SettingController::class, 'generalStaticUpdate'])->name('generalStaticUpdate');
+    Route::post('/seo-static-option-update', [SettingController::class, 'seoStaticOptionUpdate'])->name('seoStaticOptionUpdate');
+    Route::post('/social-link-static-option-update', [SettingController::class, 'sociallinkStaticOptionUpdate'])->name('sociallinkStaticOptionUpdate');
+    Route::post('/special-product-static-option-update', [SettingController::class, 'specialProductStaticOptionUpdate'])->name('specialProductStaticOptionUpdate');
+    Route::post('/offer-static-option-update', [SettingController::class, 'offerStaticOptionUpdate'])->name('offerStaticOptionUpdate');
+    Route::post('/blog-static-option-update', [SettingController::class, 'blogStaticOptionUpdate'])->name('blogStaticOptionUpdate');
+    Route::post('/facebook-static-option-update', [SettingController::class, 'facebookStaticOptionUpdate'])->name('facebookStaticOptionUpdate');
+    Route::post('/gallery-static-option-update', [SettingController::class, 'galleryStaticOptionUpdate'])->name('galleryStaticOptionUpdate');
+    Route::post('/other-static-option-update', [SettingController::class, 'otherStaticOptionUpdate'])->name('otherStaticOptionUpdate');
+    Route::post('/app-static-option-update', [SettingController::class, 'appStaticOptionUpdate'])->name('appStaticOptionUpdate');
+    Route::post('/website-banner-update', [SettingController::class, 'websiteBannerUpdate'])->name('websiteBannerUpdate');
 
-Route::group(['middleware' => 'branch'], function () {
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
-    Route::get('/pos', [PosController::class, 'pos'])->name('pos');
-    Route::post('/pos-store', [PosController::class, 'posStore'])->name('posStore');
-    Route::get('/get-variations-by-product/{product_id}', [PosController::class, 'getVariationsByProduct'])->name('getVariationsByProduct');
-    Route::resource('productCategory', ProductCategoryController::class);
-    Route::resource('product', ProductController::class);
-    Route::resource('blog', BlogController::class);
-    Route::resource('invoice', InvoiceController::class);
-    Route::resource('partner', PartnerController::class);
-    Route::resource('variation', VariationController::class);
-    Route::resource('gallery', GalleryController::class);
-    Route::resource('subscriber', SubscriberController::class);
-    Route::resource('customPage', CustomPageController::class);
-    Route::resource('faq', FaqController::class);
-    Route::resource('expenseCategory', ExpenseCategoryController::class);
-    Route::resource('expense', ExpenseController::class);
-    Route::resource('variationCategory', VariationCategoryController::class);
-    Route::resource('globalImage', GlobalImageController::class);
+    Route::group(['middleware' => 'branch'], function () {
+        Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+        Route::get('/pos', [PosController::class, 'pos'])->name('pos');
+        Route::post('/pos-store', [PosController::class, 'posStore'])->name('posStore');
+        Route::get('/get-variations-by-product/{product_id}', [PosController::class, 'getVariationsByProduct'])->name('getVariationsByProduct');
+        Route::resource('productCategory', ProductCategoryController::class);
+        Route::resource('product', ProductController::class);
+        Route::resource('blog', BlogController::class);
+        Route::resource('invoice', InvoiceController::class);
+        Route::resource('partner', PartnerController::class);
+        Route::resource('variation', VariationController::class);
+        Route::resource('gallery', GalleryController::class);
+        Route::resource('subscriber', SubscriberController::class);
+        Route::resource('customPage', CustomPageController::class);
+        Route::resource('faq', FaqController::class);
+        Route::resource('expenseCategory', ExpenseCategoryController::class);
+        Route::resource('expense', ExpenseController::class);
+        Route::resource('variationCategory', VariationCategoryController::class);
+        Route::resource('globalImage', GlobalImageController::class);
+        Route::resource('websiteMessage', WebsiteMessageController::class);
+        Route::resource('websitePromotion', WebsitePromotionController::class);
+        Route::resource('specialProduct', SpecialProductController::class);
 
-    // create blade
-    Route::get('/variationCategory/create-with-product/{product_id}', [VariationCategoryController::class, 'createVariationCategoryWithProduct'])->name('createVariationCategoryWithProduct');
-    Route::get('/variation-create-based-on-category/{category_id}', [VariationController::class, 'variationCreateBasedOnCategory'])->name('variationCreateBasedOnCategory');
+        // create blade
+        Route::get('/variationCategory/create-with-product/{product_id}', [VariationCategoryController::class, 'createVariationCategoryWithProduct'])->name('createVariationCategoryWithProduct');
+        Route::get('/variation-create-based-on-category/{category_id}', [VariationController::class, 'variationCreateBasedOnCategory'])->name('variationCreateBasedOnCategory');
 
-    // controller ajax datatables
-    Route::get('/variationCategory-based-on-product/{product_id}', [VariationCategoryController::class, 'variationCategoryBasedOnProduct'])->name('variationCategoryBasedOnProduct');
-    Route::get('/variation/create-with-category/{category_id}', [VariationController::class, 'createVariationWithCategory'])->name('createVariationWithCategory');
+        // controller ajax datatables
+        Route::get('/variationCategory-based-on-product/{product_id}', [VariationCategoryController::class, 'variationCategoryBasedOnProduct'])->name('variationCategoryBasedOnProduct');
+        Route::get('/variation/create-with-category/{category_id}', [VariationController::class, 'createVariationWithCategory'])->name('createVariationWithCategory');
+    });
 });
 
-Route::resource('websiteMessage', WebsiteMessageController::class);
-Route::resource('websitePromotion', WebsitePromotionController::class);
-Route::resource('specialProduct', SpecialProductController::class);
+require __DIR__.'/auth.php';

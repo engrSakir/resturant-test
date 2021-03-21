@@ -67,8 +67,8 @@
                                       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="profilelink">
                                         <div class="dropdown-item">
                                             <div class="profilename">
-                                              <h5>Shourya Kumar</h5>
-                                              <p>Social Media Strategist</p>
+                                              <h5>{{ auth()->user()->name }}</h5>
+                                              <p>{{ auth()->user()->email }}</p>
                                             </div>
                                         </div>
                                         <div class="dropdown-item">
@@ -76,7 +76,7 @@
                                                 <ul class="list-inline mb-0">
                                                     <li class="list-inline-item"><a href="#" class="profile-icon"><img src="assets/backend/images/svg-icon/user.svg" class="img-fluid" alt="user"></a></li>
                                                     <li class="list-inline-item"><a href="#" class="profile-icon"><img src="assets/backend/images/svg-icon/email.svg" class="img-fluid" alt="email"></a></li>
-                                                    <li class="list-inline-item"><a href="#" class="profile-icon"><img src="assets/backend/images/svg-icon/logout.svg" class="img-fluid" alt="logout"></a></li>
+                                                    <li class="list-inline-item"><a href="javascript:0" class="profile-icon logout-btn"><img src="assets/backend/images/svg-icon/logout.svg" class="img-fluid" alt="logout"></a></li>
                                                 </ul>
                                             </div>
                                           </div>

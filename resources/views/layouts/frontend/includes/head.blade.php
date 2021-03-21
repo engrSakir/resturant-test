@@ -8,7 +8,7 @@
 <meta property="og:image"
     content="{{ $meta_image ?? (get_static_option('meta_image') ?? get_static_option('frontend_logo') ?? get_static_option('no_image')) }}" />
 
-<title>Biotic | Organic Food, @stack('title')</title>
+<title>@stack('title') | {{ config('app.name') }}</title>
 
 <link rel="stylesheet" href="{{ asset('assets/frontend/css/bootstrap.min.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/frontend/css/animate.css') }}">
