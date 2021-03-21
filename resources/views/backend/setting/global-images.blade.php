@@ -34,7 +34,7 @@
                     <h5 class="card-title text-white"> Create</h5>
                 </div>
                 <div class="card-body">
-                    <form class="row justify-content-center" method="POST" action="{{ route('globalImages.store') }}"
+                    <form class="row justify-content-center" method="POST" action="{{ route('globalImage.store') }}"
                           enctype="multipart/form-data">
                         @csrf
                         <div class="col-lg-10">
@@ -80,7 +80,6 @@
                                 <tr>
                                     <th>Name</th>
                                     <th>Image</th>
-                                    <th>Status</th>
                                 </tr>
                                 </tfoot>
                             </table>
@@ -103,7 +102,7 @@
                 responsive: true,
                 processing: true,
                 serverSide: true,
-                ajax: '{!! route('globalImages.index') !!}',
+                ajax: '{!! route('globalImage.index') !!}',
                 columns: [{
                     data: 'name',
                     name: 'name'

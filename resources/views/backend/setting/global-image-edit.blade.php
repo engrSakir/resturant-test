@@ -20,7 +20,7 @@
             </div>
             <div class="col-md-4 col-lg-4">
                 <div class="widgetbar">
-
+                    <a href="{{ route('globalImage.index') }}" class="btn btn-primary">Back to list</a>
                 </div>
             </div>
         </div>
@@ -33,20 +33,21 @@
                 <div class="card-header bg-danger">
                     <h5 class="card-title text-white"> Edit</h5>
                 </div>
-                <div class="card-body">{{ $globalImages }}
-                    <form class="row justify-content-center" method="POST" action="{{ route('globalImages.store',) }}"
+                <div class="card-body">
+                    <form class="row justify-content-center" method="POST" action="{{ route('globalImage.update',$globalImage ) }}"
                           enctype="multipart/form-data">
                         @csrf
+                        @method('PATCH')
                         <div class="col-lg-10">
                             <div class="form-group row">
                                 <label for="name" class="col-sm-4 col-form-label">Name</label>
                                 <div class="col-sm-8">
-                                    <input value="{{ $globalImages->name }}" name="name" type="text" class="form-control" id="title" placeholder="Name">
+                                    <input value="{{ $globalImage->name }}" name="name" type="text" class="form-control" id="title" placeholder="Name">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="image" class="col-sm-4 col-form-label">Image</label>
-                                <img class="rounded-circle" height="70px;" width="70px;" src="{{ asset($globalImages->image ?? get_static_option('no_image')) }}" alt="">
+                                <img class="rounded-circle" height="70px;" width="70px;" src="{{ asset($globalImage->image ?? get_static_option('no_image')) }}" alt="">
                                 <div class="col-sm-8">
                                     <input name="image" type="file" accept="image/*" class="form-control-lg" id="image">
                                 </div>
