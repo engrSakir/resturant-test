@@ -48,7 +48,7 @@ class InvoiceController extends Controller
     public function show(Invoice $invoice)
     {
         $pdf = PDF::loadView('pdf.invoice', compact('invoice',));
-        return $pdf->stream(config('app.name').'-invoice-'.$invoice->slug.'.pdf');
+        return $pdf->stream(config('app.name').'-invoice-'.$invoice->invoice_id.'.pdf');
 
     }
 

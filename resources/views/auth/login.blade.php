@@ -15,7 +15,7 @@
                     <form method="POST" action="{{ route('login') }}" class="tr-form">
                         @csrf
                         <div class="form-group">
-                            <input name="email" value="{{ old('email') }}" type="email" class="form-control" placeholder="Email" required="required">
+                            <input name="phone" value="{{ old('phone') }}" type="text" class="form-control" placeholder="Phone" required="required">
                         </div>
                         <div class="form-group">
                             <input name="password" type="password" class="form-control" placeholder="Password" required="required">

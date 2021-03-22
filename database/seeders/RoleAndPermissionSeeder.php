@@ -17,10 +17,14 @@ class RoleAndPermissionSeeder extends Seeder
         Role::create(['name' => 'Super Admin']);
         Role::create(['name' => 'Admin']);
         Role::create(['name' => 'Employee']);
+        Role::create(['name' => 'Waiter']);
+
 
         $superAdmin= Role::find(1);
         $admin= Role::find(2);
         $employee= Role::find(3);
+        $waiter= Role::find(4);
+
 
 //        //admin_dashboard
 //        $permission = Permission::create(['name' => 'admin_dashboard']);

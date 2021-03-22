@@ -49,6 +49,21 @@
                     </li>
                     @endrole
                     @hasanyrole('Super Admin|Admin')
+                    <li class="dropdown">
+                        <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><img src="assets/backend/images/svg-icon/layouts.svg" class="img-fluid" alt="layouts"><span>Table</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ route('table.index') }}"><i class="mdi mdi-circle"></i>Table list</a></li>
+                        </ul>
+                    </li>
+                    @endrole
+                    <li class="dropdown">
+                        <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><img src="assets/backend/images/svg-icon/layouts.svg" class="img-fluid" alt="layouts"><span>User</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ route('user.index') }}"><i class="mdi mdi-circle"></i>User list</a></li>
+                            <li><a href="{{ route('user.create') }}"><i class="mdi mdi-circle"></i>User create</a></li>
+                        </ul>
+                    </li>
+                    @hasanyrole('Super Admin|Admin')
                         <li class="dropdown">
                             <a href="javaScript:void();" class="dropdown-toggle" data-toggle="dropdown"><img
                                     src="assets/backend/images/svg-icon/layouts.svg" class="img-fluid"

@@ -67,8 +67,11 @@
                                       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="profilelink">
                                         <div class="dropdown-item">
                                             <div class="profilename">
-                                              <h5>{{ auth()->user()->name }}</h5>
-                                              <p>{{ auth()->user()->email }}</p>
+                                                @if(Auth::check())
+                                                    <h5>{{ auth()->user()->name }}</h5>
+                                                    <p>{{ auth()->user()->email }}</p>
+                                                @endif
+
                                             </div>
                                         </div>
                                         <div class="dropdown-item">

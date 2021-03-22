@@ -29,7 +29,7 @@ class UserSeeder extends Seeder
         for ($i = 1; $i <= 10; $i++) {
             $user = new User();
             $user->name = 'Mr Admin '.$i;
-            $user->phone = '0123456789'.$i;
+            $user->phone = '0123456790'.$i;
             $user->email = 'admin'.$i.'@gmail.com';
             $user->password = Hash::make('password');
             $user->save();
@@ -40,7 +40,7 @@ class UserSeeder extends Seeder
         for ($i = 1; $i <= 10; $i++) {
             $user = new User();
             $user->name = 'Mr Employee '.$i;
-            $user->phone = '0123456789'.$i;
+            $user->phone = '0123456791'.$i;
             $user->email = 'employee'.$i.'@gmail.com';
             $user->password = Hash::make('password');
             $user->save();

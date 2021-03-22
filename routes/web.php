@@ -4,6 +4,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\GlobalImageController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Crypt;
 use App\Http\Controllers\BranchController;
 use App\Http\Controllers\DashboardController;
@@ -51,7 +52,7 @@ Route::post('/contact-us-store', [FrontendController::class, 'contactUsStore'])-
 Route::post('/subscribe/store', [FrontendController::class, 'subscribeStore'])->name('frontend.subscribeStore');
 
 
-Route::group(['middleware' => 'auth'], function (){
+//Route::group(['middleware' => 'auth'], function (){
     Route::resource('/branch', BranchController::class);
     Route::get('/get-general-static-option-form', [SettingController::class, 'getGeneralStaticForm'])->name('getGeneralStaticForm');
     Route::get('/seo-static-option-form', [SettingController::class, 'seoStaticOptionForm'])->name('seoStaticOptionForm');
@@ -102,6 +103,7 @@ Route::group(['middleware' => 'auth'], function (){
         Route::resource('websiteMessage', WebsiteMessageController::class);
         Route::resource('websitePromotion', WebsitePromotionController::class);
         Route::resource('specialProduct', SpecialProductController::class);
+        Route::resource('user', UserController::class);
 
         // create blade
         Route::get('/variationCategory/create-with-product/{product_id}', [VariationCategoryController::class, 'createVariationCategoryWithProduct'])->name('createVariationCategoryWithProduct');
@@ -111,6 +113,6 @@ Route::group(['middleware' => 'auth'], function (){
         Route::get('/variationCategory-based-on-product/{product_id}', [VariationCategoryController::class, 'variationCategoryBasedOnProduct'])->name('variationCategoryBasedOnProduct');
         Route::get('/variation/create-with-category/{category_id}', [VariationController::class, 'createVariationWithCategory'])->name('createVariationWithCategory');
     });
-});
+//});
 
 require __DIR__.'/auth.php';

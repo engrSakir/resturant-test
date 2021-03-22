@@ -72,59 +72,6 @@
                     </li>
                 </ul>
             </div>
-            <div class="find-option float-right">
-                <ul class="global-list">
-                    <li class="tr-search">
-                        <div class="search-icon"><span class="icon icon-magnifying-glass"></span></div>
-                        <div class="search-form">
-                            <form action="#" id="search" method="get">
-                                <input id="inputhead" name="search" type="text"
-                                    placeholder="Type Your Words & Press Enter">
-                                <button type="submit"><span class="icon icon-magnifying-glass"></span></button>
-                            </form>
-                        </div>
-                    </li>
-                    <li class="cart-content tr-dropdown">
-                        <a href="#"><span class="icon icon-shopping-basket"></span> <span
-                                class="cart-number">3</span></a>
-                        <div class="tr-dropdown-menu">
-                            <ul class="global-list">
-                                <li class="remove-item">
-                                    <span class="remove-icon"><i class="fa fa-times" aria-hidden="true"></i></span>
-                                    <div class="product">
-                                        <a href="details.html">
-                                            <span class="product-image">
-                                                <img src="images/product/1.jpg" alt="Image" class="img-fluid">
-                                            </span>
-                                            <span class="product-title">Organic <strong>Cabbage</strong></span>
-                                            <span class="price"><del>$15.00</del>$12.00</span>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="remove-item">
-                                    <span class="remove-icon"><i class="fa fa-times" aria-hidden="true"></i></span>
-                                    <div class="product">
-                                        <a href="details.html">
-                                            <span class="product-image">
-                                                <img src="images/product/1.jpg" alt="Image" class="img-fluid">
-                                            </span>
-                                            <span class="product-title">Organic <strong>Cabbage</strong></span>
-                                            <span class="price"><del>$15.00</del>$12.00</span>
-                                        </a>
-                                    </div>
-                                </li>
-                            </ul>
-                            <div class="total-price">
-                                <span><strong>Total Price: </strong>$598:00</span>
-                            </div>
-                            <div class="buttons">
-                                <a class="btn btn-primary cart-button" href="shopping-cart.html">View Cart</a>
-                                <a class="btn btn-primary" href="#">Checkout</a>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
         </div>
     </nav>
 </div>

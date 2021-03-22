@@ -20,6 +20,12 @@ class AuthenticatedSessionController extends Controller
         return view('auth.login');
     }
 
+    //for phone
+    public function username()
+    {
+        return 'phone';
+    }
+
     /**
      * Handle an incoming authentication request.
      *
@@ -28,11 +34,54 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request)
     {
-        $request->authenticate();
+//        if ($this->guard()->validate($this->credentials($request))) {
+//            if (Auth::attempt(['phone' => $request->phone, 'password' => $request->password, 'is_active' => 1])) {
+//                session()->flash('message', 'Login success.');
+//                session()->flash('type', 'success');
+//                //Super Admin
+//                if (Auth::user()->role == 'Super Admin') {
+//                    return redirect(route('dashboard.index'));
+//                }
+//                // Admin
+//                if (Auth::user()->role == 'Admin') {
+//                    return redirect(route('dashboard.index'));
+//                }
+//                // Employee
+//                if (Auth::user()->role == 'Employee') {
+//                    return redirect(route('dashboard.index'));
+//                }
+//
+//                //Customer
+//                if (Auth::user()->role == 'Customer') {
+//                    return redirect(route('home.index'));
+//                }
+//                //Unknown type
+//                else {
+//                    session()->flash('message', 'Non-permitted role.');
+//                    session()->flash('type', 'danger');
+//                    Auth::logout();
+//                    return redirect('/login');
+//                }
+//            } else {
+//                $this->incrementLoginAttempts($request);
+//                session()->flash('message', ' This account is disabled. Please, contact  us ...');
+//                session()->flash('type', 'warning');
+//                return redirect()->back();
+//            }
+//        } else {
+//            $this->incrementLoginAttempts($request);
+//            session()->flash('message', 'Credentials do not match our database.');
+//            session()->flash('type', 'warning');
+//            return redirect()->back();
+//        }
 
-        $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+
+//        $request->authenticate();
+//
+//        $request->session()->regenerate();
+
+
     }
 
     /**
