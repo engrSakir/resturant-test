@@ -11,7 +11,8 @@
             <div class="float-right">
                 <div class="user-option">
                     <span class="icon icon-avatar"></span>
-                    <a href="{{ route('login') }}">Login</a> / <a href="{{ route('register') }}">Register</a>
+                    <a href="{{ route('login') }}">Login</a>
+                {{--  / <a href="{{ route('register') }}">Register</a>--}}
                 </div>
             </div>
         </div>

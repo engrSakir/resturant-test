@@ -33,6 +33,7 @@ class StaticOptionSeeder extends Seeder
         set_static_option('footer_credit', 'lorem ipsum Footer credit ....');
 
         set_static_option('banner_highlight', 'Welcome To ...');
+        set_static_option('banner_link', 'https://www.youtube.com');
         set_static_option('banner_description','Lorem ipsum dolor sit amet' );
         set_static_option('banner_title', 'Fresh  Food');
 

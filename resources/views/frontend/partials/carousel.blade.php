@@ -10,7 +10,7 @@
                             <h2 data-animation="animated fadeInDown">{{ get_static_option('banner_title') }}</h2>
                             <p data-animation="animated fadeInDown">{{ get_static_option('banner_description') }}
                             </p>
-                            <a href="#" data-animation="animated fadeInDown" class="btn btn-primary">View More</a>
+                            <a target="_blank" href="{{ get_static_option('banner_link') }}" data-animation="animated fadeInDown" class="btn btn-primary">View More</a>
                         </div>
                     </div>
                 </div>

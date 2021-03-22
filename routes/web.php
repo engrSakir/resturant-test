@@ -4,6 +4,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\GlobalImageController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TableController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Crypt;
 use App\Http\Controllers\BranchController;
@@ -104,6 +105,7 @@ Route::post('/subscribe/store', [FrontendController::class, 'subscribeStore'])->
         Route::resource('websitePromotion', WebsitePromotionController::class);
         Route::resource('specialProduct', SpecialProductController::class);
         Route::resource('user', UserController::class);
+        Route::resource('table', TableController::class);
 
         // create blade
         Route::get('/variationCategory/create-with-product/{product_id}', [VariationCategoryController::class, 'createVariationCategoryWithProduct'])->name('createVariationCategoryWithProduct');

@@ -400,11 +400,13 @@ class SettingController extends Controller
             'banner_image' => 'nullable|image',
 
             'banner_title' => 'nullable|min:3',
+            'banner_link' => 'nullable|min:3',
             'banner_description' => 'nullable|min:3',
             'banner_highlight' => 'nullable|min:3',
         ]);
         try {
 
+            update_static_option('banner_link', $request->banner_link);
             update_static_option('banner_title', $request->banner_title);
             update_static_option('banner_description', $request->banner_description);
             update_static_option('banner_highlight', $request->banner_highlight);

@@ -56,7 +56,12 @@
                                     <textarea class="form-control-lg banner_description" name="banner_description" id="banner_description" cols="30" rows="10">{{ get_static_option('banner_description') }}</textarea>
                                 </div>
                             </div>
-
+                        </div>
+                        <div class="form-group row">
+                            <label for="banner_link" class="col-sm-4 col-form-label">Banner link</label>
+                            <div class="col-sm-8">
+                                <input class="form-control " name="banner_link" id="banner_link" value="{{ get_static_option('banner_link') }}">
+                            </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="form-group row">

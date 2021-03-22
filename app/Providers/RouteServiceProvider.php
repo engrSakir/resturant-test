@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
 
@@ -20,7 +21,7 @@ class RouteServiceProvider extends ServiceProvider
     public const SuperAdmin = '/dashboard';
     public const Admin = '/dashboard';
     public const Employee = '/dashboard';
-    public const Customer = '/dashboard';
+    public const Waiter = '/dashboard';
 
     /**
      * The controller namespace for the application.
