@@ -31,7 +31,7 @@
                                     <h2 class="entry-title"><a
                                             href="{{ route('frontend.blogDetail', $blog->slug) }}">{{ $blog->title }}</a>
                                     </h2>
-                                    <p>{!! $blog->description !!}</p>
+                                    <p>{!! Str::limit($blog->description, 150)  !!}</p>
                                 </div>
                             </div>
                         </div>

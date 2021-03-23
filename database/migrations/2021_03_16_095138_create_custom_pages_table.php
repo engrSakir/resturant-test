@@ -19,7 +19,6 @@ class CreateCustomPagesTable extends Migration
             $table->string('name');
             $table->string('slug');
             $table->string('title')->nullable();
-            $table->string('image')->nullable();
             $table->longText('description')->nullable();
             $table->integer('visitor_counter')->default(0);
             $table->integer('serial');
