@@ -53,7 +53,7 @@ Route::post('/contact-us-store', [FrontendController::class, 'contactUsStore'])-
 Route::post('/subscribe/store', [FrontendController::class, 'subscribeStore'])->name('frontend.subscribeStore');
 
 
-//Route::group(['middleware' => 'auth'], function (){
+Route::group(['middleware' => 'auth'], function (){
     Route::resource('/branch', BranchController::class);
     Route::get('/get-general-static-option-form', [SettingController::class, 'getGeneralStaticForm'])->name('getGeneralStaticForm');
     Route::get('/seo-static-option-form', [SettingController::class, 'seoStaticOptionForm'])->name('seoStaticOptionForm');
@@ -80,7 +80,7 @@ Route::post('/subscribe/store', [FrontendController::class, 'subscribeStore'])->
     Route::post('/app-static-option-update', [SettingController::class, 'appStaticOptionUpdate'])->name('appStaticOptionUpdate');
     Route::post('/website-banner-update', [SettingController::class, 'websiteBannerUpdate'])->name('websiteBannerUpdate');
 
-    Route::group(['middleware' => 'branch'], function () {
+    Route::group(['middleware' => ['branch'], function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
         Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
         Route::post('profile-password-update', [ProfileController::class, 'profilePasswordUpdate'])->name('profilePasswordUpdate');
@@ -114,7 +114,8 @@ Route::post('/subscribe/store', [FrontendController::class, 'subscribeStore'])->
         // controller ajax datatables
         Route::get('/variationCategory-based-on-product/{product_id}', [VariationCategoryController::class, 'variationCategoryBasedOnProduct'])->name('variationCategoryBasedOnProduct');
         Route::get('/variation/create-with-category/{category_id}', [VariationController::class, 'createVariationWithCategory'])->name('createVariationWithCategory');
+
     });
-//});
+});
 
 require __DIR__.'/auth.php';
