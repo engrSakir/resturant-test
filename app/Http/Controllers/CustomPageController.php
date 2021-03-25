@@ -102,7 +102,7 @@ class CustomPageController extends Controller
         $customPage->description    =   $request->description;
         $customPage->serial    =   $request->serial;
         $customPage->save();
-        return back()->withSuccess('Success fully updated');
+        return back()->withSuccess('Successfully updated');
     }
 
     /**

@@ -22,7 +22,7 @@ class PartnerController extends Controller
             $data = Partner::orderBy('id', 'desc')->get();
             return datatables::of($data)
                 ->addColumn('image', function ($data) {
-                    return '<img height="70px;" src="' . asset($data->image ?? get_static_option('no_image')) . '" width="70px;" class="rounded-cercle" />';
+                    return '<img height="70px;" src="' . asset($data->image ?? get_static_option('no_image')) . '" width="70px;" class="rounded-circle" />';
                 })->addColumn('action', function ($data) {
                     return '<a href="' . route('partner.edit', $data) . '" class="btn btn-info"><i class="fa fa-edit"></i> </a>
                     <button class="btn btn-danger" onclick="delete_function(this)" value="' . route('partner.destroy', $data) . '"><i class="fa fa-trash"></i> </button>';

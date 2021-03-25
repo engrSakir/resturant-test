@@ -16,7 +16,7 @@ class FaqController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()){
-            $data = faq::all();
+            $data = Faq::all();
             return datatables::of($data)
                 ->addColumn('action', function($data) {
                     return '<a href="'.route('faq.edit', $data).'" class="btn btn-info"><i class="fa fa-edit"></i> </a>

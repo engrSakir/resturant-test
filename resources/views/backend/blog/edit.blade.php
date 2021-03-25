@@ -65,7 +65,7 @@
                             </div>
                             <div class="form-group row">
                                 <label for="image" class="col-sm-4 col-form-label">Image</label>
-                                <img height="70px;" width="70px;" class="rounded-cercle" src="{{ asset($blog->image ?? get_static_option('no_image')) }}" alt="">
+                                <img height="70px;" width="70px;" class="rounded-circle" src="{{ asset($blog->image ?? get_static_option('no_image')) }}" alt="">
                                 <div class="col-sm-8">
                                     <input name="image" type="file" accept="image/*" class="form-control-lg" id="image">
                                 </div>

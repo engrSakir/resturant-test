@@ -31,7 +31,7 @@ class BlogController extends Controller
                         return '<span class="badge badge-pill badge-danger">Inactive</span>';
                     }
                 })->addColumn('image', function($data) {
-                    return '<img height="70px;" src="'.asset($data->image ?? get_static_option('no_image')).'" width="70px;" class="rounded-cercle" />';
+                    return '<img height="70px;" src="'.asset($data->image ?? get_static_option('no_image')).'" width="70px;" class="rounded-circle" />';
                 })->addColumn('action', function($data) {
                     return '<a href="'.route('blog.edit', $data).'" class="btn btn-info"><i class="fa fa-edit"></i> </a>
                     <button class="btn btn-danger" onclick="delete_function(this)" value="'.route('blog.destroy', $data).'"><i class="fa fa-trash"></i> </button>';
