@@ -1,6 +1,6 @@
 @extends('layouts.frontend.app')
 @push('title')
-
+    Home
 @endpush
 @section('content')
 
