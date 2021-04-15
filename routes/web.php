@@ -80,7 +80,7 @@ Route::group(['middleware' => 'auth'], function (){
     Route::post('/app-static-option-update', [SettingController::class, 'appStaticOptionUpdate'])->name('appStaticOptionUpdate');
     Route::post('/website-banner-update', [SettingController::class, 'websiteBannerUpdate'])->name('websiteBannerUpdate');
 
-    Route::group(['middleware' => ['branch'], function () {
+    Route::group(['middleware' => ['branch']], function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
         Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
         Route::post('profile-password-update', [ProfileController::class, 'profilePasswordUpdate'])->name('profilePasswordUpdate');
