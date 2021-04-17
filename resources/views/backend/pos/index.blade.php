@@ -40,7 +40,7 @@
             <div class="col-lg-3 col-xl-3">
                 <div class="card m-b-30">
                     <div class="card-header">
-                        <h5 class="card-title mb-0">Category</h5>
+                        <h5 class="card-title mb-0">Category ({{ $product_categories->count() }})</h5>
                     </div>
                     <div class="card-body">
                         <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
@@ -48,7 +48,7 @@
                                 <a class="nav-link mb-2 @if ($loop->first) active @endif" id="v-pills-product-tab-{{ $product_category->id }}"
                                     data-toggle="pill" href="#v-pills-product-{{ $product_category->id }}" role="tab"
                                     aria-controls="v-pills-product" aria-selected="true"><i
-                                        class="feather icon-grid mr-2"></i>{{ $product_category->name }}</a>
+                                        class="feather icon-grid mr-2"></i>{{ $product_category->name }} ({{ $product_category->products->count() }})</a>
                             @endforeach
                         </div>
                     </div>

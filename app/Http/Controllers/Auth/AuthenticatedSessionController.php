@@ -31,30 +31,31 @@ class AuthenticatedSessionController extends Controller
         $request->authenticate();
 
         $request->session()->regenerate();
-                // Super Admin
-                if (Auth::user()->hasRole('Super Admin')) {
-                    return redirect()->intended(RouteServiceProvider::SuperAdmin);
-                }
-                // Admin
-                if (Auth::user()->hasRole('Admin')) {
-                    return redirect()->intended(RouteServiceProvider::Admin);
-                }
-                // Employee
-                if (Auth::user()->hasRole('Employee')) {
-                    return redirect()->intended(RouteServiceProvider::Employee);
-                }
 
-                //Customer
-                if (Auth::user()->hasRole('Waiter')) {
-                    return redirect()->intended(RouteServiceProvider::Waiter);
-                }
-                //Unknown type
-                else {
-                    session()->flash('message', 'Non-permitted role.');
-                    session()->flash('type', 'danger');
-                    Auth::logout();
-                    return redirect('/login');
-                }
+        // Super Admin
+        if (Auth::user()->hasRole('Super Admin')) {
+            return redirect()->intended(RouteServiceProvider::SuperAdmin);
+        }
+        // Admin
+        if (Auth::user()->hasRole('Admin')) {
+            return redirect()->intended(RouteServiceProvider::Admin);
+        }
+        // Employee
+        if (Auth::user()->hasRole('Employee')) {
+            return redirect()->intended(RouteServiceProvider::Employee);
+        }
+
+        //Customer
+        if (Auth::user()->hasRole('Waiter')) {
+            return redirect()->intended(RouteServiceProvider::Waiter);
+        }
+        //Unknown type
+        else {
+            session()->flash('message', 'Non-permitted role.');
+            session()->flash('type', 'danger');
+            Auth::logout();
+            return redirect('/login');
+        }
 
     }
 

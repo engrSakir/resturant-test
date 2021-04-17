@@ -33,6 +33,9 @@ class ProductController extends Controller
                         $list = "";
                         foreach($data->variationCategories as $variationCategory){
                             $list .= '<br><span class="badge badge-pill badge-primary">'.$variationCategory->name.'</span>';
+                            foreach($variationCategory->variations as $variation){
+                                $list .= '<br><span class="badge badge-pill badge-warning">'.$variation->name.'='.$variation->price.'</span>';
+                            }
                         }
                         return '<a href="'.route('createVariationCategoryWithProduct', $data->id).'" class="btn btn-warning"><i class="feather icon-plus-circle"></i> </a>'. $list;
                     }else{

@@ -18,6 +18,7 @@ class PosController extends Controller
     // pos
     public function pos(){
         $product_categories = ProductCategory::where('branch_id', Session::get('branch')->id)->get();
+        //$product_categories = Session::get('branch')->productCategories; //এটা ব্যবহার করলে Session এর আগের data ধরে কাজ করে। নতুন পরিবর্তন নিয়ে কাজ হয় না।
         return view('backend.pos.index', compact('product_categories'));
     }
 

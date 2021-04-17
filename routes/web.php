@@ -53,7 +53,7 @@ Route::post('/contact-us-store', [FrontendController::class, 'contactUsStore'])-
 Route::post('/subscribe/store', [FrontendController::class, 'subscribeStore'])->name('frontend.subscribeStore');
 
 
-Route::group(['middleware' => 'auth'], function (){
+//Route::group(['middleware' => 'auth'], function (){
     Route::resource('/branch', BranchController::class);
     Route::get('/get-general-static-option-form', [SettingController::class, 'getGeneralStaticForm'])->name('getGeneralStaticForm');
     Route::get('/seo-static-option-form', [SettingController::class, 'seoStaticOptionForm'])->name('seoStaticOptionForm');
@@ -116,6 +116,6 @@ Route::group(['middleware' => 'auth'], function (){
         Route::get('/variation/create-with-category/{category_id}', [VariationController::class, 'createVariationWithCategory'])->name('createVariationWithCategory');
 
     });
-});
+//});
 
 require __DIR__.'/auth.php';

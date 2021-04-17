@@ -20,7 +20,7 @@ class ProductCategoryController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()){
-            $data = ProductCategory::orderBy('id', 'desc')->get();
+            $data = Session::get('branch')->productCategories;
             return datatables::of($data)
                 ->addColumn('status', function($data) {
                     if($data->status == true){
